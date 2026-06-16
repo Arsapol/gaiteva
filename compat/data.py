@@ -229,6 +229,23 @@ SUBSTANCES: dict[str, dict] = {
         ),
     },
 
+    "l_citrulline": {
+        # free L-citrulline; dossier "OK ~200 g/L, ~150x headroom"
+        "solubility_g_per_100ml_25c": 20.0,
+        "density_kg_m3": None,
+        "pka": [2.43, 9.41],   # literature (alpha-COOH / alpha-NH3+); ureido stable except strong alkali
+        "note": "solubility dossier ~200 g/L; free form (no malate alkali); pKa literature",
+    },
+
+    "dextrose_monohydrate": {
+        # glucose monohydrate — the form the fight-day stick actually specifies.
+        # Higher MW than anhydrous (198.17 vs 180.16) -> ~10% fewer osmoles per gram.
+        "solubility_g_per_100ml_25c": 91.0,
+        "density_kg_m3": 1560.0,
+        "pka": [],
+        "note": "glucose monohydrate (MW 198.17); osmolarity-relevant vs anhydrous dextrose",
+    },
+
     # --- Electrolyte salts (ORS premix) — literature values -----------------
     "sodium_chloride": {
         "solubility_g_per_100ml_25c": 36.0,   # literature ~360 g/L
@@ -294,6 +311,8 @@ MOLAR_MASS_G_PER_MOL: dict[str, float] = {
     "l_glutamine": 146.14,
     "l_phenylalanine": 165.19,
     "l_tyrosine": 181.19,
+    "l_citrulline": 175.19,
+    "dextrose_monohydrate": 198.17,
     "sodium_chloride": 58.44,
     "potassium_chloride": 74.55,
     "trisodium_citrate": 294.10,        # dihydrate
@@ -316,6 +335,8 @@ OSMOTIC_N: dict[str, float] = {
     "l_glutamine": 1.0,
     "l_phenylalanine": 1.0,
     "l_tyrosine": 1.0,
+    "l_citrulline": 1.0,                # zwitterion
+    "dextrose_monohydrate": 1.0,
     "sodium_chloride": 2.0,             # Na+ + Cl-
     "potassium_chloride": 2.0,          # K+ + Cl-
     "trisodium_citrate": 4.0,           # 3 Na+ + citrate3-
