@@ -1,9 +1,10 @@
 # Wiki Index
 
-> 38 pages | Last updated: 2026-06-16T06:36:34.317Z
+> 41 pages | Last updated: 2026-06-16T06:55:33.388Z
 
 ## decision
 
+- [Gamefowl Capsule Restructure vNext2 — Function-Split, Tyrosine-Forward Focus Capsule](gamefowl-capsule-restructure-vnext2-function-split-tyrosine-forw.md) — # Gamefowl Capsule Restructure vNext2 — Function-Split, Tyrosine-Forward Focu...
 - [Gamefowl Formula v-Next — Team + Codex Recovery/Hydration Redesign](gamefowl-formula-v-next-team-codex-recovery-hydration-redesign.md) — # Gamefowl Formula v-Next — Team + Codex Recovery/Hydration Redesign
 - [Gamefowl Recovery/Hydration Formula vNext2 — Two Dry-SKU Redesign](gamefowl-recovery-hydration-formula-vnext2-two-dry-sku-redesign.md) — # Gamefowl Recovery/Hydration Formula vNext2 — Two Dry-SKU Redesign
 
@@ -11,10 +12,12 @@
 
 - [Competitor Products — RELOAD PLUS (PH) + Vetafarm (AU): ribose corroboration + ORS comparison](competitor-products-reload-plus-ph-vetafarm-au-ribose-corroborat.md) — # Competitor Products — RELOAD PLUS (PH) + Vetafarm (AU): ribose corroboratio...
 - [Gamefowl Supplement Formula — Avian-Grounded Evaluation](gamefowl-supplement-formula-avian-grounded-evaluation.md) — # Gamefowl Supplement Formula — Avian-Grounded Evaluation
+- [Standardized Formulas vNext2 — per-100g, percent, and usage dose](standardized-formulas-vnext2-per-100g-percent-and-usage-dose.md) — # Standardized Formulas vNext2 — per-100g, percent, and usage dose
 - [Substance: Ascorbic Acid (Vitamin C)](substance-ascorbic-acid-vitamin-c.md) — # Substance: Ascorbic Acid (Vitamin C)
 - [Substance: Beta-Alanine](substance-beta-alanine.md) — # Substance: Beta-Alanine
 - [Substance: Betaine Anhydrous](substance-betaine-anhydrous.md) — # Substance: Betaine Anhydrous
 - [Substance: Citric acid (anhydrous; also monohydrate)](substance-citric-acid-anhydrous-also-monohydrate.md) — # Substance: Citric acid (anhydrous; also monohydrate)
+- [Substance: Copper (trace, DBH cofactor)](substance-copper-trace-dbh-cofactor.md) — # Substance: Copper (trace, DBH cofactor)
 - [Substance: Creatine Monohydrate](substance-creatine-monohydrate.md) — # Substance: Creatine Monohydrate
 - [Substance: D-Ribose](substance-d-ribose.md) — # Substance: D-Ribose
 - [Substance: Dextrose (D-Glucose)](substance-dextrose-d-glucose.md) — # Substance: Dextrose (D-Glucose)

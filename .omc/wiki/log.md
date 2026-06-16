@@ -188,3 +188,23 @@
 - **Pages:** substance-l-glutamine.md
 - **Summary:** Updated "Substance: L-Glutamine" with new content
 
+## [2026-06-16T06:41:29.978Z] ingest
+- **Pages:** gamefowl-capsule-restructure-vnext2-function-split-tyrosine-forw.md
+- **Summary:** Created new page "Gamefowl Capsule Restructure vNext2 — Function-Split, Tyrosine-Forward Focus Capsule"
+
+## [2026-06-16T06:44:54.204Z] query
+- **Pages:** substance-l-tyrosine.md, substance-nac-n-acetylcysteine.md, substance-citric-acid-anhydrous-also-monohydrate.md, substance-d-ribose.md, substance-dmg-n-n-dimethylglycine.md, substance-glucose-sucrose-drink-sugar-palatability.md, substance-glycerin-glycerol-propane-1-2-3-triol.md, substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-.md, substance-l-carnitine-l-tartrate-lclt.md, substance-l-citrulline-citrulline-malate.md, substance-l-glutamine.md, substance-l-phenylalanine.md, substance-magnesium-glycerophosphate.md, substance-magnesium-malate.md, substance-maltodextrin-de-10-12.md, substance-methylcobalamin-vitamin-b12-mecobalamin.md, substance-potassium-citrate-tripotassium-citrate-monohydrate.md, substance-potassium-sorbate-preservative.md, substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6.md, substance-rhodiola-rosea-extract-standardized-to-rosavins-salidr.md
+- **Summary:** Query "substance dossier copper gamefowl vnext2" → 20 results (of 39 total)
+
+## [2026-06-16T06:46:17.809Z] ingest
+- **Pages:** substance-copper-trace-dbh-cofactor.md
+- **Summary:** Created new page "Substance: Copper (trace, DBH cofactor)"
+
+## [2026-06-16T06:47:11.489Z] ingest
+- **Pages:** gamefowl-capsule-restructure-vnext2-function-split-tyrosine-forw.md
+- **Summary:** Updated "Gamefowl Capsule Restructure vNext2 — Function-Split, Tyrosine-Forward Focus Capsule" with new content
+
+## [2026-06-16T06:55:33.374Z] ingest
+- **Pages:** standardized-formulas-vnext2-per-100g-percent-and-usage-dose.md
+- **Summary:** Created new page "Standardized Formulas vNext2 — per-100g, percent, and usage dose"
+
