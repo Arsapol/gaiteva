@@ -1,6 +1,6 @@
 # Wiki Index
 
-> 41 pages | Last updated: 2026-06-16T06:55:33.388Z
+> 44 pages | Last updated: 2026-06-16T15:08:38.011Z
 
 ## decision
 
@@ -11,6 +11,7 @@
 ## reference
 
 - [Competitor Products — RELOAD PLUS (PH) + Vetafarm (AU): ribose corroboration + ORS comparison](competitor-products-reload-plus-ph-vetafarm-au-ribose-corroborat.md) — # Competitor Products — RELOAD PLUS (PH) + Vetafarm (AU): ribose corroboratio...
+- [Formulation Compatibility/Stability Calculator (compat/) — osmolality-gated, Codex-reviewed](formulation-compatibility-stability-calculator-compat-osmolality.md) — # Formulation Compatibility/Stability Calculator (compat/) — osmolality-gated...
 - [Gamefowl Supplement Formula — Avian-Grounded Evaluation](gamefowl-supplement-formula-avian-grounded-evaluation.md) — # Gamefowl Supplement Formula — Avian-Grounded Evaluation
 - [Standardized Formulas vNext2 — per-100g, percent, and usage dose](standardized-formulas-vnext2-per-100g-percent-and-usage-dose.md) — # Standardized Formulas vNext2 — per-100g, percent, and usage dose
 - [Substance: Ascorbic Acid (Vitamin C)](substance-ascorbic-acid-vitamin-c.md) — # Substance: Ascorbic Acid (Vitamin C)
@@ -25,6 +26,7 @@
 - [Substance: Glucose/sucrose drink sugar (palatability)](substance-glucose-sucrose-drink-sugar-palatability.md) — # Substance: Glucose/sucrose drink sugar (palatability)
 - [Substance: Glycerin (glycerol; propane-1,2,3-triol)](substance-glycerin-glycerol-propane-1-2-3-triol.md) — # Substance: Glycerin (glycerol; propane-1,2,3-triol)
 - [Substance: Guanidinoacetic Acid (GAA)](substance-guanidinoacetic-acid-gaa.md) — # Substance: Guanidinoacetic Acid (GAA)
+- [Substance: Isocal (Nestlé complete nutrition powder)](substance-isocal-nestl-complete-nutrition-powder.md) — # Substance: Isocal (Nestlé complete nutrition powder)
 - [Substance: L-Arginine (free base + L-arginine-HCl; citrulline-spared route)](substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-.md) — # Substance: L-Arginine (free base + L-arginine-HCl; citrulline-spared route)
 - [Substance: L-Carnitine L-tartrate (LCLT)](substance-l-carnitine-l-tartrate-lclt.md) — # Substance: L-Carnitine L-tartrate (LCLT)
 - [Substance: L-Citrulline / Citrulline malate](substance-l-citrulline-citrulline-malate.md) — # Substance: L-Citrulline / Citrulline malate
@@ -48,3 +50,7 @@
 - [Substance: Sodium citrate (trisodium citrate dihydrate; alkalinizing / DEB agent)](substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md) — # Substance: Sodium citrate (trisodium citrate dihydrate; alkalinizing / DEB ...
 - [Substance: Taurine](substance-taurine.md) — # Substance: Taurine
 - [Substance: Trehalose (alpha,alpha-trehalose dihydrate; candidate stabilizer sugar)](substance-trehalose-alpha-alpha-trehalose-dihydrate-candidate-st.md) — # Substance: Trehalose (alpha,alpha-trehalose dihydrate; candidate stabilizer...
+
+## session-log
+
+- [Session Log 2026-06-16](session-log-2026-06-16-248cf812.md) — # Session Log 2026-06-16

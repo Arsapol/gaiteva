@@ -208,3 +208,19 @@
 - **Pages:** standardized-formulas-vnext2-per-100g-percent-and-usage-dose.md
 - **Summary:** Created new page "Standardized Formulas vNext2 — per-100g, percent, and usage dose"
 
+## [2026-06-16T07:03:10.418Z] query
+- **Pages:** substance-trehalose-alpha-alpha-trehalose-dihydrate-candidate-st.md, substance-maltodextrin-de-10-12.md, substance-copper-trace-dbh-cofactor.md, substance-d-ribose.md, substance-glucose-sucrose-drink-sugar-palatability.md, substance-glycerin-glycerol-propane-1-2-3-triol.md, substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-.md, substance-l-carnitine-l-tartrate-lclt.md, substance-l-glutamine.md, substance-l-phenylalanine.md, substance-potassium-sorbate-preservative.md, substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6.md, substance-rhodiola-rosea-extract-standardized-to-rosavins-salidr.md, substance-taurine.md, substance-citric-acid-anhydrous-also-monohydrate.md, substance-dmg-n-n-dimethylglycine.md, substance-l-citrulline-citrulline-malate.md, substance-l-tyrosine.md, substance-magnesium-glycerophosphate.md, substance-magnesium-malate.md
+- **Summary:** Query "trehalose maltodextrin substance dossier vnext2" → 20 results (of 40 total)
+
+## [2026-06-16T07:04:43.899Z] ingest
+- **Pages:** substance-isocal-nestl-complete-nutrition-powder.md
+- **Summary:** Created new page "Substance: Isocal (Nestlé complete nutrition powder)"
+
+## [2026-06-16T13:50:57.390Z] ingest
+- **Pages:** session-log-2026-06-16-248cf812.md
+- **Summary:** Auto-captured session log for 16e88098-98b9-4428-b094-8a70248cf812
+
+## [2026-06-16T15:08:37.985Z] ingest
+- **Pages:** formulation-compatibility-stability-calculator-compat-osmolality.md
+- **Summary:** Created new page "Formulation Compatibility/Stability Calculator (compat/) — osmolality-gated, Codex-reviewed"
+
