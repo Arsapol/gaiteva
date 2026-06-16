@@ -1,9 +1,9 @@
 ---
 title: "Substance: L-Phenylalanine"
-tags: ["l", "substance-dossier", "gamefowl", "vnext2"]
+tags: ["l", "substance-dossier", "gamefowl", "vnext2", "l-phenylalanine", "dopamine", "focus", "PEA", "catecholamine"]
 created: 2026-06-15T19:35:52.343Z
-updated: 2026-06-15T19:35:52.343Z
-sources: ["J. Chem. Eng. Japan 43(9), 2010, 'Solubility of L-Phenylalanine in Aqueous Solutions', DOI 10.1252/jcej.10we013 — Tier 1 (solubility ~27.7 g/L @25C)", "Fluid Phase Equilibria, 2011, 'Solubility of L-phenylalanine in water and different binary mixtures 288.15-318.15 K', DOI 10.1016/j.fluid.2011.10.004 — Tier 1 (temperature dependence)", "Sigma-Aldrich / ChemicalBook product monograph, CAS 63-91-2, MW 165.19, C9H11NO2, USP/Ph.Eur./FCC grade — Tier 2 (identity/grade)", "Chegg/Vaia organic-chemistry textbook pKa set: alpha-COOH ~1.83 (range 2.16), alpha-NH3+ ~9.13 (range 9.24), pI ~5.48 — Tier 2 (ionization constants)", "Journal of Animal Science and Biotechnology, 2021, 'Progress of amino acid nutrition for diet protein reduction in poultry', DOI 10.1186/s40104-021-00568-0 — Tier 1 (Phe essentiality, Phe->Tyr, ~55% from Phe)", "Poult. Sci., broiler-breeder maintenance AA requirements (Cys, TSAA, Tyr, Phe+Tyr), PMID 26994191 — Tier 1 (avian Phe+Tyr requirement)", "PMC5444564, 'Estimation of optimal ratios of digestible Phe+Tyr, His, Leu to digestible Lys for performance and breast yield in broilers' — Tier 1 (Phe+Tyr:Lys ideal ratio; ~1.09-1.12% diet)", "Food Science and Technology Research 9(1):1-6, review 'Recent Advances in the Chemistry of Strecker Degradation' — Tier 2 (amino acid + reducing sugar Maillard/Strecker)", "J. Agric. Food Chem., DOI 10.1021/jf048883r, Strecker degradation of phenylalanine -> phenylacetaldehyde — Tier 1 (Phe-specific Maillard reactivity)"]
+updated: 2026-06-16T06:36:20.772Z
+sources: ["J. Chem. Eng. Japan 43(9)", "2010", "Solubility of L-Phenylalanine in Aqueous Solutions", "DOI 10.1252/jcej.10we013 — Tier 1 (solubility ~27.7 g/L @25C)", "Fluid Phase Equilibria", "2011", "Solubility of L-phenylalanine in water and different binary mixtures 288.15-318.15 K", "DOI 10.1016/j.fluid.2011.10.004 — Tier 1 (temperature dependence)", "Sigma-Aldrich / ChemicalBook product monograph", "CAS 63-91-2", "MW 165.19", "C9H11NO2", "USP/Ph.Eur./FCC grade — Tier 2 (identity/grade)", "Chegg/Vaia organic-chemistry textbook pKa set: alpha-COOH ~1.83 (range 2.16)", "alpha-NH3+ ~9.13 (range 9.24)", "pI ~5.48 — Tier 2 (ionization constants)", "Journal of Animal Science and Biotechnology", "2021", "Progress of amino acid nutrition for diet protein reduction in poultry", "DOI 10.1186/s40104-021-00568-0 — Tier 1 (Phe essentiality", "Phe->Tyr", "~55% from Phe)", "Poult. Sci.", "broiler-breeder maintenance AA requirements (Cys", "TSAA", "Tyr", "Phe+Tyr)", "PMID 26994191 — Tier 1 (avian Phe+Tyr requirement)", "PMC5444564", "Estimation of optimal ratios of digestible Phe+Tyr", "His", "Leu to digestible Lys for performance and breast yield in broilers' — Tier 1 (Phe+Tyr:Lys ideal ratio; ~1.09-1.12% diet)", "Food Science and Technology Research 9(1):1-6", "review 'Recent Advances in the Chemistry of Strecker Degradation' — Tier 2 (amino acid + reducing sugar Maillard/Strecker)", "J. Agric. Food Chem.", "DOI 10.1021/jf048883r", "Strecker degradation of phenylalanine -> phenylacetaldehyde — Tier 1 (Phe-specific Maillard reactivity)", "Fitzpatrick 1999 PMID 10872454 (PAH)", "Pei 2016 PMID 27092049 (PEA/TAAR1)", "Lindemann & Hoener 2005 (PEA t1/2)", "PLoS ONE 2017 DOI 10.1371/journal.pone.0185342 (Phe-Tyr LAT1 competition)", "Millinger 1986 PMID 3519793 (D-Phe enkephalinase)", "NRC Nutrient Requirements of Poultry 1994 (Phe+Tyr pooled)"]
 links: ["substance-l-tyrosine.md", "substance-l-histidine.md", "substance-betaine.md", "substance-d-ribose.md", "substance-dextrose.md", "substance-creatine-monohydrate.md", "substance-gamefowl-formula-v-next-team-codex-recovery-hydration-.md", "gamefowl-formula-vnext2-two-dry-sku-redesign.md", "gamefowl-supplement-formula-avian-grounded-evaluation.md"]
 category: reference
 confidence: high
@@ -57,3 +57,24 @@ notes: Adversarial verification via WebSearch. LOAD-BEARING SOURCES VERIFIED REA
 
 ## Changelog
 - 2026-06-16: Created (vNext2 two-dry-SKU redesign workflow, 52-agent run).
+
+---
+
+## Update (2026-06-16T06:36:20.772Z)
+
+## Focus / dopamine mechanism (added 2026-06-16)
+
+**Pathway (upstream, indirect):** L-Phenylalanine →[phenylalanine hydroxylase PAH; HEPATIC; cofactor BH4] L-Tyrosine → then the catecholamine cascade (TH→L-DOPA→dopamine→NE). Phe must convert to Tyr FIRST, gated by liver PAH (Fitzpatrick 1999 PMID 10872454). TH (not PAH) is the true rate-limiter downstream.
+
+**Minor direct route:** L-Phe →[AADC] beta-phenylethylamine (PEA), a trace amine — TAAR1 agonist that releases/potentiates dopamine & norepinephrine (Pei 2016 PMID 27092049). BUT PEA half-life ~seconds-to-minutes (heavy MAO-B first-pass) → weak, transient orally.
+
+**Why weaker than tyrosine for focus:** (1) extra hepatic PAH step (BH4-dependent); (2) Phe COMPETES with tyrosine at the LAT1 brain barrier → oral Phe can actually REDUCE brain tyrosine influx, partly self-defeating (PLoS ONE 2017 DOI 10.1371/journal.pone.0185342); (3) human precursor-loading evidence is strong for Tyr, weak/indirect for L-Phe.
+
+**Isomer note (do not conflate):** the endorphin/analgesic "DLPA" effect = D-phenylalanine via enkephalinase (neprilysin) inhibition (Millinger 1986 PMID 3519793) — a SEPARATE mechanism on the opioid system, NOT in an L-only preparation. The formula's L-Phe = catecholamine/PEA route only.
+
+**Avian validity:** Phe is an essential AA; NRC pools Phe+Tyr as a combined requirement (Phe spares Tyr) → PAH-mediated conversion operative in birds. Quantitative avian PAH kinetics + any avian brain/behavior effect = UNKNOWN.
+
+**Formula implication:** as the L-isomer, L-Phenylalanine is a MINOR/REDUNDANT focus lever vs L-Tyrosine and can compete with it at the BBB; tyrosine is the cleaner choice. Keep only if also wanting the Phe→Tyr pool top-up. Cross-links [[substance-l-tyrosine]] (preferred direct precursor).
+
+## Changelog
+- 2026-06-16: Added focus/dopamine mechanism (PAH hepatic gate, PEA route, D vs L isomer, LAT1 self-competition, weaker than tyrosine).

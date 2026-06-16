@@ -1,10 +1,10 @@
 ---
 title: "Substance: L-Glutamine"
-tags: ["l", "substance-dossier", "gamefowl", "vnext2"]
+tags: ["l", "substance-dossier", "gamefowl", "vnext2", "l-glutamine", "glutamate", "GABA", "gut-brain", "not-dopamine"]
 created: 2026-06-15T19:33:39.226Z
-updated: 2026-06-15T19:33:39.226Z
-sources: ["Arii K, Kobayashi H, Kai T, Kokuba Y. Degradation kinetics of L-glutamine in aqueous solution. Eur J Pharm Sci. 1999;9(1):75-78. PMID 10493999. DOI 10.1016/s0928-0987(99)00047-0. (Tier 1 — peer-reviewed degradation kinetics: pyroglutamate pathway, pH 5.0-7.5 max stability, Ea ~98.7 kJ/mol, pseudo-first-order)", "Ncho CM, Gupta V, Choi Y-H. Effects of Dietary Glutamine Supplementation on Heat-Induced Oxidative Stress in Broiler Chickens: A Systematic Review and Meta-Analysis. Antioxidants (Basel). 2023;12(3):570. PMID 36978818. DOI 10.3390/antiox12030570. (Tier 1 — avian meta-analysis: performance + antioxidant effect sizes, no upper limit reported)", "Free glutamine as a major precursor of brown products and fluorophores in Maillard reaction systems. PMID 17006601. (Tier 1 — glutamine amide hydrolysis -> NH3 -> dominant browning precursor with reducing sugars; R3 Maillard basis)", "The effects of dietary glutamine supplementation on growth performance and intestinal morphology of broiler chickens reared under hot conditions. Turk J Vet Anim Sci 2014;38(3). journals.tubitak.gov.tr/veterinary/vol38/iss3/7 (Tier 1-2 — 0.5-1.0% feed improves intestinal morphology/growth under heat)", "Sigma-Aldrich / ChemicalBook L-Glutamine (CAS 56-85-9) physicochemical datasheet: aqueous solubility ~36 mg/mL (~250 mM) neutral pH ~25C; MW 146.15. (Tier 2 — manufacturer/compendial physicochemical constants)", "Parenteral nutrition literature consensus: free L-glutamine omitted from aqueous TPN due to hydrolytic instability (pyroglutamate + ammonia); stabilized dipeptide Ala-Gln used instead. (Tier 2 — review/textbook rationale supporting dry-only handling)"]
-links: ["substance-betaine.md", "substance-creatine-monohydrate.md", "substance-d-ribose.md", "substance-dextrose.md", "substance-magnesium-chloride-mgcl2.md", "substance-l-histidine.md", "substance-ascorbic-acid.md", "gamefowl-formula-vnext2-two-dry-sku-redesign.md", "gamefowl-supplement-formula-avian-grounded-evaluation.md"]
+updated: 2026-06-16T06:36:34.301Z
+sources: ["Arii K", "Kobayashi H", "Kai T", "Kokuba Y. Degradation kinetics of L-glutamine in aqueous solution. Eur J Pharm Sci. 1999;9(1):75-78. PMID 10493999. DOI 10.1016/s0928-0987(99)00047-0. (Tier 1 — peer-reviewed degradation kinetics: pyroglutamate pathway", "pH 5.0-7.5 max stability", "Ea ~98.7 kJ/mol", "pseudo-first-order)", "Ncho CM", "Gupta V", "Choi Y-H. Effects of Dietary Glutamine Supplementation on Heat-Induced Oxidative Stress in Broiler Chickens: A Systematic Review and Meta-Analysis. Antioxidants (Basel). 2023;12(3):570. PMID 36978818. DOI 10.3390/antiox12030570. (Tier 1 — avian meta-analysis: performance + antioxidant effect sizes", "no upper limit reported)", "Free glutamine as a major precursor of brown products and fluorophores in Maillard reaction systems. PMID 17006601. (Tier 1 — glutamine amide hydrolysis -> NH3 -> dominant browning precursor with reducing sugars; R3 Maillard basis)", "The effects of dietary glutamine supplementation on growth performance and intestinal morphology of broiler chickens reared under hot conditions. Turk J Vet Anim Sci 2014;38(3). journals.tubitak.gov.tr/veterinary/vol38/iss3/7 (Tier 1-2 — 0.5-1.0% feed improves intestinal morphology/growth under heat)", "Sigma-Aldrich / ChemicalBook L-Glutamine (CAS 56-85-9) physicochemical datasheet: aqueous solubility ~36 mg/mL (~250 mM) neutral pH ~25C; MW 146.15. (Tier 2 — manufacturer/compendial physicochemical constants)", "Parenteral nutrition literature consensus: free L-glutamine omitted from aqueous TPN due to hydrolytic instability (pyroglutamate + ammonia); stabilized dipeptide Ala-Gln used instead. (Tier 2 — review/textbook rationale supporting dry-only handling)", "Bhatt 2025 PMC11894596 (Glu/GABA-Gln cycle)", "Tarlungeanu 2016 PMID 26661195 (LAT1 brain Gln homeostasis)", "Bowtell 2002 PMID 11985937 (oral Gln plasma vs brain)", "Wilkinson 2010 PMID 20138956 (ammonia/central fatigue)", "Kim & Kim 2014 PMID 24965526 (gut barrier)", "broiler Gln gut: PMID 28728379, PMID 29452407"]
+links: ["substance-betaine.md", "substance-creatine-monohydrate.md", "substance-d-ribose.md", "substance-dextrose.md", "substance-magnesium-chloride-mgcl2.md", "substance-l-histidine.md", "substance-ascorbic-acid.md", "gamefowl-formula-vnext2-two-dry-sku-redesign.md", "gamefowl-supplement-formula-avian-grounded-evaluation.md", "substance-l-tyrosine.md"]
 category: reference
 confidence: high
 schemaVersion: 1
@@ -68,3 +68,22 @@ No inversions, no fabricated PMIDs, no hallucinated numbers. Dossier accepted as
 
 ## Changelog
 - 2026-06-16: Created (vNext2 two-dry-SKU redesign workflow, 52-agent run).
+
+---
+
+## Update (2026-06-16T06:36:34.301Z)
+
+## Brain / focus mechanism — NOT a dopamine agent (added 2026-06-16)
+
+**Plain statement:** L-Glutamine is NOT in the catecholamine pathway. It is aliphatic, not a tyrosine-hydroxylase substrate — pairing it with Tyr/Phe in a "focus" blend is an ADDITIVE DIFFERENT mechanism, not extra dopamine synthesis.
+
+**Its real CNS route:** glutamate/GABA-glutamine cycle — Gln →[phosphate-activated glutaminase, neuronal] glutamate (excitatory) →[GAD, cofactor B6] GABA (inhibitory); astrocyte glutamine synthetase recycles them (Bhatt 2025 PMC11894596). BUT brain glutamine is homeostatically clamped by LAT1 at the BBB — oral glutamine raises PLASMA glutamine/glutamate (+20-116%) yet barely moves brain pools in healthy subjects (Tarlungeanu 2016 PMID 26661195; Bowtell 2002 PMID 11985937). So direct nootropic/focus effect = WEAK.
+
+**Where it genuinely helps:** (1) ANTI-FATIGUE — scavenges exercise-generated ammonia (brain has no urea cycle; NH3 disrupts the Glu-Gln cycle = central fatigue) (Wilkinson 2010 PMID 20138956); (2) GUT-BRAIN — primary enterocyte fuel, maintains tight junctions, lowers LPS translocation + neuroinflammation (Kim 2014 PMID 24965526).
+
+**Avian validity:** STRONG broiler evidence for gut-barrier + immune + performance under stress/disease at 0.5-1% diet (PMID 28728379, 29452407) — conditionally essential under stress. Avian CNS/focus effect = UNKNOWN.
+
+**Formula implication:** KEEP L-glutamine, but credit it for RECOVERY / GUT-BARRIER / anti-fatigue — NOT focus or dopamine. Belongs in the dry PRELOAD (gut conditioning), not as a "focus" claim. Cross-links [[substance-l-tyrosine]] (the actual dopamine lever; functionally interacts with glutamate tone but is a separate pathway).
+
+## Changelog
+- 2026-06-16: Clarified it is NOT a dopamine precursor; documented Glu/GABA cycle, BBB buffering, anti-fatigue + gut-brain routes, strong avian gut evidence, no avian CNS data.

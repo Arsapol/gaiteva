@@ -176,3 +176,15 @@
 - **Pages:** substance-d-ribose.md
 - **Summary:** Updated "Substance: D-Ribose" with new content
 
+## [2026-06-16T06:36:07.067Z] ingest
+- **Pages:** substance-l-tyrosine.md
+- **Summary:** Updated "Substance: L-Tyrosine" with new content
+
+## [2026-06-16T06:36:20.772Z] ingest
+- **Pages:** substance-l-phenylalanine.md
+- **Summary:** Updated "Substance: L-Phenylalanine" with new content
+
+## [2026-06-16T06:36:34.301Z] ingest
+- **Pages:** substance-l-glutamine.md
+- **Summary:** Updated "Substance: L-Glutamine" with new content
+
