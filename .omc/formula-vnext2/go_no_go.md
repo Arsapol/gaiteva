@@ -1,0 +1,1 @@
+GO — two producible, stable dry SKUs; every cap met by construction (B6 0 mg/session, Mg 0 mg/session in drink; osm 258 mOsm/kg delivered; DEB +3.06 mEq/L near-neutral); no unmitigated Maillard/redox/precipitation; no preservative-at-pH-6 defect.

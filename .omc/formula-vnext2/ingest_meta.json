@@ -1,0 +1,403 @@
+[
+  {
+    "slug": "citric-acid",
+    "substance": "Citric acid (anhydrous; also monohydrate)",
+    "title": "Substance: Citric acid (anhydrous; also monohydrate)",
+    "sources": [
+      "Wikipedia, 'Citric acid' (MW, solubility ~59% w/w @20C, pKa1 3.13 / pKa2 4.76 / pKa3 6.40, thermal decomposition) — Tier 2",
+      "USDA AMS, 'Citric Acid and salts' Technical Report 2015 (identity, properties) — Tier 2",
+      "USP-NF / ACS Reagent Chemicals monograph 'Citric Acid, Anhydrous and Monohydrate' (official solubility, assay, identity) — Tier 1",
+      "ChemicalBook, Citric acid 77-92-9 and monohydrate 5949-29-1 (solubility vs temperature ~1174 g/L @10C, ~1809 g/L @30C; CAS/MW) — Tier 2",
+      "Barbooti & Al-Sammerrai, 'Thermal decomposition of citric acid', Thermochimica Acta, DOI 10.1016/0040-6031(86)87081-2 (decomposition >148C; aconitic/itaconic/citraconic pathway) — Tier 2",
+      "Poultry Science 2024 review 'Optimizing broiler growth... with citric acid', PMID 39705837, DOI 10.1016/j.psj.2024.104668 (dose-response optimum 1.65-2.65%, adverse ≥4-6%, gut pH/microbiota/antioxidant mechanism) — Tier 1",
+      "Organic-acid broiler reviews/studies: Chukwudi 2025 Animal Research and One Health DOI 10.1002/aro2.85; PMC11617460 organic-acid blends; PMID 22093035 dietary citric acid & mineral metabolism — Tier 1/2",
+      "Triprotic citrate buffer references pH 2.5-7.0 (Nozawa et al., FGR; pKa worked examples) — Tier 2/3"
+    ],
+    "bytes": 13435
+  },
+  {
+    "slug": "dmg",
+    "substance": "DMG (N,N-dimethylglycine)",
+    "title": "Substance: DMG (N,N-dimethylglycine)",
+    "sources": [
+      "Kalmar ID et al. 'Dietary N,N-dimethylglycine supplementation improves nutrient digestibility and attenuates pulmonary hypertension syndrome in broilers.' J Anim Physiol Anim Nutr (2010) — PHS incidence 44.8% -> 14.6% at 167 mg Na-DMG/kg; Tier 1 (peer-reviewed)",
+      "Kalmar ID et al. 'Dietary supplementation with dimethylglycine affects broiler performance and plasma metabolites depending on dose and dietary fatty acid profile.' Br J Nutr / Poult Sci 2010 — PMID 20666863; dose-response 0.1-1 g Na-DMG/kg, production value +up to 11%, abdominal fat -24% (vegetal fat); Tier 1",
+      "Prinsen/Kalmar et al. 'Tolerance and safety evaluation of N,N-dimethylglycine, a naturally occurring organic compound, as a feed additive in broiler diets.' Br J Nutr 2012 — PMID 21929832; 0/1/10 g Na-DMG/kg, 480 chicks 39 d, safe, no edible-tissue accumulation, recommended 1000 mg/kg; Tier 1",
+      "'Dimethylglycine Supplementation in Reduced Energy Broilers' Diets Restores Performance by Improving Nutrient Digestibility' Animals 2020 — PMID 32370175 / PMC7277919; 500 mg/kg restores performance; Tier 1",
+      "Sigma-Aldrich product D1156 N,N-Dimethylglycine >=99% monograph — solubility ~50 mg/mL water; Tier 2 (manufacturer datasheet)",
+      "ChemicalBook CB4440420 / Wikipedia 'Dimethylglycine' — CAS 1118-68-9, C4H9NO2, MW 103.12, mp 178-182 C, density 1.069; Tier 2",
+      "ChEBI:58251 N,N-dimethylglycine zwitterion; pKa COOH ~2.0, N-H+ ~9.9 — Tier 2",
+      "Patent US11666071 (compound salt of DMG) — notes strong hygroscopicity/deliquescence of free acid and Na-DMG; Tier 3 (physical-property datapoint only)"
+    ],
+    "bytes": 14744
+  },
+  {
+    "slug": "glucose-sucrose-drink-sugar",
+    "substance": "Glucose/sucrose drink sugar (palatability)",
+    "title": "Substance: Glucose/sucrose drink sugar (palatability)",
+    "sources": [
+      "Higashida K, et al. Behavioral responses to sweet compounds via T1R2-independent pathways in chickens. Poult Sci. 2022;101(8):101928. PMID 35679679; DOI 10.1016/j.psj.2022.101928 — Tier 1 (direct avian palatability: 0.2 M glucose & 0.1 M sucrose slight preference; 1.0 M sucrose/fructose rejected; SGLT1/GLP-1 oral sweet sensing)",
+      "Shibata M, et al. 2023 Poult Sci — chicken jejunal SGLT1 glucose+Na cotransport. PMID 37321034 — Tier 1 (functional rehydration mechanism; age-attenuation caveat)",
+      "Zhou WT, et al. 1998 Poult Sci 77(5):644-7 — 4% glucose water stabilized hematocrit/osmolality under heat. PMID 9603349 — Tier 1",
+      "Glucose aqueous solubility ~91 g/100 mL (~909 g/L) @25C; sucrose ~200 g/100 mL (~2000 g/L) @25C — physicochemical solubility constants, multiple references — Tier 2",
+      "Sucrose acid-hydrolysis (inversion) kinetics: rate rises exponentially with decreasing pH; Ea ~99 kJ/mol for acid hydrolysis, pronounced >80C — sucrose inversion kinetics literature — Tier 2",
+      "Maillard/non-enzymatic browning kinetics: reducing-sugar + amine; little/no browning below pH ~6, rate rises with pH/temp/time — J Agric Food Chem / Food Chem reviews — Tier 2"
+    ],
+    "bytes": 13312
+  },
+  {
+    "slug": "glycerin",
+    "substance": "Glycerin (glycerol; propane-1,2,3-triol)",
+    "title": "Substance: Glycerin (glycerol; propane-1,2,3-triol)",
+    "sources": [
+      "Wikipedia — Glycerol (https://en.wikipedia.org/wiki/Glycerol): miscible with water in all proportions, hygroscopic triol, decomposes on heating to acrolein; non-reducing sugar alcohol. Tier 2 (encyclopedic; corroborates pharmacopeial facts).",
+      "USP Monograph: Glycerin (http://www.pharmacopeia.cn/v29240/usp29nf24s0_m35420.html): USP grade specification, identity C3H8O3, ~99.5%. Tier 1 (pharmacopeia).",
+      "Cargill 'USP Excipient Glycerin' MSDS/datasheet (https://www.cargill.com/doc/1432075994266/usp-excipient-glycerin.pdf): chemically stable mixtures with water/ethanol/PG; steel-tank deterioration caution. Tier 2 (manufacturer datasheet).",
+      "US Patent US6784326B1 'Process for improving stability of glycerin' (https://patents.google.com/patent/US6784326B1/en): oxidative-degradation inhibited at pH ~4-5.5 or >10. Tier 3 (patent; used only for the pH-window detail, not relied on alone).",
+      "Cargo Handbook — Glycerin/Glycerol (https://www.cargohandbook.com/Glycerin_(Glycerol)): hygroscopic, absorbs moisture reducing % glycerine. Tier 2.",
+      "PMID 18212375 — 'Apparent metabolizable energy of glycerin for broiler chickens'. Tier 1 (peer-reviewed avian).",
+      "PMID 29112757 — AMEn of soybean-oil-industry by-products incl. glycerin (~3,916 kcal/kg DM) for broilers. Tier 1.",
+      "PMID 21732883 — 'The effect of glycerol inclusion on broiler performance and nutrient digestibility' (optimum ~5-6.7% inclusion). Tier 1.",
+      "PMID 25214552 — 'Influence of source and level of glycerin... growth, liver, nutrient digestibility in broilers hatching-21 d'. Tier 1.",
+      "PMC11205917 — 'Effects of Increasing Glycerin Levels in Broiler Chickens'. Tier 1 (peer-reviewed avian)."
+    ],
+    "bytes": 13275
+  },
+  {
+    "slug": "l-arginine",
+    "substance": "L-Arginine (free base + L-arginine-HCl; citrulline-spared route)",
+    "title": "Substance: L-Arginine (free base + L-arginine-HCl; citrulline-spared route)",
+    "sources": [
+      "NRC, Nutrient Requirements of Poultry, 9th rev. ed., 1994 (broiler Arg ~1.25/1.10/1.00% diet; Arg:Lys ~1.14/1.10/1.18) — Tier 1",
+      "Merck Veterinary Manual, Nutritional Requirements of Poultry (arginine dietary essential in poultry) — Tier 1",
+      "Beyond protein synthesis: the emerging role of arginine in poultry nutrition and host-microbe interactions, Front Physiol 2023, PMC10791986, DOI 10.3389/fphys.2023.1326809 (incomplete urea cycle; citrulline->arginine via ASS/ASL) — Tier 1",
+      "Wideman et al., Supplemental L-arginine attenuates pulmonary hypertension syndrome (ascites) in broilers, PMID 7724455 — Tier 1",
+      "L-arginine prevents reduced expression of endothelial NOS in pulmonary arterioles of broilers exposed to cool temperatures, PMID 16169754 — Tier 1",
+      "Effects of Vitamin E and L-Arginine on Cardiopulmonary Function and Ascites Parameters in Broiler Chickens (Poultry Science 85(12):2241) — Tier 1",
+      "Dietary arginine supplementation enhances growth performance and immune status of broiler chickens, ScienceDirect S1871141318300015 — Tier 1",
+      "Involvement of food intake in the lysine-arginine antagonism in chicks, PMID 1159527 (renal arginase, Arg:Lys antagonism) — Tier 1",
+      "Supplemental Citrulline Is More Efficient Than Arginine in Increasing Systemic Arginine Availability (J Nutr, ScienceDirect S0022316622106930) — Tier 1",
+      "Citrulline Supplementation Improves Organ Perfusion and Arginine Availability under Enhanced Arginase Activity, Nutrients 2015 7(7):5217, MDPI — Tier 1",
+      "Fitch, Platzer, Okon, Garcia-Moreno, Lattman — Arginine: Its pKa value revisited, Protein Sci 2015, DOI 10.1002/pro.2647 (guanidinium pKa ~13.8 microenv; canonical ~12.48) — Tier 1",
+      "Maillard Reaction: Mechanism, Influencing Parameters... Review, PMC12154226 (alkaline pH promotes Maillard) — Tier 1",
+      "Maillard's reaction in parenteral solutions supplemented with arginine, ve.scielo S0004-06222001000300008 (arginine browning in aqueous solution) — Tier 2",
+      "The Hydrolysis of Arginine, J Biol Chem (classic) — Tier 1",
+      "L-arginine HCl ECHA registered dossier (solubility ~730 g/L HCl; free base ~83 g/L @0C, ~400 g/L @50C; pH 5.5-7 at ~211 g/L) — Tier 2",
+      "Wikipedia/Arginine citing CRC Handbook (free base 14.87 g/100 mL @20C = 148.7 g/L; pKa 2.17/9.04/12.48; pI 10.76) — Tier 2",
+      "L-arginine aqueous solution storage guidance (strongly alkaline, CO2 uptake, <1 mo buffered) — ResearchGate discussion — Tier 3 (LOW-CONFIDENCE, corroborated by pKa Tier 1)"
+    ],
+    "bytes": 18181
+  },
+  {
+    "slug": "l-carnitine-l-tartrate",
+    "substance": "L-Carnitine L-tartrate (LCLT)",
+    "title": "Substance: L-Carnitine L-tartrate (LCLT)",
+    "sources": [
+      "ChemicalBook L-Carnitine-L-tartrate product property CB5141230 — CAS 36687-82-8, MW 472.49, formula C18H36N2O12, water solubility >1 g/mL, aqueous stability pH 3-6 >1 yr, thermal >200 C (Tier 2)",
+      "Sigma-Aldrich / Santa Cruz Biotechnology (scbt.com) L-carnitine tartrate CAS 36687-82-8 product monograph — identity/solubility (Tier 2)",
+      "US Patent 5,952,379 — Stable non-hygroscopic salts of L-carnitine; tartrate as solution/handling-grade form (Tier 3 patent, physicochemical support only)",
+      "Hrcak file 274794 'Solving manufacturing problems for L-carnitine-L-tartrate' — hygroscopicity/tabletting/punch-adhesion (Tier 2)",
+      "Wikipedia 'Calcium tartrate' — calcium tartrate poorly soluble, ~20x less than potassium bitartrate; precipitation behavior (Tier 2)",
+      "Hellenic Vet Med Soc review 'Effects of L-carnitine supplementation in diets of broiler chickens', ejournals.epublishing.ekt.gr/jhvms art 26744 — poultry dose-response 50-800 mg/kg feed, abdominal fat, lipids (Tier 2)",
+      "Khajali et al., 'Dietary L-Carnitine Improves Pulmonary Hypertensive Response in Broiler Chickens Subjected to Hypobaric Hypoxia', J Poult Sci 50(2) 2013, jstage 50_0120145 — 100 mg/kg raised NO, lowered MDA, reduced RV hypertrophy/ascites (Tier 1/2)",
+      "Khajali et al., J Poult Sci 52(3) 2015, jstage 52_0140205 — reduced-protein diet + L-carnitine, pulmonary arterial hypertension under hypoxia (Tier 1/2)",
+      "BMC Veterinary Research 2025, DOI 10.1186/s12917-025-04813-w — dietary L-carnitine modulates oxidative stress, lipid metabolism, pulmonary hypertension, high-altitude cold stress (Tier 1)",
+      "PMC12434236 — L-carnitine + emulsifier, growth/lipid/oxidative stress at high altitude (Tier 1)",
+      "ScienceDirect S1056617123000466 (Anim Nutr) — methionine source x carnitine 200 mg/kg, antioxidant status + HSP70 under heat stress (Tier 1)",
+      "PMID 27047119 / PMC4774796 — L-carnitine, growth/nutrient utilization/N balance, broilers fed animal fat (Tier 1)",
+      "NIH ODS Carnitine Health Professional Fact Sheet (ods.od.nih.gov) — oral bioavailability 10-20%, rapid renal clearance, muscle pool refractory to acute dosing, elimination half-life ~45-60 h (Tier 1)",
+      "AJCN 'Supplemental carnitine and exercise' review S0002916523067448 — muscle uptake slow, acute supplementation does not raise muscle carnitine appreciably (Tier 2)",
+      "ECHEMI / Codeage education articles — tartrate counter-ion mild GI laxative/irritant note; tartaric acid pKa1 2.89 vs carnitine carboxyl pKa 4.09 (Tier 3, flag)"
+    ],
+    "bytes": 15466
+  },
+  {
+    "slug": "l-citrulline-citrulline-malate",
+    "substance": "L-Citrulline / Citrulline malate",
+    "title": "Substance: L-Citrulline / Citrulline malate",
+    "sources": [
+      "[Tier 1] PMID 36721201 -- Uyanga VA et al. 2023, J Anim Sci Biotechnol 14:9, DOI 10.1186/s40104-022-00817-w (L-citrulline replaces arginine; urea-cycle-free chicken model; 0.50% diet)",
+      "[Tier 1] PMID 36003654 -- Uyanga VA et al. 2022, Front Physiol 13:937443, DOI 10.3389/fphys.2022.937443 (growth/AA profile/GH-IGF axis under high temperature)",
+      "[Tier 1] DOI 10.1016/j.psj.2021.101669 -- Uyanga VA et al. 2022, Poultry Sci 101(3):101669 (central/peripheral thermal physiology, NO regeneration)",
+      "[Tier 1] DOI 10.1016/j.jtherbio.2022.103227 -- Uyanga VA et al. 2022, J Thermal Biol (NO synthesis, immune, mitochondrial energetics; 1% L-Cit under heat stress)",
+      "[Tier 1] PMID 33062264 -- dietary L-citrulline NO/antioxidant status of laying hens during summer (up SOD, up CAT, down MDA)",
+      "[Tier 1] DOI 10.1021/acs.jced.5b00585 -- Solubility and Solution Thermodynamics of delta-form L-citrulline in water+ethanol (J Chem Eng Data)",
+      "[Tier 2] ScienceDirect S0963996925022136 -- Thermal stability, aqueous solubility, hydration of L-citrulline (~200 g/L 20C; decomp onset ~486 K)",
+      "[Tier 1] USPTO US8178721B2 -- Processes for the production of L-citrulline (citrulline neutralized to pH 5.9+/-0.2 to stabilize vs hydrolysis; alkali hydrolysis test)",
+      "[Tier 2] chemicalbook CAS 372-75-8 -- L-citrulline identity, pKa ~2.5 / pKb ~11.5, MW 175.19",
+      "[Tier 2] PMC8571142 -- Critical review of citrulline malate supplementation and exercise performance (mammalian, equivocal)"
+    ],
+    "bytes": 11499
+  },
+  {
+    "slug": "l-glutamine",
+    "substance": "L-Glutamine",
+    "title": "Substance: L-Glutamine",
+    "sources": [
+      "Arii K, Kobayashi H, Kai T, Kokuba Y. Degradation kinetics of L-glutamine in aqueous solution. Eur J Pharm Sci. 1999;9(1):75-78. PMID 10493999. DOI 10.1016/s0928-0987(99)00047-0. (Tier 1 — peer-reviewed degradation kinetics: pyroglutamate pathway, pH 5.0-7.5 max stability, Ea ~98.7 kJ/mol, pseudo-first-order)",
+      "Ncho CM, Gupta V, Choi Y-H. Effects of Dietary Glutamine Supplementation on Heat-Induced Oxidative Stress in Broiler Chickens: A Systematic Review and Meta-Analysis. Antioxidants (Basel). 2023;12(3):570. PMID 36978818. DOI 10.3390/antiox12030570. (Tier 1 — avian meta-analysis: performance + antioxidant effect sizes, no upper limit reported)",
+      "Free glutamine as a major precursor of brown products and fluorophores in Maillard reaction systems. PMID 17006601. (Tier 1 — glutamine amide hydrolysis -> NH3 -> dominant browning precursor with reducing sugars; R3 Maillard basis)",
+      "The effects of dietary glutamine supplementation on growth performance and intestinal morphology of broiler chickens reared under hot conditions. Turk J Vet Anim Sci 2014;38(3). journals.tubitak.gov.tr/veterinary/vol38/iss3/7 (Tier 1-2 — 0.5-1.0% feed improves intestinal morphology/growth under heat)",
+      "Sigma-Aldrich / ChemicalBook L-Glutamine (CAS 56-85-9) physicochemical datasheet: aqueous solubility ~36 mg/mL (~250 mM) neutral pH ~25C; MW 146.15. (Tier 2 — manufacturer/compendial physicochemical constants)",
+      "Parenteral nutrition literature consensus: free L-glutamine omitted from aqueous TPN due to hydrolytic instability (pyroglutamate + ammonia); stabilized dipeptide Ala-Gln used instead. (Tier 2 — review/textbook rationale supporting dry-only handling)"
+    ],
+    "bytes": 13363
+  },
+  {
+    "slug": "l-phenylalanine",
+    "substance": "L-Phenylalanine",
+    "title": "Substance: L-Phenylalanine",
+    "sources": [
+      "J. Chem. Eng. Japan 43(9), 2010, 'Solubility of L-Phenylalanine in Aqueous Solutions', DOI 10.1252/jcej.10we013 — Tier 1 (solubility ~27.7 g/L @25C)",
+      "Fluid Phase Equilibria, 2011, 'Solubility of L-phenylalanine in water and different binary mixtures 288.15-318.15 K', DOI 10.1016/j.fluid.2011.10.004 — Tier 1 (temperature dependence)",
+      "Sigma-Aldrich / ChemicalBook product monograph, CAS 63-91-2, MW 165.19, C9H11NO2, USP/Ph.Eur./FCC grade — Tier 2 (identity/grade)",
+      "Chegg/Vaia organic-chemistry textbook pKa set: alpha-COOH ~1.83 (range 2.16), alpha-NH3+ ~9.13 (range 9.24), pI ~5.48 — Tier 2 (ionization constants)",
+      "Journal of Animal Science and Biotechnology, 2021, 'Progress of amino acid nutrition for diet protein reduction in poultry', DOI 10.1186/s40104-021-00568-0 — Tier 1 (Phe essentiality, Phe->Tyr, ~55% from Phe)",
+      "Poult. Sci., broiler-breeder maintenance AA requirements (Cys, TSAA, Tyr, Phe+Tyr), PMID 26994191 — Tier 1 (avian Phe+Tyr requirement)",
+      "PMC5444564, 'Estimation of optimal ratios of digestible Phe+Tyr, His, Leu to digestible Lys for performance and breast yield in broilers' — Tier 1 (Phe+Tyr:Lys ideal ratio; ~1.09-1.12% diet)",
+      "Food Science and Technology Research 9(1):1-6, review 'Recent Advances in the Chemistry of Strecker Degradation' — Tier 2 (amino acid + reducing sugar Maillard/Strecker)",
+      "J. Agric. Food Chem., DOI 10.1021/jf048883r, Strecker degradation of phenylalanine -> phenylacetaldehyde — Tier 1 (Phe-specific Maillard reactivity)"
+    ],
+    "bytes": 14368
+  },
+  {
+    "slug": "l-tyrosine",
+    "substance": "L-Tyrosine",
+    "title": "Substance: L-Tyrosine",
+    "sources": [
+      "L-Tyrosine, Wikipedia (physicochemical: MW 181.19, CAS 60-18-4, solubility 45.3 mg/100 mL): https://en.wikipedia.org/wiki/Tyrosine — Tier 2",
+      "Merck Index value for L-tyrosine aqueous solubility 0.453 g/L at 25C (as reported via search aggregation of Merck Index/USP) — Tier 2",
+      "USP-NF Tyrosine monograph (identity/assay NLT 98.5% L-tyrosine): https://doi.usp.org/USPNF/USPNF_M87220_05_01.html — Tier 1",
+      "Evonik Healthcare, enhancing L-tyrosine solubility in cell-culture media (solubility <0.5 g/L at neutral pH; rises away from pI): https://healthcare.evonik.com/en/biopharma/cell-culture/common-challenges/tyrosine-solubility — Tier 2",
+      "PubChem CID 6057 L-Tyrosine (identity): https://pubchem.ncbi.nlm.nih.gov/compound/L-Tyrosine — Tier 2",
+      "Phenylalanine and Tyrosine Requirements and Their Interrelationship for the Young Chick, Poultry Science (Tyr req ~0.37%, Phe ~0.50%, Tyr supplies up to 42.5% aromatic-AA): https://www.sciencedirect.com/science/article/pii/S0032579119474749 — Tier 1",
+      "Estimation of optimal Phe+Tyr:Lys ratio for broilers, PMC5444564 (Phe+Tyr ~1.09-1.12% diet): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5444564/ — Tier 1",
+      "Cysteine/TSAA/Tyr/Phe+Tyr maintenance requirements of broiler breeders, PMID 26994191 — Tier 1",
+      "Hepatic tyrosine aminotransferase activity affected by chronic heat stress and dietary tyrosine in broiler chickens, PMID 12365521 (50/100/200% NRC Tyr; no heat-stress performance rescue) — Tier 1",
+      "Effect of tyrosine ingestion on cognitive function and load carriage performance in the heat, PMC4580763 (150 mg/kg null in humans) — Tier 1",
+      "Mechanisms of Heat Stress on Neuroendocrine/Organ Damage in Poultry, PMC11591812 (catecholamine mobilization, Tyr precursor) — Tier 2",
+      "Thermal decomposition pathways of phenylalanine and tyrosine by TG-FTIR (decomp ~340C, decarboxylation): ResearchGate 245209016 — Tier 2",
+      "L-tyrosine intercalated LDH thermal-decomposition / racemization-under-UV note, ScienceDirect S0022369706001697 — Tier 2",
+      "Isoelectric point of tyrosine pI ~5.6 from pKa 2.2/9.1/10.1 (standard biochemistry): brainly.com/question/35372421 — Tier 2"
+    ],
+    "bytes": 15068
+  },
+  {
+    "slug": "magnesium-glycerophosphate",
+    "substance": "Magnesium glycerophosphate",
+    "title": "Substance: Magnesium glycerophosphate",
+    "sources": [
+      "European/British Pharmacopoeia magnesium glycerophosphate monograph — descriptors 'slightly soluble in water', 'freely soluble/dissolves in dilute acids', 'practically insoluble in alcohol', Mg 11.0-12.5% — Mubychem EP/BP SDS https://mubychem.com/magnesiumglycerophosphate.html and Anmol EP/BP https://www.anmol.org/magnesiumglycerophosphateBP.html (Tier 2)",
+      "Dr. Paul Lohmann (manufacturer) product datasheet — aqueous solubility classified '−− < 1 g/L'; hygroscopic white powder — https://www.lohmann-minerals.com/products/product-finder/magnesium-glycerophosphate/ (Tier 2)",
+      "ChemicalBook CAS 927-20-8 — MW 194.36, C3H7MgO6P, '1 g dissolves in 50 mL water with glycerophosphoric acid, minimally opalescent after 16 h', synonyms, hydrolysis to glycerol+phosphate — https://amp.chemicalbook.com/ChemicalProductProperty_EN_CB8140865.htm (Tier 2)",
+      "PubChem CID 10012877 Magnesium glycerophosphate C3H7MgO6P (Tier 2)",
+      "Patent WO2017089595A1 'Solution comprising glycerophosphoric acid and magnesium salt thereof' — clear stable aqueous solution requires 1:1 glycerophosphoric acid + glycerol co-formulation; 2-3 mo ICH stability; bare salt opalescent — https://patents.google.com/patent/WO2017089595A1/en (Tier 3 patent)",
+      "NRC 1994 / Merck Veterinary Manual, Nutritional Requirements of Poultry — Mg requirement ~500-600 mg/kg feed — https://www.merckvetmanual.com/poultry/nutrition-and-management-poultry/nutritional-requirements-of-poultry (Tier 1)",
+      "Review of the role of magnesium in poultry nutrition, World's Poultry Science Journal (Cambridge Core) — high dietary Mg -> diarrhoea; ~1.4% MgCO3 -> skeletal abnormality (Tier 1)",
+      "Effect of different magnesium sources on digesta/excreta moisture and performance in broilers, ScienceDirect S0032579119395355 — Mg source affects laxation/wet litter (Tier 1)",
+      "Benefits of Magnesium Supplementation to Broiler under Dietary/Heat Stress — improved redox, reduced myopathy, PMC6826508 (Tier 1)",
+      "Predicting and Testing Bioavailability of Magnesium Supplements, PMC6683096 — organic Mg forms higher solubility-dependent absorption but lower elemental loading (Tier 2, human)"
+    ],
+    "bytes": 14702
+  },
+  {
+    "slug": "magnesium-malate",
+    "substance": "Magnesium malate",
+    "title": "Substance: Magnesium malate",
+    "sources": [
+      "PubChem CID 164748, Magnesium malate, C4H4MgO5 (NIH/NLM) — Tier 1 (database identity)",
+      "Wikipedia: Magnesium malate — formula C4H4MgO5, MW 156.376 g/mol, CAS 869-06-7, IUPAC magnesium 2-hydroxybutanedioate — Tier 3 (identity corroboration only)",
+      "Jost Chemical, Magnesium Malate Trihydrate, CAS 6150-86-3 (product datasheet) — Tier 2 (salt-form/hydrate identity)",
+      "Supplier datasheets / Ruipu Biological, Nutri Avenue: ~15% elemental Mg, water solubility >50 g/100 mL @25C — Tier 2/3 (physicochemical constants; LOW-CONFIDENCE on exact solubility)",
+      "Critical Care (2025) 'Buffers in intravenous solutions: is the source of bicarbonate a source of confusion?' PMC12750785 — malate/citrate/lactate/acetate as metabolizable alkalinizing organic anions raising SID — Tier 1",
+      "Malic acid dissociation constants pKa1 ~3.40, pKa2 ~5.11 (CRC Handbook / standard physical chemistry) — Tier 2",
+      "Sorbic acid pKa ~4.76 (standard physchem) — Tier 2 (preservative-efficacy context)",
+      "J. Phys. Chem. 'Ion association V: dissociation constants for complexes of citrate with Na, K, Ca, Mg' (Davies/Hoyle) — Mg-citrate complexation — Tier 1/2",
+      "NRC Nutrient Requirements of Poultry, 9th rev ed (1994) — Mg requirement ~600 mg/kg diet — Tier 1",
+      "NRC Mineral Tolerance of Animals, 2nd rev ed (2005), magnesium chapter — enteric/osmotic ceiling ~0.3-0.5% feed — Tier 1"
+    ],
+    "bytes": 13986
+  },
+  {
+    "slug": "maltodextrin",
+    "substance": "Maltodextrin (DE 10-12)",
+    "title": "Substance: Maltodextrin (DE 10-12)",
+    "sources": [
+      "ScienceDirect Topics — Maltodextrin overview (solubility ~240 g/100 g water, thermal/acid/freeze stability, alpha-1,4/1,6 structure, Maillard/yellowing under pH+temperature). Tier 2 (review/encyclopedia).",
+      "Castro et al., Morphological and Physicochemical Characterization of Commercial Maltodextrins with Different Degrees of Dextrose-Equivalent. International Journal of Food Properties, DOI 10.1080/10942910802181024 (dissolution time decreases with DE; DE-dependent physicochemistry). Tier 1.",
+      "Hofman DL, van Buul VJ, Brouns FJPH. Nutrition, Health, and Regulatory Aspects of Digestible Maltodextrins. Crit Rev Food Sci Nutr. PMC4940893 (lower osmolality per weight than disaccharides; ~227 mmol/L for 50 g/L DE11-14; rapidly digested glucose-based energy, no colonic fermentation). Tier 1.",
+      "Reduced-osmolarity maltodextrin-based vs standard glucose ORS — efficacy with sugar malabsorption. PMC2486870. Tier 1.",
+      "Glycine/glycyl-glycine/maltodextrin ORS efficacy & safety vs standard ORS. PubMed PMID 2201165. Tier 1.",
+      "ChemicalBook — Maltodextrin, CAS 9050-36-6 (identity, synonyms, white odorless powder, freely soluble). Tier 2.",
+      "Wikipedia — Maltodextrin (DE definition 0-100; reducing power; EU customs DE<10 = dextrins; D-glucose polymer alpha-1,4/1,6). Tier 2/3.",
+      "US Patent US4144357A — Preventing Maillard reaction; starch hydrolysates DE 0-24 retard but do not eliminate Maillard browning. Tier 3.",
+      "US Patent US4596602A — Aqueous maltodextrin solution microbial stability/haze (unpreserved sugar solution needs microbial control; acidified pH 2.5-3.5 stable with sorbic acid). Tier 3.",
+      "Branched-maltodextrin acidification note — slight hydrolysis only at pH < 3 (manufacturer/technical literature). Tier 2/3.",
+      "DE10 grade spec — 20% solution pH 4-4.7, moisture ~6% (manufacturer datasheet, Tier 2)."
+    ],
+    "bytes": 13061
+  },
+  {
+    "slug": "methylcobalamin",
+    "substance": "Methylcobalamin (vitamin B12, mecobalamin)",
+    "title": "Substance: Methylcobalamin (vitamin B12, mecobalamin)",
+    "sources": [
+      "Amer SM et al. Stability-indicating RP-HPLC method for methylcobalamin... photodegradation kinetics and pH rate profiling. J Sep Sci 2022. PMID 35670513 / DOI 10.1002/jssc.202200132 (Tier 1) — zero-order photodegradation, t1/2 ~0.99 h @1971.53 lux; most stable pH 5, least stable pH 2; acidic/alkaline/photolytic susceptibility",
+      "Ahmad I et al. Photolysis of methylcobalamin in aqueous solution: a kinetic study. J Photochem Photobiol A 2018; ScienceDirect S1010603018302545 (Tier 1) — photolysis rate max at pH ~5.0; k 2.80-27.25x10^-2 min^-1; aquo/hydroxocobalamin products",
+      "Extemporaneously prepared methylcobalamin injections: stability with/without preservative and light exposure. PMID 31085783 (Tier 1) — stable >=181 d RT only in amber, light-protected",
+      "Photodegradation Effects of Cyanocobalamin, RJPT 2025 18(2)-65; and PMID 16414723 stability of cyanocobalamin in sunlight/artificial light (Tier 1-2) — MeCbl ~39% vs cyano ~4-7% loss at 60 min UV; cyano/hydroxo most stable",
+      "Wikipedia/PubChem Methylcobalamin: CAS 13422-55-4, MW ~1344.4, C63H91CoN13O14P, freely soluble cherry-red aqueous solutions (Tier 2 identity/qualitative solubility)",
+      "DrugBank/monograph cyanocobalamin aqueous solubility ~12.5 mg/mL (1/80 g/mL) (Tier 1-2 analog solubility)",
+      "Halle I, Henning M. Influence of vitamin B12 and cobalt on growth of broiler chickens and Pekin ducks (Tier 2) — ~20 mcg B12/kg feed meets requirement",
+      "NRC Nutrient Requirements of Poultry (1994) + NRC Vitamin Tolerance of Animals (Tier 1) — chicken B12 req ~3-10 mcg/kg; no defined upper toxic limit",
+      "Merck Veterinary Manual, Nutritional Requirements of Poultry (Tier 1) — B12 essential, dietary supplementation required",
+      "Pekin duck supplemental cyanocobalamin growth/hematology study, MDPI Animals 2019, PMC6770686 (Tier 1) — cyanocobalamin used as standard supplemental form",
+      "Sorbitol enhances physicochemical stability of B12 vitamers, Int J Vitam Nutr Res, DOI 10.1024/0300-9831/a000578 (Tier 2) — excipient stabilization"
+    ],
+    "bytes": 14562
+  },
+  {
+    "slug": "nac",
+    "substance": "NAC (N-acetylcysteine)",
+    "title": "Substance: NAC (N-acetylcysteine)",
+    "sources": [
+      "J Anim Sci Biotechnol 2024 'Improvement of antioxidant capability by dietary N-acetyl cysteine supplementation alleviates bone loss induced by chronic heat stress in finisher broilers' DOI 10.1186/s40104-024-01114-4 (PMC11608502) — Tier 1, 2 g/kg NAC, Nrf2 up, bone protection",
+      "Br Poult Sci 2023 64(6) 'N-acetyl-L-cysteine improves the performance of chronic cyclic heat-stressed finisher broilers but has no effect on tissue glutathione levels' PMID 37782109, DOI 10.1080/00071668.2023.2264234 — Tier 1, heat-stress performance",
+      "Asian-Australas J Anim Sci 2020 'Effects of N-acetylcysteine on the energy status and antioxidant capacity in heart and liver of cold-stressed broilers' DOI 10.5713/ajas.19.0542 (PMC7468165) — Tier 1, 0.1% dietary NAC, lowered MDA, raised hepatic SOD/CAT/GPx",
+      "Poult Sci 2025 'Dietary N-acetylcysteine supplementation improves antioxidant capacity and production performance of breeder hens and offspring' ScienceDirect S0032579125009861 — Tier 1-2, maternal NAC antioxidant/barrier",
+      "'Reaction of N-Acetylcysteine with Cu2+: Appearance of Intermediates with High Free Radical Scavenging Activity' PMC9181168 — Tier 1, Cu-catalyzed NAC thiol oxidation mechanism",
+      "'Inhibition of copper-catalyzed cysteine oxidation by nanomolar concentrations of iron salts' PMID 14990354 — Tier 1, metal-catalyzed thiol oxidation model",
+      "'Stability of N-Acetylcysteine 60 mg/mL in Extemporaneously Compounded Injectable Solutions' PMC8463017 — Tier 2, pH-adjusted aqueous stability",
+      "US Patent US20210251889A1 'N-Acetylcysteine Compositions and Methods' — Tier 3, states aqueous solubility ~30 mg/mL @25C, instability >pH 7.2, optimal pH 6.0-7.0, ~5% recovery in 3% H2O2 @60C",
+      "Cayman Chemical / ChemicalBook N-acetyl-L-cysteine monographs (CAS 616-91-1) — Tier 2, MW 163.2, pKa ~9.5 thiol, hygroscopic, water/ethanol soluble",
+      "Wikipedia 'Acetylcysteine' summarizing pharmacopeia data — Tier 2-3, identity/pKa cross-check only"
+    ],
+    "bytes": 15000
+  },
+  {
+    "slug": "potassium-citrate",
+    "substance": "Potassium citrate (tripotassium citrate monohydrate)",
+    "title": "Substance: Potassium citrate (tripotassium citrate monohydrate)",
+    "sources": [
+      "NRC, Nutrient Requirements of Poultry, 9th rev. ed. (1994), National Academies Press — K requirement ~0.30% broiler starter (Tier 1)",
+      "Borges SA et al., 'Dietary electrolyte balance for broiler chickens under moderately high ambient temperatures and relative humidities', Poult Sci 2003; PMID 12619809 — DEB optima, K and Cl benefit in heat stress (Tier 1)",
+      "Moura/Insights of dietary electrolyte balance in broilers raised under natural heat stress conditions, Br Poult Sci 2024; PMID 39399982 — DEB targets under heat stress (Tier 1)",
+      "World's Poultry Science Journal review, 'Electrolytes, dietary electrolyte balance and salts in broilers: an updated review', Cambridge Core — DEB 0-300 mEq/kg, optimal K ~0.47-0.52% (Tier 2)",
+      "ChemicalBook, Potassium citrate monohydrate CAS 6100-05-6, CB6280529 — solubility ~1.8 g/mL @20C, loses H2O ~180C, 1% soln pH 7.5-9.0, stable solid (Tier 2 manufacturer/aggregator)",
+      "American Elements / Merck Millipore 104956, tri-Potassium citrate monohydrate datasheet — solubility ~1500 g/L @20C, very hygroscopic, protect from humidity (Tier 2 datasheet)",
+      "Carl Roth SDS tri-Potassium citrate monohydrate (SDB_X888) — hygroscopic, stable at ambient, store airtight cool dry (Tier 2 SDS)",
+      "University of Chicago Kidney Stone Program, 'Calcium binding by citrate' — citrate is a potent chelator of Ca/Mg, forms soluble complexes (Tier 2)",
+      "Citrate in CRRT reviews, PMC10006386 and PMC11313640 — citrate chelates Ca and Mg; citrate metabolized to bicarbonate (alkalinizing); risk of hypomagnesemia via Mg-citrate (Tier 1 peer-reviewed)",
+      "USP-NF and Ph.Eur. Potassium Citrate monographs; FDA GRAS 21 CFR 184.1625 — compendial excipient/GRAS status (Tier 1 official)",
+      "Sorbic acid pKa ~4.76 (standard physicochemical constant) — preservative undissociated fraction falls sharply above pH ~5 (Tier 2)"
+    ],
+    "bytes": 15122
+  },
+  {
+    "slug": "potassium-sorbate",
+    "substance": "Potassium sorbate (preservative)",
+    "title": "Substance: Potassium sorbate (preservative)",
+    "sources": [
+      "Eklund T. The antimicrobial effect of dissociated and undissociated sorbic acid at different pH levels. J Appl Bacteriol. 1983 Jun;54(3):383-9. PMID 6409875. (Tier 1 — undissociated 10-600x more potent; dissociated supplies >50% of inhibition above pH 6)",
+      "Dickens JA et al. / Antimicrobial Efficacy of a Potassium Sorbate Dip on Freshly Processed Poultry. PMID 30795050. (Tier 1 — poultry antimicrobial use)",
+      "Antimicrobial effect of a drinking-water additive comprising four organic acids on Campylobacter load in broilers. Poult Sci, PMC9597105. (Tier 1 — organic-acid drinking-water antimicrobial in broilers)",
+      "Cunningham FE. Shelf-life and quality characteristics of poultry parts dipped in potassium sorbate. J Food Sci. 1979;44:863. (Tier 2 — poultry sorbate dip)",
+      "Potassium sorbate infobox — water solubility 58.2% (g/100mL) at 20C, 58.5 g/100mL at 100C; M 150.22 g/mol; CAS 24634-61-5. Wikipedia/PubChem (Tier 2 physicochemical constant)",
+      "Sorbic acid pKa 4.76; undissociated form is the active antimicrobial; works best <pH 6.5. UC Davis Viticulture & Enology common chemical reagents (Tier 2)",
+      "Sorbic acid free-acid solubility ~0.16 g/100mL at 20C. UC Davis Enology / manufaktur-pur sorbic acid page (Tier 2)",
+      "Sofos JN, Busta FF / 'Chemistry of sorbates' reviews — aqueous autoxidation, >50% loss in months at elevated temp, acetaldehyde + beta-carboxylacrolein degradation products, beta-carboxylacrolein browns with amino acids, glycine accelerates degradation/browning; oxidation faster at low pH/light/heat. Food Reviews International 10(1) and ResearchGate 'Effect of system composition on potassium sorbate degradation' (Tier 2)",
+      "Henderson-Hasselbalch undissociated fraction at pH 5.8/6.0/6.2 = 8.4/5.4/3.5% (computed from pKa 4.76)",
+      "JECFA/EFSA sorbates ADI 0-25 mg/kg bw (human regulatory basis; per frame NOT applied as avian limit) (Tier 2)"
+    ],
+    "bytes": 15548
+  },
+  {
+    "slug": "pyridoxal-5-phosphate",
+    "substance": "Pyridoxal-5'-phosphate (P5P / PLP, active vitamin B6)",
+    "title": "Substance: Pyridoxal-5'-phosphate (P5P / PLP, active vitamin B6)",
+    "sources": [
+      "PMID 28220480 — Mohamed-Ahmed et al., Quality and stability of extemporaneous pyridoxal phosphate preparations (light vs dark half-life 8 h / 720 h; photodegradant 4-pyridoxic acid 5'-phosphate) — Tier 1 (peer-reviewed)",
+      "DOI 10.1002/kin.21541 — Gamov 2022, Int J Chem Kinetics, dephosphorylation of PLP-derived Schiff bases (phosphatase pH optimum 6-6.5) — Tier 2",
+      "DOI 10.3389/fmolb.2019.00004 — Front Mol Biosci 2019, PLP-dependent enzymes review (C-4' aldehyde forms nonspecific Schiff-base adducts with amines/thiols) — Tier 2 (review)",
+      "ChemicalBook CB6757175; Selleck; MedChemExpress — PLP monohydrate solubility (~1-5 mg/mL), MW 265.16, light/air/moisture sensitivity, store 2-8 C — Tier 2 (manufacturer datasheets)",
+      "DOI 10.1021/acs.jced.8b00309 — J. Chem. Eng. Data 2018, PLP monohydrate solubility correlation in binary solvents — Tier 1",
+      "NRC Nutrient Requirements of Poultry, 9th rev. ed. 1994; Merck Veterinary Manual — B6 requirement 2.5-4.5 mg/kg diet — Tier 1",
+      "NRC Vitamin Tolerance of Animals (1987), ch.9 Vitamin B6 — ~50x requirement safe (extrapolated), ~1000x neurotoxic — Tier 1"
+    ],
+    "bytes": 12900
+  },
+  {
+    "slug": "rhodiola-rosea-extract",
+    "substance": "Rhodiola rosea extract (standardized to rosavins + salidroside)",
+    "title": "Substance: Rhodiola rosea extract (standardized to rosavins + salidroside)",
+    "sources": [
+      "Selleck Chemicals, Salidroside (Rhodioloside) product datasheet, CAS 10338-51-9: water solubility 60 mg/mL, DMSO 60 mg/mL (199.8 mM), MW 300.3, powder storage 3 yr -20C — Tier 2 manufacturer monograph (selleckchem.com/products/Salidroside-Rhodioloside.html)",
+      "Cayman Chemical / MedChemExpress Salidroside SDS: PBS pH7.2 10 mg/mL, DMSO 20 mg/mL, DMF 30 mg/mL, ethanol 3 mg/mL — Tier 2 manufacturer SDS",
+      "Wikipedia: Salidroside — C14H20O7, MW 300.307, CAS 10338-51-9 — Tier 3 (identity cross-check only)",
+      "Wang Q et al. Degradation of phenylethanoid glycosides in Osmanthus fragrans Lour. flowers and its effect on anti-hypoxia activity. Sci Rep 2017;7:10068. PMID 28855701 / PMC5577317 — phenylethanoid glycoside first-order hydrolysis to aglycone, rate constants 3.9-33.3 x10^-3/day, temp/pH dependence — Tier 1 (mechanistic read-across for salidroside glycoside hydrolysis)",
+      "Kalia S, Bharti VK, Giri A, Vivek P, Kumar B, Udayabanu M. Effect of hydro-alcoholic extract of Rhodiola imbricata on growth performance, immunomodulation, antioxidant level and blood biochemical parameters in broiler chickens at high altitude cold desert. Indian J Anim Sci 2017;87(10):1200-1206. DOI 10.56093/ijans.v87i10.75244 (NOT PubMed-indexed, no PMID) — Tier 1 peer-reviewed, congener R. imbricata, 400 mg/kg BW optimal",
+      "Ivanova Stojcheva E, Quintela JC. The Effectiveness of Rhodiola rosea L. Preparations in Alleviating Various Aspects of Life-Stress Symptoms and Stress-Induced Conditions. Molecules 2022. PMC9228580 — Tier 1 review (human chronic adaptogen efficacy/dose context)",
+      "Quality and safety of Rhodiola rosea supplements on the US market: biomarkers, heavy metals, pesticide residues. PMC12810810 — Tier 1/2 (standardization & adulteration caution)",
+      "Drugs.com Rhodiola rosea monograph + Examine.com research breakdown — human dose 200-600 mg/day standardized 3% rosavin/1% salidroside — Tier 2-3 (dose context only)"
+    ],
+    "bytes": 13505
+  },
+  {
+    "slug": "sodium-citrate",
+    "substance": "Sodium citrate (trisodium citrate dihydrate; alkalinizing / DEB agent)",
+    "title": "Substance: Sodium citrate (trisodium citrate dihydrate; alkalinizing / DEB agent)",
+    "sources": [
+      "Tier 2 — ChemicalBook, Trisodium citrate dihydrate CAS 6132-04-3 (CB9752065): MW 294.10, solubility ~1 g/1.5 mL water, 5% solution pH 7.5-9.0, loses water 150C — https://www.chemicalbook.com/ChemicalProductProperty_EN_CB9752065.htm",
+      "Tier 1/2 — ICSC 1219 Sodium Citrate Dihydrate (IPCS/INCHEM): physicochemical + solubility — https://www.inchem.org/documents/icsc/icsc/eics1219.htm",
+      "Tier 1 — ACS Reagent Chemicals, Sodium Citrate Dihydrate monograph (aqueous solubility spec) DOI 10.1021/acsreagents.4341.20160601",
+      "Tier 2 — Sigma-Aldrich substance record trisodium citrate dihydrate 294-10 / 6132-04-3 (identity, MW) — https://www.sigmaaldrich.com/US/en/substance/trisodiumcitratedihydrate294106132043",
+      "Tier 2 — Sigma-Aldrich Buffer Reference Center, citric acid/citrate pKa 3.13/4.76/6.40 region; ChemicalBook pKa1 2.92 pKa2 4.28 pKa3 5.21 — https://www.sigmaaldrich.com/US/en/technical-documents/protocol/protein-biology/protein-concentration-and-buffer-exchange/buffer-reference-center",
+      "Tier 1 — Araujo/Borges et al. 2022, Effects of dietary electrolyte balance on performance, energy balance and acid-base gene expression in broilers, PMID 35435521 (DEB ~110 mEq/kg optimal young broilers; 50-250 acid-base normalization)",
+      "Tier 1 — World's Poultry Science Journal, Electrolytes/DEB in broilers: updated review on acid-base balance and blood characteristics (Cambridge Core) — DEB = Na+K-Cl mEq/kg drives acid-base",
+      "Tier 1 — Hering-Smith & Hamm, Acidosis and citrate: provocative interactions, Ann Transl Med (citrate oxidation -> 3 HCO3- per citrate) — https://atm.amegroups.org/article/view/20718/html",
+      "Tier 1 — Urwin et al., sodium citrate ingestion induces blood alkalosis via strong-ion-difference (Na load), PMC8128256 — https://pmc.ncbi.nlm.nih.gov/articles/PMC8128256/",
+      "Tier 1 — sodium citrate ingestion protocol / induced alkalosis & GI symptoms, PMC6787309 — https://pmc.ncbi.nlm.nih.gov/articles/PMC6787309/",
+      "Tier 1 — Davies (J Phys Chem), Ion association: dissociation constants for citrate complexes with Na/K/Ca/Mg, DOI 10.1021/j100819a045",
+      "Tier 2 — ScienceDirect Topics, Calcium Citrate / Trisodium Citrate overviews (chelation, soluble CaCit- at high citrate) — https://www.sciencedirect.com/topics/medicine-and-dentistry/calcium-citrate",
+      "Tier 1 — NRC, Nutrient Requirements of Poultry, 9th rev ed (1994): Na requirement and DEB framework (chronic feed mEq/kg)"
+    ],
+    "bytes": 15826
+  },
+  {
+    "slug": "taurine",
+    "substance": "Taurine",
+    "title": "Substance: Taurine",
+    "sources": [
+      "Lu Z, He XF, Ma BB, et al. Dietary taurine supplementation improves breast meat quality in chronic heat-stressed broilers via activating the Nrf2 pathway and protecting mitochondria from oxidative attack. J Sci Food Agric. 2019;99(4):1066-1072. DOI 10.1002/jsfa.9273 (Tier 1 peer-reviewed)",
+      "Ma B, Zhang L, et al. Effects of dietary taurine supplementation on growth performance, jejunal morphology, appetite-related hormones, and gene expression in broilers subjected to chronic heat stress. Poult Sci. PMID 30778570 (Tier 1 peer-reviewed)",
+      "Han H, et al. The alleviative effects and related mechanisms of taurine supplementation on growth performance and carcass characteristics in broilers exposed to chronic heat stress. Poult Sci 2019. PMID 30239846 (Tier 1 peer-reviewed)",
+      "Functional roles of taurine, L-theanine, L-citrulline, and betaine during heat stress in poultry. J Anim Sci Biotechnol. 2022;13:articles/10.1186/s40104-022-00675-6 (Tier 2 review)",
+      "Effect of dietary inclusion of taurine on performance, carcass characteristics and muscle micro-measurements in broilers under cyclic heat stress. Ital J Anim Sci 2021. DOI 10.1080/1828051X.2021.1921627 (Tier 1/2 peer-reviewed)",
+      "Effects of taurine supplementation on productive performance, nutrient digestibility and gene expression of nutrient transporters in quails reared under heat stress. ScienceDirect S030645652030440X (Tier 1 peer-reviewed)",
+      "Oral taurine alleviates weight loss, intestinal atrophy and redox imbalance from post-hatch transportation in yellow-feathered broiler chicks. PMC12519162 (Tier 1 peer-reviewed)",
+      "Effects of in ovo taurine administration on cyclic heat stress in broiler chickens. PMC12887376 (Tier 1 peer-reviewed)",
+      "Analysis and Heat Stability of Taurine in Milk. J Dairy Sci 1990;73(7):1681-1685. DOI 10.3168/jds.S0022-0302(90)78846-7 (Tier 1 thermal stability/activation energy)",
+      "Taurine as a water structure breaker and protein stabilizer. PMC5762795 (Tier 1 physicochemistry: zwitterion, pKa, redox-inert stabilizer)",
+      "Taurine, a Naturally Occurring Amino Acid, as a Physical Stability Enhancer of Different Monoclonal Antibodies. AAPS J 2024. PMID 38355847 (Tier 1 aqueous stability/compatibility)",
+      "Protein Phosphorylation and Taurine Biosynthesis (CSAD pathway). PMC6573280 (Tier 1 biosynthesis)",
+      "USP Reference Standard Taurine monograph, store.usp.org/product/1643361 (Tier 1 pharmacopeial identity)",
+      "ChemicalBook / Cayman / Wikipedia datasheets, CAS 107-35-7 (Tier 2: MW 125.15, mp 305 C, solubility 62.5-100 g/L @20C, pKa, isoelectric 5.12)"
+    ],
+    "bytes": 15014
+  },
+  {
+    "slug": "trehalose",
+    "substance": "Trehalose (alpha,alpha-trehalose dihydrate; candidate stabilizer sugar)",
+    "title": "Substance: Trehalose (alpha,alpha-trehalose dihydrate; candidate stabilizer sugar)",
+    "sources": [
+      "Yu et al. 2025. Trehalose improves growth performance and gut health of yellow-feathered broilers exposed to heat stress. Tropical Animal Health and Production 57:414. DOI 10.1007/s11250-025-04665-4 — Tier 1 (peer-reviewed, direct avian)",
+      "PMC11510631. Effectiveness of Lyoprotectants in Protein Stabilization During Lyophilization. https://pmc.ncbi.nlm.nih.gov/articles/PMC11510631/ — Tier 1 (review, dry glassy-matrix/lyoprotection)",
+      "Comparison of Sucrose and Trehalose for Protein Stabilization Using DSC. J Phys Chem B, DOI 10.1021/acs.jpcb.4c00022 (PMC11129304) — Tier 1 (peer-reviewed, Tg/stabilization)",
+      "Stability of Trehalose, Sucrose and Glucose to Nonenzymatic Browning in Model Systems. ResearchGate publication 229729124 — Tier 2 (browning rate constants ~200-2000x lower than sucrose at pH 2.5)",
+      "biomedres.us BJSTR.MS.ID.003608 'The Importance of Trehalose Sugar' — Tier 2 (1,1-linkage low energy ~1 vs 27 kcal/mol; ~2x acid-hydrolysis activation energy; non-reducing/Maillard-inert)",
+      "Wikipedia: Trehalose (https://en.wikipedia.org/wiki/Trehalose) — Tier 2 (solubility 68.9 g/100 g at 20 C; ~45% sucrose sweetness; non-reducing structure)",
+      "ChemicalBook CB4454890 (CAS 6138-23-4 dihydrate, MW 378.33) and CAS 99-20-7 anhydrous MW 342.30 — Tier 3 (identity/CAS/MW confirmation only)"
+    ],
+    "bytes": 14547
+  }
+]

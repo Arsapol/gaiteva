@@ -60,3 +60,119 @@
 - **Pages:** gamefowl-formula-v-next-team-codex-recovery-hydration-redesign.md
 - **Summary:** Updated "Gamefowl Formula v-Next — Team + Codex Recovery/Hydration Redesign" with new content
 
+## [2026-06-15T19:16:30.151Z] ingest
+- **Pages:** gamefowl-recovery-hydration-formula-vnext2-two-dry-sku-redesign.md
+- **Summary:** Created new page "Gamefowl Recovery/Hydration Formula vNext2 — Two Dry-SKU Redesign"
+
+## [2026-06-15T19:17:56.732Z] ingest
+- **Pages:** substance-citric-acid-anhydrous-also-monohydrate.md
+- **Summary:** Created new page "Substance: Citric acid (anhydrous; also monohydrate)"
+
+## [2026-06-15T19:19:30.691Z] ingest
+- **Pages:** substance-dmg-n-n-dimethylglycine.md
+- **Summary:** Created new page "Substance: DMG (N,N-dimethylglycine)"
+
+## [2026-06-15T19:23:32.449Z] ingest
+- **Pages:** substance-glucose-sucrose-drink-sugar-palatability.md
+- **Summary:** Created new page "Substance: Glucose/sucrose drink sugar (palatability)"
+
+## [2026-06-15T19:25:15.124Z] ingest
+- **Pages:** substance-glycerin-glycerol-propane-1-2-3-triol.md
+- **Summary:** Created new page "Substance: Glycerin (glycerol; propane-1,2,3-triol)"
+
+## [2026-06-15T19:27:48.256Z] ingest
+- **Pages:** substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-.md
+- **Summary:** Created new page "Substance: L-Arginine (free base + L-arginine-HCl; citrulline-spared route)"
+
+## [2026-06-15T19:30:21.600Z] ingest
+- **Pages:** substance-l-carnitine-l-tartrate-lclt.md
+- **Summary:** Created new page "Substance: L-Carnitine L-tartrate (LCLT)"
+
+## [2026-06-15T19:31:55.605Z] ingest
+- **Pages:** substance-l-citrulline-citrulline-malate.md
+- **Summary:** Created new page "Substance: L-Citrulline / Citrulline malate"
+
+## [2026-06-15T19:33:39.226Z] ingest
+- **Pages:** substance-l-glutamine.md
+- **Summary:** Created new page "Substance: L-Glutamine"
+
+## [2026-06-15T19:35:52.343Z] ingest
+- **Pages:** substance-l-phenylalanine.md
+- **Summary:** Created new page "Substance: L-Phenylalanine"
+
+## [2026-06-15T19:38:02.571Z] ingest
+- **Pages:** substance-l-tyrosine.md
+- **Summary:** Created new page "Substance: L-Tyrosine"
+
+## [2026-06-15T19:39:59.149Z] ingest
+- **Pages:** substance-magnesium-glycerophosphate.md
+- **Summary:** Created new page "Substance: Magnesium glycerophosphate"
+
+## [2026-06-15T19:41:46.684Z] ingest
+- **Pages:** substance-magnesium-malate.md
+- **Summary:** Created new page "Substance: Magnesium malate"
+
+## [2026-06-15T19:43:22.503Z] ingest
+- **Pages:** substance-maltodextrin-de-10-12.md
+- **Summary:** Created new page "Substance: Maltodextrin (DE 10-12)"
+
+## [2026-06-15T19:45:06.823Z] ingest
+- **Pages:** substance-methylcobalamin-vitamin-b12-mecobalamin.md
+- **Summary:** Created new page "Substance: Methylcobalamin (vitamin B12, mecobalamin)"
+
+## [2026-06-15T19:49:56.856Z] ingest
+- **Pages:** substance-nac-n-acetylcysteine.md
+- **Summary:** Created new page "Substance: NAC (N-acetylcysteine)"
+
+## [2026-06-15T19:51:46.528Z] ingest
+- **Pages:** substance-potassium-citrate-tripotassium-citrate-monohydrate.md
+- **Summary:** Created new page "Substance: Potassium citrate (tripotassium citrate monohydrate)"
+
+## [2026-06-15T19:53:35.681Z] ingest
+- **Pages:** substance-potassium-sorbate-preservative.md
+- **Summary:** Created new page "Substance: Potassium sorbate (preservative)"
+
+## [2026-06-15T19:55:08.412Z] ingest
+- **Pages:** substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6.md
+- **Summary:** Created new page "Substance: Pyridoxal-5'-phosphate (P5P / PLP, active vitamin B6)"
+
+## [2026-06-15T19:56:55.404Z] ingest
+- **Pages:** substance-rhodiola-rosea-extract-standardized-to-rosavins-salidr.md
+- **Summary:** Created new page "Substance: Rhodiola rosea extract (standardized to rosavins + salidroside)"
+
+## [2026-06-15T19:58:47.445Z] ingest
+- **Pages:** substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md
+- **Summary:** Created new page "Substance: Sodium citrate (trisodium citrate dihydrate; alkalinizing / DEB agent)"
+
+## [2026-06-15T20:00:42.006Z] ingest
+- **Pages:** substance-taurine.md
+- **Summary:** Created new page "Substance: Taurine"
+
+## [2026-06-15T20:02:21.720Z] ingest
+- **Pages:** substance-trehalose-alpha-alpha-trehalose-dihydrate-candidate-st.md
+- **Summary:** Created new page "Substance: Trehalose (alpha,alpha-trehalose dihydrate; candidate stabilizer sugar)"
+
+## [2026-06-16T06:08:48.677Z] ingest
+- **Pages:** substance-d-ribose.md
+- **Summary:** Updated "Substance: D-Ribose" with new content
+
+## [2026-06-16T06:15:41.025Z] ingest
+- **Pages:** substance-d-ribose.md
+- **Summary:** Updated "Substance: D-Ribose" with new content
+
+## [2026-06-16T06:15:53.415Z] ingest
+- **Pages:** gamefowl-recovery-hydration-formula-vnext2-two-dry-sku-redesign.md
+- **Summary:** Updated "Gamefowl Recovery/Hydration Formula vNext2 — Two Dry-SKU Redesign" with new content
+
+## [2026-06-16T06:20:05.938Z] query
+- **Pages:** substance-d-ribose.md, gamefowl-recovery-hydration-formula-vnext2-two-dry-sku-redesign.md
+- **Summary:** Query "d-ribose KEEP field evidence" → 2 results (of 37 total)
+
+## [2026-06-16T06:24:04.544Z] ingest
+- **Pages:** competitor-products-reload-plus-ph-vetafarm-au-ribose-corroborat.md
+- **Summary:** Created new page "Competitor Products — RELOAD PLUS (PH) + Vetafarm (AU): ribose corroboration + ORS comparison"
+
+## [2026-06-16T06:24:13.793Z] ingest
+- **Pages:** substance-d-ribose.md
+- **Summary:** Updated "Substance: D-Ribose" with new content
+

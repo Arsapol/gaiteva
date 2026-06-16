@@ -1,0 +1,1 @@
+Gamefowl Recovery/Hydration Formula vNext — Two Dry-SKU Producibility-First Redesign (PRELOAD + Fight-Day SGLT1 ORS)

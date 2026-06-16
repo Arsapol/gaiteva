@@ -1,0 +1,7 @@
+- Field-verify actual drink intake per 2.5 kg bird under fight-stress; if intake poor, address by palatability/offering frequency, NOT by concentrating the ORS (would break <300 mOsm).
+- Decide creatine vs GAA (or both) for preload based on cost/arg-sparing priority; GAA must stay dry (sol ~3.6 g/L).
+- Confirm whether a multi-week (>4 wk) program is run — if so, beta-alanine+L-histidine co-load becomes defensible; otherwise leave deleted.
+- Confirm feed-mineral-premix Mg source: MgO (lowest laxation) vs Mg-malate; titrate total dietary Mg <0.3% and monitor excreta moisture on scale-up.
+- Re-source DEB PMID 39399982 on PubMed or rely on PMID 12619809 + WPSJ review; flag citrulline>arginine mouse PMID 28179487 as rodent, cite chicken DOI 10.1186/s40104-022-00817-w as load-bearing.
+- Upgrade soft Tier-2/3 solubility numbers (DMG, Mg-malate, methyl-B12 analog) with pharmacopeial 25C monographs if a regulatory dossier is ever needed (does not change any current verdict).
+- Optionally add a SEPARATE dry sodium-ascorbate dose if vitamin C is wanted — never co-mixed with the dextrose stick (Maillard).
