@@ -18,6 +18,9 @@ the same recipe holds at any drench volume).
 
 from compat.osmolality import osmolality_report
 from compat.solubility import additive_report
+from compat.redox import flag_from_components
+from compat.activity import ionic_strength
+from compat.water_activity import aw_report
 
 WATER_ML: float = 1000.0  # express per litre
 
@@ -72,6 +75,31 @@ def main() -> None:
     verdict = "PASS — within isotonic band + complete ORS" if not osmo["blocking"] else "STILL BLOCKING"
     print(f"  LEVER 0 VERDICT: {verdict}")
     print("=" * 70)
+
+    # ------------------------------------------------------------------
+    # TIER-0 ADVISORY FLAGS (Codex-list): redox, ionic strength, water activity
+    # ------------------------------------------------------------------
+    print("\n" + "=" * 70)
+    print("  TIER-0 ADVISORY FLAGS")
+    print("=" * 70)
+
+    # Redox: ascorbate metal/O2 risk. Citrate present (chelator), no copper here.
+    redox = flag_from_components(LIQUID_ORS, oxygen_exposure="headspace", light_exposure="clear")
+    if redox.get("applicable", True):
+        print(f"\n  Ascorbate redox risk : {redox['risk_level']}")
+        print(f"    drivers   : {', '.join(redox['drivers']) or 'none'}")
+        print(f"    mitigations: {'; '.join(redox['mitigations'])}")
+        print(f"    Ea note   : {redox['ea_note']}")
+
+    # Ionic strength (Davies validity + salting context)
+    I = ionic_strength(LIQUID_ORS, water_ml=WATER_ML)
+    print(f"\n  Ionic strength : {I['I_mol_per_l']:.3f} mol/L  ({I['note']})")
+
+    # Water activity / microbial
+    aw = aw_report(LIQUID_ORS, water_ml=WATER_ML)
+    print(f"\n  Water activity : {aw['aw_raoult']:.4f}  ->  {aw['microbial_class']}")
+    print(f"    {aw['threshold_note']}")
+    print(f"    {aw['preservation_flag']}")
 
 
 if __name__ == "__main__":
