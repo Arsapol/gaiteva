@@ -22,11 +22,12 @@ FIXTURE_DIR = Path(__file__).resolve().parent / "golden"
 OSM_TOLERANCE = 0.75
 ION_TOLERANCE = 0.15
 
-FIXTURES = [
-    "compat_calc_1542_block.json",
-    "reformulate_274_pass.json",
-    "verify_dry_sku_291_pass.json",
-]
+def fixture_names() -> list[str]:
+    """Discover every golden fixture so new JSON files cannot be silently ignored."""
+    return sorted(path.name for path in FIXTURE_DIR.glob("*.json"))
+
+
+FIXTURES = fixture_names()
 
 
 def load_fixture(name: str) -> dict:
