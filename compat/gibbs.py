@@ -44,6 +44,10 @@ def gibbs(dH_J: float, dS_J_per_K: float, T_K: float = 298.15) -> dict:
         "dG_kJ": dG_kJ,
         "spontaneous": spontaneous,
         "verdict": verdict,
+        "gate_role": "backup_explanation",
+        "primary_gate": False,
+        "gate_effect": "advisory_only",
+        "caveat": _BACKUP_CAVEAT,
     }
 
 
@@ -66,13 +70,17 @@ def screen_pair(
         T_K: Temperature in Kelvin (default 298.15 K).
 
     Returns:
-        Dict with keys: pair (str), gibbs_result (dict), caveat (str).
+        Dict with keys: pair (str), gibbs_result (dict), caveat (str),
+        gate_role (str), primary_gate (False), and gate_effect (str).
     """
     result = gibbs(dH_J, dS_J_per_K, T_K)
     return {
         "pair": f"{name_a} + {name_b}",
         "gibbs_result": result,
         "caveat": _BACKUP_CAVEAT,
+        "gate_role": "backup_explanation",
+        "primary_gate": False,
+        "gate_effect": "advisory_only",
     }
 
 
