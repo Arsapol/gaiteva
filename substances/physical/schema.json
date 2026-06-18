@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gaiteva.local/schemas/compat-physical-registry.schema.json",
+  "title": "Compat physical constants registry record",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/$defs/record"
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": [
+        "compat_key",
+        "key",
+        "name",
+        "molar_mass_g_per_mol",
+        "osmotic_n",
+        "review_status",
+        "sources",
+        "source_refs"
+      ],
+      "properties": {
+        "compat_key": {"type": "string"},
+        "key": {"type": "string"},
+        "name": {"type": "string"},
+        "formula": {"type": "string"},
+        "molar_mass_g_per_mol": {"type": "number"},
+        "osmotic_n": {"type": "number"},
+        "solubility_g_per_100ml_25c": {"type": ["number", "null"]},
+        "density_kg_m3": {"type": ["number", "null"]},
+        "pka": {"type": "array", "items": {"type": "number"}},
+        "ions_mmol_per_g": {"type": "object", "additionalProperties": {"type": "number"}},
+        "review_status": {"enum": ["verified", "reviewed", "draft", "blocked", "rejected"]},
+        "sources": {"type": "array"},
+        "source_refs": {"type": "object"},
+        "overrides": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    }
+  }
+}

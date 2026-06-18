@@ -369,40 +369,30 @@ ELECTROLYTE_IONS: dict[str, dict] = {
 # ---------------------------------------------------------------------------
 
 def _load_external_physical_overlays() -> None:
+    """Load validated repo-local physical registry overlays.
+
+    The historical loader resolved ``substances/physical`` from ``Path.cwd()``
+    and ignored malformed active records.  Use compat.registry so imports from
+    nested directories see the same constants and schema problems are available
+    to tests/audit reports.
+    """
     try:
-        import json
-        from pathlib import Path
+        from compat.registry import apply_registry_to_legacy_maps, load_physical_registry
     except Exception:
         return
-    root = Path.cwd() / "substances" / "physical"
-    if not root.exists():
+    try:
+        registry = load_physical_registry(strict=True)
+    except Exception:
+        # Keep import-time compatibility for exploratory scripts; strict
+        # registry validation is enforced by tests/audit callers.
         return
-    for path in sorted(root.glob("*.json")):
-        try:
-            raw = json.loads(path.read_text(encoding="utf-8"))
-        except Exception:
-            continue
-        records = raw.values() if isinstance(raw, dict) and "compat_key" not in raw else [raw]
-        for rec in records:
-            if not isinstance(rec, dict):
-                continue
-            if str(rec.get("review_status", "draft")).lower() in {"rejected", "blocked"}:
-                continue
-            key = str(rec.get("compat_key") or rec.get("key") or "").strip()
-            if not key:
-                continue
-            if "solubility_g_per_100ml_25c" in rec:
-                SUBSTANCES.setdefault(key, {})["solubility_g_per_100ml_25c"] = rec.get("solubility_g_per_100ml_25c")
-                SUBSTANCES[key]["density_kg_m3"] = rec.get("density_kg_m3")
-                SUBSTANCES[key]["pka"] = rec.get("pka", [])
-                SUBSTANCES[key]["note"] = rec.get("note", f"external registry overlay from {path}")
-            if rec.get("molar_mass_g_per_mol") is not None:
-                MOLAR_MASS_G_PER_MOL[key] = float(rec["molar_mass_g_per_mol"])
-            if rec.get("osmotic_n") is not None:
-                OSMOTIC_N[key] = float(rec["osmotic_n"])
-            ions = rec.get("ions_mmol_per_g")
-            if isinstance(ions, dict) and ions:
-                ELECTROLYTE_IONS[key] = {f"{ion}_mmol_per_g": float(v) for ion, v in ions.items()}
+    apply_registry_to_legacy_maps(
+        registry,
+        SUBSTANCES,
+        MOLAR_MASS_G_PER_MOL,
+        OSMOTIC_N,
+        ELECTROLYTE_IONS,
+    )
 
 
 _load_external_physical_overlays()
