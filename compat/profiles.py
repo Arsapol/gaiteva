@@ -12,6 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Literal
 
+from compat.data import MOLAR_MASS_G_PER_MOL
 from compat.osmolality import HYPERTONIC_GATE, osmolality_report
 from compat.solubility import additive_report
 
@@ -39,6 +40,14 @@ _DRY_CHECKS = [
     "dose_uniformity_or_blend_uniformity",
     "oxygen_light_packaging_control",
 ]
+
+HYDRATION_THRESHOLDS = {
+    "na_min_mmol_per_l": 30.0,
+    "k_min_mmol_per_l": 5.0,
+    "cl_min_mmol_per_l": 30.0,
+    "glucose_to_na_min": 0.5,
+    "glucose_to_na_max": 3.0,
+}
 
 _WET_STORAGE_CHECKS = [
     "preservative_or_make_fresh_protocol",
@@ -68,7 +77,7 @@ def get_use_case_profile(use_case: UseCase) -> UseCaseProfile:
             use_case=use_case,
             required_inputs=["components", "final_delivered_volume_ml"],
             blocking_gates=["delivered_osmolality", "sodium_present_for_ors_claim"],
-            advisory_gates=["glucose_to_sodium_ratio", "same_day_reconstitution_or_preservation"],
+            advisory_gates=["na_k_cl_mmol_per_l_thresholds", "glucose_to_sodium_ratio", "same_day_reconstitution_or_preservation"],
             allowed_claims=_ALLOWED_CLAIMS[use_case],
             notes="Swallowed hydration claims use the delivered-volume ORS gate.",
         )
@@ -102,15 +111,52 @@ def get_use_case_profile(use_case: UseCase) -> UseCaseProfile:
     raise ValueError(f"unknown use_case: {use_case}")
 
 
+def _glucose_mmol(components: list[tuple[str, float]]) -> float:
+    """Glucose-equivalent mmol from dextrose forms tracked by the registry."""
+    total = 0.0
+    for name, grams in components:
+        if name not in {"dextrose", "dextrose_monohydrate"}:
+            continue
+        mw = MOLAR_MASS_G_PER_MOL.get(name)
+        if mw:
+            total += grams / mw * 1000.0
+    return total
+
+
 def _liquid_gate(components: list[tuple[str, float]], water_ml: float) -> dict:
     report = osmolality_report(components, water_ml=water_ml)
     gate = report["ors_gate"]
+    electro = report["electrolyte_balance"]
+    liters = water_ml / 1000.0
+    glucose_mmol = _glucose_mmol(components)
+    glucose_ratio = glucose_mmol / electro["na_mmol"] if electro["na_mmol"] > 0 else None
+    electrolyte_per_l = {
+        "na_mmol_per_l": electro["na_mmol"] / liters,
+        "k_mmol_per_l": electro["k_mmol"] / liters,
+        "cl_mmol_per_l": electro["cl_mmol"] / liters,
+        "glucose_mmol_per_l": glucose_mmol / liters,
+        "glucose_to_na_ratio": glucose_ratio,
+    }
+    threshold_flags = {
+        "na_below_min": electrolyte_per_l["na_mmol_per_l"] < HYDRATION_THRESHOLDS["na_min_mmol_per_l"],
+        "k_below_min": electrolyte_per_l["k_mmol_per_l"] < HYDRATION_THRESHOLDS["k_min_mmol_per_l"],
+        "cl_below_min": electrolyte_per_l["cl_mmol_per_l"] < HYDRATION_THRESHOLDS["cl_min_mmol_per_l"],
+        "glucose_to_na_outside_band": (
+            glucose_ratio is None
+            or glucose_ratio < HYDRATION_THRESHOLDS["glucose_to_na_min"]
+            or glucose_ratio > HYDRATION_THRESHOLDS["glucose_to_na_max"]
+        ),
+    }
+    threshold_blocking = any(threshold_flags.values())
     return {
         "water_ml": water_ml,
         "total_mosm_per_l": gate["total_mosm_per_l"],
         "verdict": gate["verdict"],
-        "hydration_blocking": report["blocking"],
-        "electrolyte_balance": report["electrolyte_balance"],
+        "hydration_blocking": report["blocking"] or threshold_blocking,
+        "electrolyte_balance": electro,
+        "electrolyte_mmol_per_l": electrolyte_per_l,
+        "hydration_thresholds": HYDRATION_THRESHOLDS,
+        "threshold_flags": threshold_flags,
         "unknown_molar_mass": report["osmolarity"]["unknown_molar_mass"],
         "source_report": report,
     }
@@ -160,7 +206,7 @@ def use_case_gate_report(
         result["liquid_gate"] = liquid
         result["hydration_blocking"] = liquid["hydration_blocking"]
         if liquid["hydration_blocking"]:
-            result["blocking_reasons"].append("delivered hydration ORS gate failed")
+            result["blocking_reasons"].append("delivered hydration ORS/electrolyte threshold gate failed")
         return result
 
     if use_case == "acute_sublingual":

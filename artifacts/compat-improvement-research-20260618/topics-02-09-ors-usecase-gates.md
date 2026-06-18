@@ -193,3 +193,9 @@ Subagent findings integrated:
 ## Coordination protocol
 
 Coordination protocol: coordinated - task JSON changed from generic stale inbox text to scoped Topics 2+9; current task file was treated as source of truth, subagents were read back with the updated scope, output paths were kept to task-owned artifact/wiki files, and shared code/formula files were left untouched.
+
+## Implementation note — 2026-06-18 worker-1
+
+The first implementation slice adds `compat/profiles.py` as a policy wrapper rather than rewriting `compat/osmolality.py`. The wrapper reports delivered-volume electrolyte concentrations (`Na/K/Cl mmol/L`), glucose mmol/L, and glucose:Na ratio for liquid gates, and uses minimal hydration thresholds to prevent the old trace-sodium false PASS from authorizing a hydration claim. Product/use-case routing now distinguishes hydration drinks, acute oral-mucosal/sublingual boluses, dry capsule/premix products, and wet concentrates/cores.
+
+Existing demo output remains the smoke baseline; automated regressions live in `tests/test_use_case_profiles.py`.
