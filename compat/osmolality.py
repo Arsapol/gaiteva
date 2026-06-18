@@ -152,15 +152,13 @@ def electrolyte_balance(components: list[tuple[str, float]], water_ml: float | N
         )
 
     if liters is None:
-        complete = na > 0.0
-        if not complete:
+        complete = False
+        completeness_warnings.append("water_ml required for volume-aware ORS completeness gate")
+        if na <= 0.0:
             completeness_warnings.append("no sodium source present")
         reason = (
-            "OK — sodium present; provide water_ml for mmol/L glucose:Na ORS gate"
-            if complete
-            else "BLOCKING — no added Na/K/Cl. Glucose without sodium does NOT pull "
-            "water across gut mucosa (SGLT1 needs Na+). Not a complete ORS; add a "
-            "Na/K/Cl premix (e.g. NaCl + KCl + Na-citrate) before claiming hydration."
+            "INSUFFICIENT_DATA — water_ml required to evaluate Na/K/Cl mmol/L and glucose:Na ORS gate. "
+            "Trace sodium alone is not a complete ORS pass."
         )
     else:
         checks = [

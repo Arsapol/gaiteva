@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import math
 from collections import defaultdict
+import json
 from typing import Any, Iterable, TypedDict
 
 from compat.data import DEGRADATION_EA_J_PER_MOL
@@ -221,6 +222,15 @@ def all_pathways(
 _ASSAY_REQUIRED_FIELDS = ("temperature_C", "time_days", "measured_value")
 _SUPPORTED_MODELS = {"first_order", "zero_order"}
 
+ASSAY_TARGET_TEMP_TOLERANCE_C = 0.6
+STRESS_SCREEN_ONLY_TEMP_C = 50.0
+LOW_EA_WARNING_THRESHOLD_J_PER_MOL = 50_000
+LOW_EA_WARNING_PATHWAYS = {"ascorbate_oxidation"}
+STORAGE_SCOPE_FIELDS = (
+    "formulation_id", "lot_id", "pH", "water_activity", "packaging",
+    "headspace", "light", "oxygen", "metal_ppb",
+)
+
 
 def _as_float(row: AssayPoint, key: str) -> float:
     value = row[key]
@@ -279,15 +289,15 @@ def assay_rates_by_temperature(
 
         if model_type == "first_order":
             if measured_value <= 0:
-                continue
+                raise ValueError("first_order assay measured_value must be > 0")
             fraction_remaining = measured_value / initial_value
             if not 0 < fraction_remaining <= 1:
-                continue
+                raise ValueError("first_order assay measured_value cannot exceed initial_value")
             rates[temp_C].append(-math.log(fraction_remaining) / time_days)
         else:
             loss = initial_value - measured_value
             if loss < 0:
-                continue
+                raise ValueError("zero_order assay measured_value cannot exceed initial_value")
             rates[temp_C].append(loss / time_days)
 
     fit: dict[float, dict[str, Any]] = {}
@@ -384,7 +394,7 @@ def _max_observed_days_at_temperature(
     max_days = 0.0
     for row in assay_points:
         _validate_assay_point(row)
-        if abs(_as_float(row, "temperature_C") - target_temperature_C) <= 0.6:
+        if abs(_as_float(row, "temperature_C") - target_temperature_C) <= ASSAY_TARGET_TEMP_TOLERANCE_C:
             max_days = max(max_days, _as_float(row, "time_days"))
     return max_days
 
@@ -412,7 +422,7 @@ def _ich_status(
             "Target-temperature observations cover the projected endpoint; label claim still remains limited to the tested matrix/packaging.",
         )
 
-    if max_assay_temperature_C is not None and max_assay_temperature_C >= 50.0:
+    if max_assay_temperature_C is not None and max_assay_temperature_C >= STRESS_SCREEN_ONLY_TEMP_C:
         return (
             "screen_only",
             False,
@@ -431,6 +441,23 @@ def _ich_status(
         False,
         "Single-temperature stress data are prior-constrained screening evidence only; real-time confirmation is required.",
     )
+
+
+def _storage_scope_metadata(rows: list[AssayPoint]) -> dict[str, Any]:
+    scope: dict[str, Any] = {}
+    for field in STORAGE_SCOPE_FIELDS:
+        values = []
+        for row in rows:
+            if field in row and row[field] is not None:
+                value = row[field]
+                marker = json.dumps(value, sort_keys=True, default=str) if isinstance(value, (dict, list)) else str(value)
+                if marker not in [m for m, _ in values]:
+                    values.append((marker, value))
+        if len(values) > 1:
+            raise ValueError(f"assay projection scope field {field!r} contains mixed values; split projections by storage scope")
+        if len(values) == 1:
+            scope[field] = values[0][1]
+    return scope
 
 
 def assay_shelf_life_projection(
@@ -459,6 +486,7 @@ def assay_shelf_life_projection(
     rows = [dict(row) for row in assay_points]
     for row in rows:
         _validate_assay_point(row)
+    storage_scope = _storage_scope_metadata(rows)
 
     rates = assay_rates_by_temperature(rows, initial_value=initial_value, model_type=model_type)
     fit = fit_arrhenius_ea_from_rates(rates)
@@ -503,7 +531,7 @@ def assay_shelf_life_projection(
     )
 
     low_ea_warning = ""
-    if pathway_key == "ascorbate_oxidation" or (ea_J is not None and ea_J <= 50_000):
+    if pathway_key in LOW_EA_WARNING_PATHWAYS or (ea_J is not None and ea_J <= LOW_EA_WARNING_THRESHOLD_J_PER_MOL):
         low_ea_warning = (
             "Low-Ea/ascorbate-sensitive pathway: accelerated data compress poorly and O2/light/metal/pH controls may dominate; require real-time assays."
         )
@@ -527,10 +555,8 @@ def assay_shelf_life_projection(
         "label_claim_supported": label_supported,
         "guardrail_note": guardrail_note,
         "low_ea_warning": low_ea_warning,
-        "storage_scope_fields": [
-            "formulation_id", "lot_id", "pH", "water_activity", "packaging",
-            "headspace", "light", "oxygen", "metal_ppb",
-        ],
+        "storage_scope_fields": list(STORAGE_SCOPE_FIELDS),
+        "storage_scope": storage_scope,
     }
 
 

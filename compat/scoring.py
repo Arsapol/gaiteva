@@ -22,6 +22,7 @@ HYDRATION_PRODUCT_TYPES = {"hydration_drink", "reconstituted_ors", "wet_concentr
 AQUEOUS_PRODUCT_TYPES = HYDRATION_PRODUCT_TYPES | {"acute_sublingual_or_drench"}
 DRY_PRODUCT_TYPES = {"dry_capsule", "dry_premix"}
 WET_STORED_PRODUCT_TYPES = {"hydration_drink", "wet_concentrate", "wet_core_plus_dry_activator", "acute_sublingual_or_drench"}
+KNOWN_PRODUCT_TYPES = HYDRATION_PRODUCT_TYPES | AQUEOUS_PRODUCT_TYPES | DRY_PRODUCT_TYPES
 
 
 def clamp(value: float, lo: float = 0.0, hi: float = 10.0) -> float:
@@ -90,7 +91,11 @@ def score_solubility_report(report: dict[str, Any] | None) -> dict[str, Any]:
 
     worst_fraction = 1.0
     water_ml = float(report.get("water_ml", 0.0) or 0.0)
-    for substance in report.get("substances") or []:
+    substance_rows = list(report.get("substances") or [])
+    for context in (report.get("contexts") or {}).values():
+        if isinstance(context, dict):
+            substance_rows.extend(context.get("substances") or [])
+    for substance in substance_rows:
         grams_value = substance.get("grams")
         if grams_value is None and water_ml > 0 and substance.get("conc_g_per_100ml") is not None:
             grams_value = float(substance.get("conc_g_per_100ml") or 0.0) * water_ml / 100.0
@@ -353,9 +358,12 @@ def evaluate_formula(
             name, grams = item
             normalized_components.append((str(name), float(grams)))
 
+    if product_type not in KNOWN_PRODUCT_TYPES:
+        raise ValueError(f"unknown product_type {product_type!r}; expected one of {sorted(KNOWN_PRODUCT_TYPES)}")
     if hydration_claim is None:
         hydration_claim = product_type in HYDRATION_PRODUCT_TYPES
-    solution_applies = product_type in AQUEOUS_PRODUCT_TYPES or bool(delivered_water_ml or water_ml)
+    supplied_water = delivered_water_ml is not None or water_ml is not None
+    solution_applies = product_type in AQUEOUS_PRODUCT_TYPES or (product_type not in DRY_PRODUCT_TYPES and supplied_water) or (product_type in DRY_PRODUCT_TYPES and bool(hydration_claim) and supplied_water)
     dry_mode = product_type in DRY_PRODUCT_TYPES and not solution_applies
 
     run_water_ml = delivered_water_ml if delivered_water_ml is not None else water_ml
@@ -394,6 +402,7 @@ def evaluate_formula(
         "schema_version": SCHEMA_VERSION,
         "product_type": product_type,
         "applicability": {
+            "solution_applies": bool(solution_applies),
             "standing_solution": bool(solution_applies and not dry_mode),
             "hydration_claim": bool(hydration_claim),
             "dry_ingestion": bool(product_type in DRY_PRODUCT_TYPES),

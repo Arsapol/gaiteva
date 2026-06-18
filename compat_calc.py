@@ -179,13 +179,16 @@ def run_demo() -> None:
     else:
         print(f"  Predicted pH : {ph_pred['predicted_pH']:.2f}  ({ph_pred['solver_status']})")
         print(f"  Citrate pool : {ph_pred['inventory']['total_citrate_mmol_per_l']:.1f} mmol/L")
-        beta = ph_pred['buffer_capacity']['beta_mmol_per_l_per_pH']
-        print(f"  Buffer beta  : {beta:.1f} mmol/L/pH (screening, citrate-only)")
+        beta = ph_pred['buffer_capacity']['beta_mmol_per_l_per_pH'] if ph_pred.get('buffer_capacity') else None
+        print("  Buffer beta  : not available" if beta is None else f"  Buffer beta  : {beta:.1f} mmol/L/pH (screening, citrate-only)")
         diluted = ph_pred['dilution']
         print(f"  Diluted 1 L  : pH {diluted['predicted_pH']:.2f}, citrate "
               f"{diluted['total_citrate_mmol_per_l']:.1f} mmol/L")
-        sorbate = ph_pred['preservative_active_fraction']
-        print(f"  Sorbate frac : {sorbate['undissociated_fraction']:.2f} — {sorbate['verdict']}")
+        preserv = ph_pred['preservative_active_fraction']
+        if preserv is None:
+            print("  Preservative : none detected in components")
+        else:
+            print(f"  Preservative : {preserv['preservative']} active frac {preserv['undissociated_fraction']:.2f} — {preserv['verdict']}")
     print(f"  Caveat       : {ph_pred['caveats'][0]}")
 
     # ------------------------------------------------------------------

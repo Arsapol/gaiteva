@@ -124,6 +124,8 @@ def _glucose_mmol(components: list[tuple[str, float]]) -> float:
 
 
 def _liquid_gate(components: list[tuple[str, float]], water_ml: float) -> dict:
+    if water_ml <= 0:
+        raise ValueError("water_ml must be positive for liquid gate evaluation")
     report = osmolality_report(components, water_ml=water_ml)
     gate = report["ors_gate"]
     electro = report["electrolyte_balance"]
@@ -214,7 +216,10 @@ def use_case_gate_report(
             liquid = _liquid_gate(components, water_ml)
             result["liquid_gate"] = liquid
             mosm = liquid["total_mosm_per_l"]
-            if mosm <= 1000 and (ph is None or 5.8 <= ph <= 6.5):
+            if ph is None:
+                result["mucosal_tolerance_advisory"] = "insufficient_data_missing_pH"
+                result["advisories"].append("pH is required before assigning an acute oral-mucosal conditional pass")
+            elif mosm <= 1000 and 5.8 <= ph <= 6.5:
                 result["mucosal_tolerance_advisory"] = "conditional_pass"
             elif mosm <= HYPERTONIC_GATE:
                 result["mucosal_tolerance_advisory"] = "low_osmotic_caution"

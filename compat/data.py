@@ -368,24 +368,24 @@ ELECTROLYTE_IONS: dict[str, dict] = {
 # a single object with compat_key/key or an object mapping names to records.
 # ---------------------------------------------------------------------------
 
+PHYSICAL_REGISTRY_DIAGNOSTICS: list[dict] = []
+
 def _load_external_physical_overlays() -> None:
     """Load validated repo-local physical registry overlays.
 
-    The historical loader resolved ``substances/physical`` from ``Path.cwd()``
-    and ignored malformed active records.  Use compat.registry so imports from
-    nested directories see the same constants and schema problems are available
-    to tests/audit reports.
+    Malformed active records are preserved as diagnostics, but valid records are
+    still applied. This avoids the previous all-or-nothing fallback where one
+    bad registry row silently disabled every external overlay. Strict validation
+    remains available through compat.registry.load_physical_registry(strict=True).
     """
+    global PHYSICAL_REGISTRY_DIAGNOSTICS
     try:
         from compat.registry import apply_registry_to_legacy_maps, load_physical_registry
-    except Exception:
+    except Exception as exc:
+        PHYSICAL_REGISTRY_DIAGNOSTICS = [{"level": "error", "message": f"registry import failed: {exc}"}]
         return
-    try:
-        registry = load_physical_registry(strict=True)
-    except Exception:
-        # Keep import-time compatibility for exploratory scripts; strict
-        # registry validation is enforced by tests/audit callers.
-        return
+    registry = load_physical_registry(strict=False)
+    PHYSICAL_REGISTRY_DIAGNOSTICS = [d.__dict__ for d in registry.diagnostics]
     apply_registry_to_legacy_maps(
         registry,
         SUBSTANCES,

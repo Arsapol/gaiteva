@@ -19,7 +19,7 @@ _REGISTRY_PATH = (
     / "compatibility"
     / "pairwise-rules.json"
 )
-_SEVERITY_RANK = {"pass": 0, "advisory": 1, "marginal": 2, "block": 3, "unknown": 4}
+_DEFAULT_SEVERITY_ORDER = ["pass", "advisory", "marginal", "block", "unknown"]
 _KNOWN_CONTEXTS = {
     "dry",
     "wet_stored",
@@ -54,6 +54,7 @@ def validate_registry(registry: dict[str, Any]) -> None:
     missing_top = required_top - registry.keys()
     if missing_top:
         raise ValueError(f"pairwise registry missing top-level fields: {sorted(missing_top)}")
+    severity_rank = _severity_rank(registry)
     if not isinstance(registry["rules"], list) or not registry["rules"]:
         raise ValueError("pairwise registry must contain at least one rule")
     for rule in registry["rules"]:
@@ -72,8 +73,11 @@ def validate_registry(registry: dict[str, Any]) -> None:
         } - rule.keys()
         if missing:
             raise ValueError(f"rule {rule.get('rule_id', '<unknown>')} missing fields: {sorted(missing)}")
-        if rule["severity"] not in _SEVERITY_RANK:
+        if rule["severity"] not in severity_rank:
             raise ValueError(f"rule {rule['rule_id']} has invalid severity {rule['severity']!r}")
+        for context, downgraded in rule.get("downgrade_contexts", {}).items():
+            if downgraded not in severity_rank:
+                raise ValueError(f"rule {rule['rule_id']} downgrade for {context!r} has invalid severity {downgraded!r}")
         for side in ("a", "b"):
             selector = rule[side]
             if not isinstance(selector, dict) or not ({"key", "class"} & selector.keys()):
@@ -125,8 +129,27 @@ def _contextual_severity(rule: dict[str, Any], context: str) -> tuple[str, str]:
     return "pass", "out-of-scope-context"
 
 
-def _max_severity(values: Iterable[str]) -> str:
-    return max(values, key=lambda severity: _SEVERITY_RANK.get(severity, -1), default="pass")
+def _severity_rank(registry: dict[str, Any] | None = None) -> dict[str, int]:
+    order = list((registry or {}).get("severity_order") or _DEFAULT_SEVERITY_ORDER)
+    if "pass" not in order:
+        order.insert(0, "pass")
+    return {severity: index for index, severity in enumerate(order)}
+
+
+def _max_severity(values: Iterable[str], registry: dict[str, Any] | None = None) -> str:
+    rank = _severity_rank(registry)
+    return max(values, key=lambda severity: rank.get(severity, -1), default="pass")
+
+
+def _overall_severity(known_severities: list[str], has_unknowns: bool, registry: dict[str, Any]) -> str:
+    max_known = _max_severity(known_severities, registry)
+    # Known blockers should remain visible to callers that gate on overall_severity.
+    # Unknown coverage is reported separately via has_unknowns/unmodeled_pairs.
+    if max_known == "block":
+        return "block"
+    if has_unknowns:
+        return "unknown"
+    return max_known
 
 
 def evaluate_pairwise(
@@ -185,10 +208,24 @@ def evaluate_pairwise(
                 "reason": "no active pairwise rule matched this exact/class pair",
             })
             continue
+        contextual_hits = []
+        out_of_scope_rule_ids = []
         for rule in matched_rules:
             severity, applicability = _contextual_severity(rule, phase_context)
             if severity == "pass" and applicability == "out-of-scope-context":
+                out_of_scope_rule_ids.append(rule["rule_id"])
                 continue
+            contextual_hits.append((rule, severity, applicability))
+        if not contextual_hits:
+            unmodeled_pairs.append({
+                "pair": [left["key"], right["key"]],
+                "severity": "unknown",
+                "reason": "matched rules do not model this phase_context",
+                "phase_context": phase_context,
+                "matched_rule_ids": out_of_scope_rule_ids,
+            })
+            continue
+        for rule, severity, applicability in contextual_hits:
             rule_hits.append({
                 "pair": [left["key"], right["key"]],
                 "rule_id": rule["rule_id"],
@@ -202,9 +239,8 @@ def evaluate_pairwise(
                 "source_refs": rule.get("source_refs", []),
             })
 
-    severities = [hit["severity"] for hit in rule_hits]
-    if unknown_substances or unmodeled_pairs:
-        severities.append("unknown")
+    known_severities = [hit["severity"] for hit in rule_hits if hit["severity"] != "unknown"]
+    has_unknowns = bool(unknown_substances or unmodeled_pairs)
 
     return {
         "schema_version": active_registry["schema_version"],
@@ -214,7 +250,9 @@ def evaluate_pairwise(
         "rule_hits": rule_hits,
         "unknown_substances": unknown_substances,
         "unmodeled_pairs": unmodeled_pairs,
-        "overall_severity": _max_severity(severities),
+        "has_unknowns": has_unknowns,
+        "max_known_severity": _max_severity(known_severities, active_registry),
+        "overall_severity": _overall_severity(known_severities, has_unknowns, active_registry),
         "gibbs_role": "backup-only explanation; not a primary compatibility gate",
     }
 
