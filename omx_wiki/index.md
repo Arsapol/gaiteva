@@ -1,6 +1,6 @@
 # Wiki Index
 
-> 60 pages | Last updated: 2026-06-17T16:27:14.834Z
+> 61 pages | Last updated: 2026-06-18T06:03:52.189Z
 
 ## decision
 
@@ -17,6 +17,7 @@
 ## reference
 
 - [Competitor Products — RELOAD PLUS (PH) + Vetafarm (AU): ribose corroboration + ORS comparison](competitor-products-reload-plus-ph-vetafarm-au-ribose-corroborat.md) — # Competitor Products — RELOAD PLUS (PH) + Vetafarm (AU): ribose corroboratio...
+- [Field Test — Tyrosine 130 mg Over-arousal and 4-hour Alert Window](field-test-tyrosine-130-mg-over-arousal-and-4-hour-alert-window.md) — # Field Test — Tyrosine 130 mg Over-arousal and 4-hour Alert Window
 - [Gamefowl Supplement Formula — Avian-Grounded Evaluation](gamefowl-supplement-formula-avian-grounded-evaluation.md) — # Gamefowl Supplement Formula — Avian-Grounded Evaluation
 - [Spanish-language gamefowl product ingredient survey 2026-06-17](spanish-language-gamefowl-product-ingredient-survey-2026-06-17.md) — # Spanish-language gamefowl product ingredient survey 2026-06-17
 - [Spanish-language gamefowl product ingredient survey part 2 2026-06-17](spanish-language-gamefowl-product-ingredient-survey-part-2-2026-.md) — # Spanish-language gamefowl product ingredient survey part 2 2026-06-17

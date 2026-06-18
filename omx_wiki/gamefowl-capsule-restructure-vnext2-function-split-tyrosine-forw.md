@@ -1,9 +1,9 @@
 ---
 title: "Gamefowl Capsule Restructure vNext2 — Function-Split, Tyrosine-Forward Focus Capsule"
-tags: ["gamefowl", "capsule", "vnext2", "focus", "dopamine", "tyrosine", "restructure", "preload", "copper", "TBCC"]
+tags: ["gamefowl", "capsule", "vnext2", "focus", "dopamine", "tyrosine", "restructure", "preload", "copper", "TBCC", "phenylalanine", "field-test"]
 created: 2026-06-16T06:41:29.978Z
-updated: 2026-06-16T06:47:11.489Z
-sources: ["substance dossiers: l-tyrosine", "l-phenylalanine", "l-glutamine", "pyridoxal-5-phosphate", "ascorbic-acid", "creatine-monohydrate", "nac", "rhodiola-rosea-extract", "Banderet & Lieberman 1989 PMID 2736402; Mahoney 2007 PMID 17585971; Jongkees 2015 PMID 26424423", "catecholamine cofactors: AADC=B6", "DBH=vitamin C + copper (Basic Neurochemistry NBK27988)", "TBCC bioavailability + vitamin protection broilers PMID 15971525; DOI 10.1007/s12011-010-8623-3", "NRC Nutrient Requirements of Poultry 1994 (Cu req 8 mg/kg, MTL ~300 mg/kg)"]
+updated: 2026-06-18T06:03:52.020Z
+sources: ["substance dossiers: l-tyrosine", "l-phenylalanine", "l-glutamine", "pyridoxal-5-phosphate", "ascorbic-acid", "creatine-monohydrate", "nac", "rhodiola-rosea-extract", "Banderet & Lieberman 1989 PMID 2736402; Mahoney 2007 PMID 17585971; Jongkees 2015 PMID 26424423", "catecholamine cofactors: AADC=B6", "DBH=vitamin C + copper (Basic Neurochemistry NBK27988)", "TBCC bioavailability + vitamin protection broilers PMID 15971525; DOI 10.1007/s12011-010-8623-3", "NRC Nutrient Requirements of Poultry 1994 (Cu req 8 mg/kg", "MTL ~300 mg/kg)", "operator field report 2026-06-18", "field-test-tyrosine-130-mg-over-arousal-and-4-hour-alert-window.md"]
 links: ["substance-l-tyrosine.md", "substance-l-phenylalanine.md", "substance-l-glutamine.md", "gamefowl-recovery-hydration-formula-vnext2-two-dry-sku-redesign.md", "substance-pyridoxal-5-phosphate.md", "substance-ascorbic-acid-vitamin-c.md", "substance-rhodiola-rosea-extract.md", "substance-copper-trace-dbh-cofactor.md"]
 category: decision
 confidence: high
@@ -79,3 +79,16 @@ The capsule's trace copper (DBH cofactor) = **TBCC, Cu2(OH)3Cl, ~58% Cu**. Chose
 - **R3 reminder:** Cu + ascorbate redox needs liquid water → safe DRY only (<40% RH, desiccant); never pre-dissolve. Keep NAC out of this capsule (Cu-thiolate risk).
 
 See [[substance-copper-trace-dbh-cofactor]]. Updated capsule copper row: "Copper (TBCC, ~58% Cu) 0.17-0.52 mg compound → 0.1-0.3 mg elemental Cu".
+
+---
+
+## Update (2026-06-18T06:03:52.020Z)
+
+## Update 2026-06-18 — Tyrosine 130 mg field-test correction
+
+Operator field report: L-tyrosine ~130 mg produced over-arousal in a fight-context bird: continuous jumping/attacking, poor early accuracy, then improved accuracy around round 3 after energy expenditure. A separate non-fighting bird remained alert for ~4 hours.
+
+Decision correction: the earlier 250-300 mg focus-capsule target is now considered too aggressive for a universal product and should not be treated as default. Current field-informed default should be phenotype-based: ~65-90 mg tyrosine for general/precision use, ~100-110 mg for low-drive birds only after test, and ~130 mg reserved for confirmed dull/late-start phenotypes. Avoid routine mid-fight tyrosine re-dose because the alertness window may already cover most/all of a 6-round event.
+
+Phenylalanine note: original DROP rationale remains valid for early precision (Phe competes with Tyr at LAT1 and is not direct). However, the user's intended delayed-tyrosine role for later rounds is a plausible field hypothesis. Treat Phe as optional low-dose delayed precursor to be A/B tested, not as a proven late-round lever.
+
