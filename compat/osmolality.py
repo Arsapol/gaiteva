@@ -254,8 +254,6 @@ def osmolality_report(components: list[tuple[str, float]], water_ml: float) -> d
 
 
 if __name__ == "__main__":
-    import pprint
-
     demo_components = [
         ("l_tyrosine", 0.5),
         ("creatine_monohydrate", 5.0),

@@ -97,8 +97,8 @@ def main() -> None:
         print(f"    Ea note   : {redox['ea_note']}")
 
     # Ionic strength (Davies validity + salting context)
-    I = ionic_strength(LIQUID_ORS, water_ml=WATER_ML)
-    print(f"\n  Ionic strength : {I['I_mol_per_l']:.3f} mol/L  ({I['note']})")
+    ionic = ionic_strength(LIQUID_ORS, water_ml=WATER_ML)
+    print(f"\n  Ionic strength : {ionic['I_mol_per_l']:.3f} mol/L  ({ionic['note']})")
 
     # Water activity / microbial
     aw = aw_report(LIQUID_ORS, water_ml=WATER_ML)

@@ -82,8 +82,8 @@ def main() -> None:
     # Tier-0 flags (no ascorbate in this drink -> redox N/A).
     redox = flag_from_components(FIGHT_DAY_DRINK)
     print(f"\n  Redox (ascorbate): {'N/A — no ascorbate in drink' if not redox.get('applicable', True) else redox['risk_level']}")
-    I = ionic_strength(FIGHT_DAY_DRINK, water_ml=WATER_ML)
-    print(f"  Ionic strength : {I['I_mol_per_l']:.3f} mol/L")
+    ionic = ionic_strength(FIGHT_DAY_DRINK, water_ml=WATER_ML)
+    print(f"  Ionic strength : {ionic['I_mol_per_l']:.3f} mol/L")
     aw = aw_report(FIGHT_DAY_DRINK, water_ml=WATER_ML)
     print(f"  Water activity : {aw['aw_raoult']:.4f} -> {aw['microbial_class']} "
           f"(make-fresh/discard-same-day covers the brief wet window)")
