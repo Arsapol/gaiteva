@@ -15,3 +15,7 @@ All public functions are pure and return new dicts (no mutation).
 Run from the project root so that absolute imports (from compat.X import …)
 resolve correctly.
 """
+
+from compat.report import evaluate_formula, render_markdown
+
+__all__ = ["evaluate_formula", "render_markdown"]
