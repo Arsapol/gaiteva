@@ -1,0 +1,72 @@
+{
+  "magnesium_chloride_hexahydrate": {
+    "compat_key": "magnesium_chloride",
+    "formula": "MgCl2\u00b76H2O",
+    "ions_mmol_per_g": {
+      "cl": 9.8396,
+      "mg": 4.9198
+    },
+    "key": "magnesium_chloride_hexahydrate",
+    "molar_mass_g_per_mol": 203.3,
+    "name": "Magnesium chloride hexahydrate",
+    "note": "MgCl2 hexahydrate physical constants loaded from stats-card registry; solubility dossier ~555\u2013560 g/L; molar mass on salt-as-weighed basis.",
+    "osmotic_n": 3.0,
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 55.5,
+    "source_refs": {
+      "formula": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "pubchem:CID24644"
+      ],
+      "ions_mmol_per_g": {
+        "cl": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "calc:ion-stoichiometry-from-mw"
+        ],
+        "mg": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "calc:ion-stoichiometry-from-mw"
+        ]
+      },
+      "molar_mass_g_per_mol": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "pubchem:CID24644"
+      ],
+      "note": [
+        "wiki:substance-magnesium-chloride-mgcl2"
+      ],
+      "osmotic_n": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "osmotic-model:screening-v0.2"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-magnesium-chloride-mgcl2"
+      ]
+    },
+    "source_wiki": "omx_wiki/substance-magnesium-chloride-mgcl2.md",
+    "sources": [
+      {
+        "id": "wiki:substance-magnesium-chloride-mgcl2",
+        "note": "MgCl2 dossier with citations and peer-review notes.",
+        "path": "omx_wiki/substance-magnesium-chloride-mgcl2.md",
+        "type": "dossier"
+      },
+      {
+        "id": "pubchem:CID24644",
+        "note": "PubChem identity / molecular weight for magnesium chloride hexahydrate.",
+        "type": "identity",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Magnesium-chloride-hexahydrate"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n=3 is ideal Mg2+ + 2Cl- screening value.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g from hydrated salt molecular weight.",
+        "type": "calculation-method"
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "new_substance_key": {
+    "compat_key": "new_substance_key",
+    "density_kg_m3": null,
+    "formula": "UNKNOWN",
+    "ions_mmol_per_g": {},
+    "key": "new_substance_key",
+    "molar_mass_g_per_mol": null,
+    "name": "New Substance Name",
+    "note": "DRAFT \u2014 do not use for scoring until reviewed/verified.",
+    "osmotic_n": null,
+    "pka": [],
+    "required_research": [
+      "CAS/form/salt/hydrate identity",
+      "molar mass on salt-as-weighed basis",
+      "aqueous solubility at ~25C",
+      "osmotic particle count at formula pH",
+      "electrolyte ion mmol/g if salt",
+      "pH/stability/degradation in water",
+      "compatibility conflicts: precipitation, redox, Maillard, pH, DEB"
+    ],
+    "review_status": "draft",
+    "solubility_g_per_100ml_25c": null,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:new-substance-dossier"
+      ],
+      "formula": [
+        "wiki:new-substance-dossier"
+      ],
+      "ions_mmol_per_g": [
+        "wiki:new-substance-dossier",
+        "calc:ion-stoichiometry-from-mw"
+      ],
+      "molar_mass_g_per_mol": [
+        "wiki:new-substance-dossier"
+      ],
+      "note": [
+        "wiki:new-substance-dossier"
+      ],
+      "osmotic_n": [
+        "wiki:new-substance-dossier",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:new-substance-dossier"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:new-substance-dossier"
+      ],
+      "wet_reactive_class_hint": [
+        "wiki:new-substance-dossier"
+      ]
+    },
+    "source_wiki": null,
+    "sources": [
+      {
+        "id": "wiki:new-substance-dossier",
+        "note": "Replace with omx_wiki/substance-*.md after formula-safety-check research.",
+        "path": null,
+        "type": "dossier"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not a measured osmolality.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  }
+}

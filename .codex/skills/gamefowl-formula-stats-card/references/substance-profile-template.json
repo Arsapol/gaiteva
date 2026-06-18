@@ -1,0 +1,102 @@
+{
+  "new_substance_key": {
+    "chronic_only": false,
+    "effects": {
+      "antiox": 0.0,
+      "atp": 0.0,
+      "energy": 0.0,
+      "fatigue": 0.0,
+      "focus": 0.0,
+      "hydration": 0.0,
+      "onset": 0.0,
+      "recovery": 0.0,
+      "resp": 0.0
+    },
+    "evidence": "unknown",
+    "notes": "Create only after formula-safety-check dossier/review. Effects are raw contribution points before evidence and dose multipliers.",
+    "ref": 100,
+    "required_research": [
+      "avian/poultry evidence and dose relevance",
+      "acute vs preload timing",
+      "mechanism boundaries and no pain-tolerance claims"
+    ],
+    "review_status": "draft",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:new-substance-dossier"
+      ],
+      "effects": {
+        "antiox": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "atp": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "energy": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "focus": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "hydration": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "onset": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:new-substance-dossier",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:new-substance-dossier"
+      ],
+      "notes": [
+        "wiki:new-substance-dossier"
+      ],
+      "ref": [
+        "wiki:new-substance-dossier",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [
+        "wiki:new-substance-dossier"
+      ],
+      "wet_reactive_class": [
+        "wiki:new-substance-dossier"
+      ]
+    },
+    "source_wiki": null,
+    "sources": [
+      {
+        "id": "wiki:new-substance-dossier",
+        "note": "Replace with omx_wiki/substance-*.md after formula-safety-check research.",
+        "path": null,
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect numbers are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  }
+}

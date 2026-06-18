@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gamefowl Formula Stats Card"
+  short_description: "Score avian formula effects and stability"
+  default_prompt: "Use $gamefowl-formula-stats-card to score this gamefowl formula across performance, recovery, respiratory, GI, and shelf-stability metrics."

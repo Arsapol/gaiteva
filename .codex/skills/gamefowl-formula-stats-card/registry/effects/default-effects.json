@@ -1,0 +1,1105 @@
+{
+  "ascorbate": {
+    "chronic_only": false,
+    "effects": {
+      "antiox": 1.2,
+      "focus": 0.3,
+      "onset": 0.3,
+      "recovery": 0.7
+    },
+    "evidence": "avian_indirect",
+    "notes": "Useful make-fresh; wet storage loses potency.",
+    "ref": 75,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-ascorbic-acid-vitamin-c"
+      ],
+      "effects": {
+        "antiox": [
+          "wiki:substance-ascorbic-acid-vitamin-c",
+          "rubric:stats-card-v0.2"
+        ],
+        "focus": [
+          "wiki:substance-ascorbic-acid-vitamin-c",
+          "rubric:stats-card-v0.2"
+        ],
+        "onset": [
+          "wiki:substance-ascorbic-acid-vitamin-c",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-ascorbic-acid-vitamin-c",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-ascorbic-acid-vitamin-c"
+      ],
+      "notes": [
+        "wiki:substance-ascorbic-acid-vitamin-c",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-ascorbic-acid-vitamin-c",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": [
+        "wiki:substance-ascorbic-acid-vitamin-c"
+      ]
+    },
+    "source_wiki": "omx_wiki/substance-ascorbic-acid-vitamin-c.md",
+    "sources": [
+      {
+        "id": "wiki:substance-ascorbic-acid-vitamin-c",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-ascorbic-acid-vitamin-c.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": "redox"
+  },
+  "b6": {
+    "chronic_only": false,
+    "effects": {
+      "atp": 0.3,
+      "focus": 0.9,
+      "onset": 0.3
+    },
+    "evidence": "mechanism",
+    "notes": "Cofactor; keep dry/light-protected.",
+    "ref": 2.5,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6"
+      ],
+      "effects": {
+        "atp": [
+          "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6",
+          "rubric:stats-card-v0.2"
+        ],
+        "focus": [
+          "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6",
+          "rubric:stats-card-v0.2"
+        ],
+        "onset": [
+          "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6"
+      ],
+      "notes": [
+        "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": [
+        "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6"
+      ]
+    },
+    "source_wiki": "omx_wiki/substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6.md",
+    "sources": [
+      {
+        "id": "wiki:substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-pyridoxal-5-phosphate-p5p-plp-active-vitamin-b6.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": "vitamin"
+  },
+  "betaine": {
+    "chronic_only": false,
+    "effects": {
+      "antiox": 0.6,
+      "fatigue": 1.3,
+      "hydration": 1.2,
+      "recovery": 0.7
+    },
+    "evidence": "avian",
+    "notes": "Osmolyte/methyl donor; strong heat-stress support.",
+    "ref": 250,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-betaine-anhydrous"
+      ],
+      "effects": {
+        "antiox": [
+          "wiki:substance-betaine-anhydrous",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-betaine-anhydrous",
+          "rubric:stats-card-v0.2"
+        ],
+        "hydration": [
+          "wiki:substance-betaine-anhydrous",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-betaine-anhydrous",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-betaine-anhydrous"
+      ],
+      "notes": [
+        "wiki:substance-betaine-anhydrous",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-betaine-anhydrous",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-betaine-anhydrous.md",
+    "sources": [
+      {
+        "id": "wiki:substance-betaine-anhydrous",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-betaine-anhydrous.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "coq10": {
+    "chronic_only": true,
+    "effects": {
+      "antiox": 1.8,
+      "atp": 1.0,
+      "fatigue": 0.6
+    },
+    "evidence": "avian",
+    "notes": "Chicken heat-stress mitochondrial ROS support; not acute stimulant proof.",
+    "ref": 5,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-coenzyme-q10-ubiquinone-coq10"
+      ],
+      "effects": {
+        "antiox": [
+          "wiki:substance-coenzyme-q10-ubiquinone-coq10",
+          "rubric:stats-card-v0.2"
+        ],
+        "atp": [
+          "wiki:substance-coenzyme-q10-ubiquinone-coq10",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-coenzyme-q10-ubiquinone-coq10",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-coenzyme-q10-ubiquinone-coq10"
+      ],
+      "notes": [
+        "wiki:substance-coenzyme-q10-ubiquinone-coq10",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-coenzyme-q10-ubiquinone-coq10",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-coenzyme-q10-ubiquinone-coq10.md",
+    "sources": [
+      {
+        "id": "wiki:substance-coenzyme-q10-ubiquinone-coq10",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-coenzyme-q10-ubiquinone-coq10.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "creatine": {
+    "chronic_only": true,
+    "effects": {
+      "atp": 1.8,
+      "fatigue": 0.8,
+      "recovery": 0.8
+    },
+    "evidence": "avian_indirect",
+    "notes": "ATP/PCr score mainly if preloaded; wet degradation risk.",
+    "ref": 200,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-creatine-monohydrate"
+      ],
+      "effects": {
+        "atp": [
+          "wiki:substance-creatine-monohydrate",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-creatine-monohydrate",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-creatine-monohydrate",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-creatine-monohydrate"
+      ],
+      "notes": [
+        "wiki:substance-creatine-monohydrate",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-creatine-monohydrate",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-creatine-monohydrate.md",
+    "sources": [
+      {
+        "id": "wiki:substance-creatine-monohydrate",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-creatine-monohydrate.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "d_ribose": {
+    "chronic_only": false,
+    "effects": {
+      "atp": 2.0,
+      "energy": 1.3,
+      "onset": 0.8,
+      "recovery": 1.8
+    },
+    "evidence": "field",
+    "notes": "Field-supported ATP/recovery lever; wet Maillard driver.",
+    "ref": 300,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-d-ribose"
+      ],
+      "effects": {
+        "atp": [
+          "wiki:substance-d-ribose",
+          "rubric:stats-card-v0.2"
+        ],
+        "energy": [
+          "wiki:substance-d-ribose",
+          "rubric:stats-card-v0.2"
+        ],
+        "onset": [
+          "wiki:substance-d-ribose",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-d-ribose",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-d-ribose",
+        "field:operator-program"
+      ],
+      "notes": [
+        "wiki:substance-d-ribose",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-d-ribose",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": [
+        "wiki:substance-d-ribose"
+      ]
+    },
+    "source_wiki": "omx_wiki/substance-d-ribose.md",
+    "sources": [
+      {
+        "id": "wiki:substance-d-ribose",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-d-ribose.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      },
+      {
+        "id": "field:operator-program",
+        "note": "Operator/practitioner field evidence captured in the dossier; lower evidence multiplier than controlled avian trials.",
+        "path": "omx_wiki/substance-d-ribose.md",
+        "type": "field-observation"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": "reducing_sugar"
+  },
+  "dmg": {
+    "chronic_only": false,
+    "effects": {
+      "antiox": 0.6,
+      "fatigue": 1.4,
+      "recovery": 0.8,
+      "resp": 1.5
+    },
+    "evidence": "avian_indirect",
+    "notes": "Formulation-friendly tertiary amine; avian heat/ascites lane.",
+    "ref": 100,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-dmg-n-n-dimethylglycine"
+      ],
+      "effects": {
+        "antiox": [
+          "wiki:substance-dmg-n-n-dimethylglycine",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-dmg-n-n-dimethylglycine",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-dmg-n-n-dimethylglycine",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:substance-dmg-n-n-dimethylglycine",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-dmg-n-n-dimethylglycine"
+      ],
+      "notes": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-dmg-n-n-dimethylglycine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-dmg-n-n-dimethylglycine",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-dmg-n-n-dimethylglycine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "gaa": {
+    "chronic_only": true,
+    "effects": {
+      "atp": 1.8,
+      "fatigue": 0.8,
+      "recovery": 0.8
+    },
+    "evidence": "avian_indirect",
+    "notes": "Better dry/preload than drink; low water solubility.",
+    "ref": 150,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-guanidinoacetic-acid-gaa"
+      ],
+      "effects": {
+        "atp": [
+          "wiki:substance-guanidinoacetic-acid-gaa",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-guanidinoacetic-acid-gaa",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-guanidinoacetic-acid-gaa",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-guanidinoacetic-acid-gaa"
+      ],
+      "notes": [
+        "wiki:substance-guanidinoacetic-acid-gaa",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-guanidinoacetic-acid-gaa",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-guanidinoacetic-acid-gaa.md",
+    "sources": [
+      {
+        "id": "wiki:substance-guanidinoacetic-acid-gaa",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-guanidinoacetic-acid-gaa.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "l_tyrosine": {
+    "chronic_only": false,
+    "effects": {
+      "focus": 2.4,
+      "onset": 1.4
+    },
+    "evidence": "mechanism",
+    "notes": "Dry-only focus lever; low water solubility.",
+    "ref": 200,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-l-tyrosine"
+      ],
+      "effects": {
+        "focus": [
+          "wiki:substance-l-tyrosine",
+          "rubric:stats-card-v0.2"
+        ],
+        "onset": [
+          "wiki:substance-l-tyrosine",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-l-tyrosine"
+      ],
+      "notes": [
+        "wiki:substance-l-tyrosine",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-l-tyrosine",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": [
+        "wiki:substance-l-tyrosine"
+      ]
+    },
+    "source_wiki": "omx_wiki/substance-l-tyrosine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-tyrosine",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-l-tyrosine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": "primary_amine"
+  },
+  "lclt": {
+    "chronic_only": true,
+    "effects": {
+      "atp": 0.5,
+      "energy": 0.5,
+      "fatigue": 0.8,
+      "recovery": 1.0,
+      "resp": 0.8
+    },
+    "evidence": "avian_indirect",
+    "notes": "More preload/chronic than acute.",
+    "ref": 50,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt"
+      ],
+      "effects": {
+        "atp": [
+          "wiki:substance-l-carnitine-l-tartrate-lclt",
+          "rubric:stats-card-v0.2"
+        ],
+        "energy": [
+          "wiki:substance-l-carnitine-l-tartrate-lclt",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-l-carnitine-l-tartrate-lclt",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-l-carnitine-l-tartrate-lclt",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:substance-l-carnitine-l-tartrate-lclt",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt"
+      ],
+      "notes": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-l-carnitine-l-tartrate-lclt.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-l-carnitine-l-tartrate-lclt.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "magnesium_chloride": {
+    "chronic_only": false,
+    "effects": {
+      "atp": 0.8,
+      "hydration": 0.6,
+      "recovery": 0.5,
+      "resp": 0.3
+    },
+    "evidence": "avian_indirect",
+    "notes": "Mg-ATP/electrolyte support; GI cap applies.",
+    "ref": 40,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-magnesium-chloride-mgcl2"
+      ],
+      "effects": {
+        "atp": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "rubric:stats-card-v0.2"
+        ],
+        "hydration": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-magnesium-chloride-mgcl2"
+      ],
+      "notes": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-magnesium-chloride-mgcl2.md",
+    "sources": [
+      {
+        "id": "wiki:substance-magnesium-chloride-mgcl2",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-magnesium-chloride-mgcl2.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "mct_oil": {
+    "chronic_only": false,
+    "effects": {
+      "energy": 2.8,
+      "fatigue": 0.7,
+      "onset": 0.8
+    },
+    "evidence": "field",
+    "notes": "Oil energy; score capped by emulsion/GI tolerance.",
+    "ref": 1.0,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-mct-oil-medium-chain-triglycerides"
+      ],
+      "effects": {
+        "energy": [
+          "wiki:substance-mct-oil-medium-chain-triglycerides",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-mct-oil-medium-chain-triglycerides",
+          "rubric:stats-card-v0.2"
+        ],
+        "onset": [
+          "wiki:substance-mct-oil-medium-chain-triglycerides",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-mct-oil-medium-chain-triglycerides",
+        "field:operator-program"
+      ],
+      "notes": [
+        "wiki:substance-mct-oil-medium-chain-triglycerides",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-mct-oil-medium-chain-triglycerides",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-mct-oil-medium-chain-triglycerides.md",
+    "sources": [
+      {
+        "id": "wiki:substance-mct-oil-medium-chain-triglycerides",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-mct-oil-medium-chain-triglycerides.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      },
+      {
+        "id": "field:operator-program",
+        "note": "Operator/practitioner field evidence captured in the dossier; lower evidence multiplier than controlled avian trials.",
+        "path": "omx_wiki/substance-mct-oil-medium-chain-triglycerides.md",
+        "type": "field-observation"
+      }
+    ],
+    "unit": "mL",
+    "wet_reactive_class": null
+  },
+  "potassium_chloride": {
+    "chronic_only": false,
+    "effects": {
+      "hydration": 0.9,
+      "resp": 0.5
+    },
+    "evidence": "avian_indirect",
+    "notes": "K/Cl electrolyte support.",
+    "ref": 10,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-potassium-chloride-kcl"
+      ],
+      "effects": {
+        "hydration": [
+          "wiki:substance-potassium-chloride-kcl",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:substance-potassium-chloride-kcl",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-potassium-chloride-kcl"
+      ],
+      "notes": [
+        "wiki:substance-potassium-chloride-kcl",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-potassium-chloride-kcl",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-potassium-chloride-kcl.md",
+    "sources": [
+      {
+        "id": "wiki:substance-potassium-chloride-kcl",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-potassium-chloride-kcl.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "sodium_chloride": {
+    "chronic_only": false,
+    "effects": {
+      "hydration": 1.2,
+      "onset": 0.3,
+      "resp": 0.6
+    },
+    "evidence": "avian_indirect",
+    "notes": "Cl-balanced hydration/acid-base support.",
+    "ref": 25,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-sodium-chloride-nacl"
+      ],
+      "effects": {
+        "hydration": [
+          "wiki:substance-sodium-chloride-nacl",
+          "rubric:stats-card-v0.2"
+        ],
+        "onset": [
+          "wiki:substance-sodium-chloride-nacl",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:substance-sodium-chloride-nacl",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-sodium-chloride-nacl"
+      ],
+      "notes": [
+        "wiki:substance-sodium-chloride-nacl",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-sodium-chloride-nacl",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-sodium-chloride-nacl.md",
+    "sources": [
+      {
+        "id": "wiki:substance-sodium-chloride-nacl",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-sodium-chloride-nacl.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "sodium_citrate": {
+    "chronic_only": false,
+    "effects": {
+      "hydration": 0.2,
+      "resp": 0.4
+    },
+    "evidence": "avian_indirect",
+    "notes": "Small buffer; penalize if over-used as alkali load.",
+    "ref": 15,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin"
+      ],
+      "effects": {
+        "hydration": [
+          "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin"
+      ],
+      "notes": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md",
+    "sources": [
+      {
+        "id": "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  },
+  "taurine": {
+    "chronic_only": false,
+    "effects": {
+      "antiox": 0.8,
+      "fatigue": 1.0,
+      "gi": 0.3,
+      "recovery": 1.0,
+      "resp": 0.5
+    },
+    "evidence": "avian_indirect",
+    "notes": "Dry/make-fresh preferred with ribose.",
+    "ref": 125,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-taurine"
+      ],
+      "effects": {
+        "antiox": [
+          "wiki:substance-taurine",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-taurine",
+          "rubric:stats-card-v0.2"
+        ],
+        "gi": [
+          "wiki:substance-taurine",
+          "rubric:stats-card-v0.2"
+        ],
+        "recovery": [
+          "wiki:substance-taurine",
+          "rubric:stats-card-v0.2"
+        ],
+        "resp": [
+          "wiki:substance-taurine",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-taurine"
+      ],
+      "notes": [
+        "wiki:substance-taurine",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-taurine",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": [
+        "wiki:substance-taurine"
+      ]
+    },
+    "source_wiki": "omx_wiki/substance-taurine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-taurine",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-taurine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": "primary_amine"
+  },
+  "vitamin_e_acetate": {
+    "chronic_only": true,
+    "effects": {
+      "antiox": 1.6,
+      "fatigue": 0.4
+    },
+    "evidence": "avian",
+    "notes": "Stable vitamin E source; not counted as strong in-bottle oil preservative.",
+    "ref": 10,
+    "review_status": "verified",
+    "solubility_key": null,
+    "source_refs": {
+      "chronic_only": [
+        "wiki:substance-vitamin-e-alpha-tocopheryl-acetate"
+      ],
+      "effects": {
+        "antiox": [
+          "wiki:substance-vitamin-e-alpha-tocopheryl-acetate",
+          "rubric:stats-card-v0.2"
+        ],
+        "fatigue": [
+          "wiki:substance-vitamin-e-alpha-tocopheryl-acetate",
+          "rubric:stats-card-v0.2"
+        ]
+      },
+      "evidence": [
+        "wiki:substance-vitamin-e-alpha-tocopheryl-acetate"
+      ],
+      "notes": [
+        "wiki:substance-vitamin-e-alpha-tocopheryl-acetate",
+        "rubric:stats-card-v0.2"
+      ],
+      "ref": [
+        "wiki:substance-vitamin-e-alpha-tocopheryl-acetate",
+        "rubric:stats-card-v0.2"
+      ],
+      "solubility_key": [],
+      "wet_reactive_class": []
+    },
+    "source_wiki": "omx_wiki/substance-vitamin-e-alpha-tocopheryl-acetate.md",
+    "sources": [
+      {
+        "id": "wiki:substance-vitamin-e-alpha-tocopheryl-acetate",
+        "note": "Substance dossier with citations and peer-review notes; exact citations live in the dossier.",
+        "path": "omx_wiki/substance-vitamin-e-alpha-tocopheryl-acetate.md",
+        "type": "dossier"
+      },
+      {
+        "id": "rubric:stats-card-v0.2",
+        "note": "Effect values are rubric-calibrated contribution points, not published efficacy constants.",
+        "path": "references/rubric.md",
+        "type": "scoring-model"
+      }
+    ],
+    "unit": "mg",
+    "wet_reactive_class": null
+  }
+}
