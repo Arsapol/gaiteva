@@ -10,6 +10,7 @@ ph_module   : Henderson-Hasselbalch, citrate buffer speciation, pH window check
 stokes      : Stokes settling velocity for undissolved fractions
 gibbs       : backup Gibbs free energy spontaneity screen
 redox       : Tier-0 ascorbate metal/O2-catalysed oxidation risk screener
+pairwise    : machine-readable pairwise incompatibility rule evaluator
 
 All public functions are pure and return new dicts (no mutation).
 Run from the project root so that absolute imports (from compat.X import …)
