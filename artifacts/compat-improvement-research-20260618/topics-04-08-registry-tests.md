@@ -28,6 +28,7 @@ Priority order:
 - `compat/solubility.py` depends on `SUBSTANCES` for solubility ceiling, dissolved solids, bottleneck, and supersaturation checks.
 - `compat/ph_module.py` reads citric acid pKa from `SUBSTANCES["citric_acid"]["pka"]`.
 - `compat/stokes.py` uses solubility and density for settling of undissolved fractions.
+- `compat/activity.py`, `compat/redox.py`, and `compat/water_activity.py` are adjacent tier-0 screens whose outputs rely on the same substance identity discipline, especially for salts, trace metals, antioxidants, and water activity assumptions.
 - There is no dedicated `tests/` directory, no pytest config, and no golden fixture folder in the repo root at task time.
 
 ### Existing validation evidence in scripts
@@ -47,6 +48,8 @@ The repo has three runnable scripts that already behave like informal golden tes
 - **Silent failures:** malformed JSON or unexpected records are ignored by broad `except Exception: continue` paths.
 - **Key ambiguity:** `compat_key` can differ from a file/object key (`magnesium_chloride_hexahydrate` maps to `magnesium_chloride`), which is useful but needs explicit salt-as-weighed semantics in tests.
 - **Review-status ambiguity:** rejected/blocked records are skipped, but `draft` records can load unless status is rejected/blocked. That is flexible for exploration but risky for production scoring.
+- **Unknown MW/ion fail-open risk:** current osmolarity sums known `mosm_per_l` values and surfaces `unknown_molar_mass`; prior task artifacts flagged magnesium chloride undercounting when `magnesium_chloride` lacked molar mass, so registry completeness must be test-gated before publication.
+- **Heuristic ORS completeness:** `complete_ors` currently means sodium is present; test fixtures should also capture glucose:Na, K/Cl balance, and unknown-solute warnings so a Na-only product cannot be over-promoted.
 - **No golden tolerances:** future refactors could change mOsm/L, ion mmol/L, or bottleneck counts without a test explaining whether the change is intended.
 
 ## How the improvement works
@@ -105,6 +108,7 @@ Create test fixtures for the three current scenarios:
 - `fixtures/compat/failing-liquid-drench.json`
 - `fixtures/compat/reformulated-liquid-ors.json`
 - `fixtures/compat/fight-day-drink-1l.json`
+- `fixtures/compat/concentrate-regression.json`
 
 Each fixture should contain:
 
@@ -166,9 +170,12 @@ This improvement changes the calculator from an expert-demo script into an audit
 - [ ] Golden: original liquid drench has two solubility bottlenecks: `l_tyrosine`, `creatine_monohydrate`.
 - [ ] Golden: reformulated liquid ORS remains `PASS`, approx `274 mOsm/L`, Na/K/Cl approx `74.1/20.1/64.6`, zero bottlenecks.
 - [ ] Golden: fight-day drink remains `PASS`, approx `291 mOsm/L`, Na/K/Cl approx `52.7/14.8/64.4`, zero bottlenecks.
+- [ ] Golden/negative: unknown molar mass, missing ion stoichiometry, and MgCl2 hydrate records surface as fail-closed warnings instead of silent undercounts.
+- [ ] Golden/negative: Na-only, glucose-only, WHO-like ORS, and anhydrous-vs-monohydrate fixtures distinguish real ORS completeness from merely having sodium present.
 - [ ] Golden: dry capsule/premix fixtures bypass standing-solution osmolality and use dry-product checks instead.
 - [ ] Regression: changing dextrose monohydrate to anhydrous dextrose in the drink fixture must fail or warn on margin loss.
 - [ ] Regression: blocked/rejected registry records do not affect outputs.
+- [ ] Regression: running calculator imports from repo root and nested directories yields the same registry keys/results or fails with a clear root-path error.
 
 ### Verification commands used for this research artifact
 
@@ -176,7 +183,7 @@ This improvement changes the calculator from an expert-demo script into an audit
 python3 compat_calc.py
 python3 reformulate.py
 python3 verify_dry_sku.py
-python3 -m compileall compat compat_calc.py reformulate.py verify_dry_sku.py
+python3 -m compileall compat compat_calc.py reformulate.py verify_dry_sku.py concentrate.py prep_sheet.py
 ```
 
 ## Affected files / proposed future files
@@ -188,7 +195,8 @@ python3 -m compileall compat compat_calc.py reformulate.py verify_dry_sku.py
 - `compat/solubility.py` — consumes solubility ceilings and miscibility convention.
 - `compat/ph_module.py` — consumes citric acid pKa.
 - `compat/stokes.py` — consumes solubility/density for undissolved particle settling.
-- `compat_calc.py`, `reformulate.py`, `verify_dry_sku.py` — should eventually read fixture inputs.
+- `compat/activity.py`, `compat/redox.py`, `compat/water_activity.py` — adjacent screens needing shared registry identity/provenance discipline.
+- `compat_calc.py`, `reformulate.py`, `verify_dry_sku.py`, `concentrate.py`, `prep_sheet.py` — should eventually read fixture inputs or validated recipe data; `concentrate.py` checks stored-liquid regression risk and `prep_sheet.py` prints weigh-out recipes tied to compat gate math.
 - `substances/physical/default-compat-physical.json`, `substances/physical/taurine.json`, `substances/physical/magnesium_chloride_hexahydrate.json` — current physical registry records.
 - `calculated-stats-card-v3-upgraded.md`, `calculated-stats-card-v3-upgraded.json` — downstream score/readiness reports that should trust stable compat outputs.
 
@@ -201,6 +209,7 @@ python3 -m compileall compat compat_calc.py reformulate.py verify_dry_sku.py
 - `fixtures/compat/failing-liquid-drench.json`
 - `fixtures/compat/reformulated-liquid-ors.json`
 - `fixtures/compat/fight-day-drink-1l.json`
+- `fixtures/compat/concentrate-regression.json`
 - `artifacts/compat-registry-drift/*.json` or similar generated audit output
 
 ## Evidence references
@@ -213,6 +222,8 @@ python3 -m compileall compat compat_calc.py reformulate.py verify_dry_sku.py
 - pH pKa consumer: `compat/ph_module.py`.
 - Demo/golden scripts: `compat_calc.py`, `reformulate.py`, `verify_dry_sku.py`.
 - Registry records: `substances/physical/default-compat-physical.json`, `substances/physical/taurine.json`, `substances/physical/magnesium_chloride_hexahydrate.json`.
+- Adjacent scripts surfaced by subagent scan: `concentrate.py`, `prep_sheet.py`.
+- Prior MgCl2 undercount notes: `task-3-artifacts/v4-ors-card.md`, `task-5-artifacts/worker4-v4-calc-unverified.md`, `task-5-artifacts/worker-2-independent-verifier-synthesis.md`, `task-3-artifacts/worker-2-low-osmolality-formula-probe.md`.
 - Prior calculator KB: `.omc/wiki/formulation-compatibility-stability-calculator-compat-osmolality.md`.
 - Provenance registry precedent: `omx_wiki/stats-card-provenance-registry-upgrade-2026-06-17.md`.
 
@@ -227,6 +238,10 @@ Coordination protocol: coordinated - task list boundaries checked; this artifact
 
 ## Subagent findings integrated
 
-Subagents spawned: 3 read-only researcher probes (`current repo state`, `risk/edge-case review`, `documentation/migration slice review`) using the task-required gpt-5.4-mini researcher role.  
-Serial searches before spawn: 1 task-file/inbox read sequence after claim.  
-Findings integrated: pending child reports were not required to author the first pass; final task completion evidence will include completed child IDs and any additional integrated bullets, or note if no child completed before deadline.
+Subagents spawned: 3 read-only researcher probes using the task-required gpt-5.4-mini researcher role.
+
+- Current repo state probe (`019ed997-162f-7590-bed3-15506881bb2a`): added `concentrate.py` / `prep_sheet.py` support surfaces, full compat module map, MgCl2 undercount prior-art references, and stats-card provenance linkage.
+- Risk/edge-case probe (`019ed997-2a1c-7933-9aa1-b9691196be1b`): added CWD-dependent registry risk, unknown-MW fail-open risk, ORS completeness edge cases, hydrate/salt swap fixture needs, and dry-vs-wet mode regression checks.
+- Documentation/migration slice probe (`019ed997-3e9c-7b32-b74d-48788f08f79a`): added slice boundary guidance and warned against merging counter-ion/form-specific substance pages into generic electrolyte/sugar pages.
+
+Serial searches before spawn: 1 task-file/inbox read sequence after claim.

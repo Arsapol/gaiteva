@@ -26,9 +26,14 @@ Make `substances/physical/*.json` the canonical source for physical constants us
 ## Current repo state
 
 - `compat/data.py` still carries hardcoded `SUBSTANCES`, `MOLAR_MASS_G_PER_MOL`, `OSMOTIC_N`, `ELECTROLYTE_IONS`, and Arrhenius constants.
-- `compat/data.py` also imports `substances/physical/*.json` overlays at import time using current working directory lookup.
+- `compat/data.py` also imports `substances/physical/*.json` overlays at import time using current working directory lookup; this can change results by launch directory if not hardened.
 - `substances/physical/default-compat-physical.json` already contains richer provenance-backed records and should become the source of truth.
+- Adjacent scripts `concentrate.py` and `prep_sheet.py` should be covered by fixture-backed recipe/report tests where they depend on compatibility math.
 - No `tests/` or golden fixture suite exists yet.
+
+## How the improvement works
+
+Define a canonical physical-record schema for `substances/physical/*.json`, load reviewed/verified records through an explicit repo-root-aware loader, audit drift against the legacy `compat/data.py` constants during migration, and protect known calculator outcomes with pytest golden fixtures. The fixtures should assert osmolality, ORS verdict, Na/K/Cl mmol/L, bottleneck counts, registry-status handling, hydrate/salt identity, and dry-vs-wet use-case behavior.
 
 ## Formula-design impact
 
@@ -39,6 +44,8 @@ Golden tests protect the decisions that matter most: hydration products must rem
 - `osmotic_n` is a screening approximation, not measured osmolality.
 - Matrix solubility can differ from single-substance ceilings.
 - Registry overlays can hide defaults if duplicate keys are not audited.
+- Missing molar mass/ion data can undercount osmoles; MgCl2 prior artifacts already flagged this class of failure.
+- `complete_ors` is currently heuristic; Na-only/glucose-only/WHO-like fixtures should prevent overclaiming hydration.
 - Draft records are useful for research but should not silently enter production scoring.
 
 ## Validation checklist
@@ -47,7 +54,8 @@ Golden tests protect the decisions that matter most: hydration products must rem
 - Add drift audit between legacy constants and registry values.
 - Add pytest fixtures for `1542 BLOCK`, `274 PASS`, and `291 PASS`.
 - Add negative fixture for dextrose monohydrate swapped to anhydrous dextrose.
-- Add loader tests for rejected/blocked/draft records and duplicate compat keys.
+- Add negative fixtures for unknown MW/ions, MgCl2 hydrate identity, Na-only and glucose-only pseudo-ORS formulas.
+- Add loader tests for rejected/blocked/draft records, duplicate compat keys, and CWD-independent registry loading.
 
 ## Affected files
 
@@ -59,6 +67,8 @@ Golden tests protect the decisions that matter most: hydration products must rem
 - `compat_calc.py`
 - `reformulate.py`
 - `verify_dry_sku.py`
+- `concentrate.py`
+- `prep_sheet.py`
 - `substances/physical/*.json`
 - future `tests/test_compat_registry.py`, `tests/test_compat_golden_fixtures.py`, and `fixtures/compat/*.json`
 
