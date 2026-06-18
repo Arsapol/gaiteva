@@ -54,3 +54,11 @@ Goldens can freeze early screening assumptions too tightly. Tests should allow t
 - Command evidence in this task: no test files found by `find` for `test*.py`, `pytest.ini`, or `pyproject.toml`.
 - `compat/solubility.py:207-227` and `compat/osmolality.py:173-196` have smoke-test blocks but not a CI harness.
 - Current script outputs captured under `/tmp/worker3-*.out` during this research pass.
+
+
+## Subagent-integrated edge cases
+
+- Review probe found `compat/osmolality.py` currently labels the electrolyte gate as Na/K/Cl balance, but `complete_ors` is only `na > 0.0`; sodium-only formulas can pass the completeness flag. Future ORS work must test K/Cl sufficiency and glucose:Na ratio, not just sodium presence.
+- Review probe found `compat/data.py` overlay loading is `Path.cwd()` sensitive. If the calculator is imported from a non-repo cwd, overlay-backed constants such as `magnesium_chloride` can disappear. Future registry work should resolve overlays relative to project root or module root.
+- Review probe found unknown molar masses are surfaced but do not fail the osmolality gate; this can undercount osmoles. The unified report should downgrade confidence or block hydration claims when osmolarity-critical MW data are missing.
+- Review probe found `compat/water_activity.py` threshold prose has a possible 0.85/0.91 wording mismatch even though classification math appears sound. Documentation and tests should cover prose as well as math for audit reliability.

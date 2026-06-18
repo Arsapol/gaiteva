@@ -55,3 +55,11 @@ Reference bands are species/use-case approximations, not a measured gamefowl cli
 - `compat/osmolality.py:36-40` defines reference constants.
 - `compat/osmolality.py:98-129` totals electrolyte millimoles but not mmol/L.
 - Command evidence: `reformulate.py` outputs 274 mOsm/L, Na 74.1/K 20.1/Cl 64.6; `verify_dry_sku.py` outputs 291 mOsm/L, Na 52.7/K 14.8/Cl 64.4.
+
+
+## Subagent-integrated edge cases
+
+- Review probe found `compat/osmolality.py` currently labels the electrolyte gate as Na/K/Cl balance, but `complete_ors` is only `na > 0.0`; sodium-only formulas can pass the completeness flag. Future ORS work must test K/Cl sufficiency and glucose:Na ratio, not just sodium presence.
+- Review probe found `compat/data.py` overlay loading is `Path.cwd()` sensitive. If the calculator is imported from a non-repo cwd, overlay-backed constants such as `magnesium_chloride` can disappear. Future registry work should resolve overlays relative to project root or module root.
+- Review probe found unknown molar masses are surfaced but do not fail the osmolality gate; this can undercount osmoles. The unified report should downgrade confidence or block hydration claims when osmolarity-critical MW data are missing.
+- Review probe found `compat/water_activity.py` threshold prose has a possible 0.85/0.91 wording mismatch even though classification math appears sound. Documentation and tests should cover prose as well as math for audit reliability.
