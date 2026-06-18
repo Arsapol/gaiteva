@@ -1,0 +1,18 @@
+{
+  "name": "reformulated liquid ORS",
+  "source": "reformulate.py",
+  "components_symbol": "LIQUID_ORS",
+  "water_ml_symbol": "WATER_ML",
+  "expected": {
+    "total_mosm_per_l": 273.7580347345433,
+    "rounded_mosm_per_l": 274,
+    "verdict": "PASS",
+    "blocking": false,
+    "complete_ors": true,
+    "na_mmol": 74.07185019739104,
+    "k_mmol": 20.120724346076457,
+    "cl_mmol": 64.61079963697311,
+    "bottleneck_count": 0,
+    "bottleneck_names": []
+  }
+}

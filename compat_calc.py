@@ -31,7 +31,7 @@ THREE REAL LEVERS
 
 from compat.solubility import additive_report
 from compat.arrhenius import all_pathways
-from compat.ph_module import ph_window_check, degradation_vs_ph
+from compat.ph_module import citrate_ph_report, ph_window_check, degradation_vs_ph
 from compat.stokes import settling_report
 from compat.gibbs import screen_pair
 from compat.osmolality import osmolality_report
@@ -102,7 +102,13 @@ def run_demo() -> None:
     print(f"  Reference  : WHO ORS ~{gate['who_ors_ref']:.0f}; avian isotonic "
           f"{gate['avian_isotonic_ref'][0]:.0f}-{gate['avian_isotonic_ref'][1]:.0f} mOsm/L")
     print(f"  Note       : {gate['note']}")
-    print(f"\n  Electrolyte: complete ORS? {'YES' if electro['complete_ors'] else 'NO'}")
+    print(f"\n  Electrolytes (mmol/L): Na {electro['na_mmol_per_l']:.1f}  "
+          f"K {electro['k_mmol_per_l']:.1f}  Cl {electro['cl_mmol_per_l']:.1f}")
+    glucose_ratio = electro['glucose_to_na_ratio']
+    glucose_ratio_s = f"{glucose_ratio:.2f}" if glucose_ratio is not None else "N/A"
+    print(f"  Glucose     (mmol/L): {electro['glucose_mmol_per_l']:.1f}  "
+          f"glucose:Na {glucose_ratio_s}")
+    print(f"  Electrolyte: complete ORS? {'YES' if electro['complete_ors'] else 'NO'}")
     print(f"  Reason     : {electro['reason']}")
     print("\n  Top osmotic contributors (dissolved fraction):")
     ranked = sorted(
@@ -165,6 +171,25 @@ def run_demo() -> None:
     print(f"  Ascorbate oxidation : {degr['ascorbate_oxidation']}")
     print(f"  Maillard browning   : {degr['maillard_browning']}")
     print(f"  Combined            : {degr['combined_recommendation']}")
+
+    ph_pred = citrate_ph_report(COMPONENTS, water_ml=WATER_ML, dilution_water_ml=1000.0)
+    _sub("Citrate pH/buffer screening estimate (low-confidence; meter-confirm)")
+    if ph_pred["predicted_pH"] is None:
+        print(f"  Predicted pH : not available ({ph_pred['solver_status']})")
+    else:
+        print(f"  Predicted pH : {ph_pred['predicted_pH']:.2f}  ({ph_pred['solver_status']})")
+        print(f"  Citrate pool : {ph_pred['inventory']['total_citrate_mmol_per_l']:.1f} mmol/L")
+        beta = ph_pred['buffer_capacity']['beta_mmol_per_l_per_pH'] if ph_pred.get('buffer_capacity') else None
+        print("  Buffer beta  : not available" if beta is None else f"  Buffer beta  : {beta:.1f} mmol/L/pH (screening, citrate-only)")
+        diluted = ph_pred['dilution']
+        print(f"  Diluted 1 L  : pH {diluted['predicted_pH']:.2f}, citrate "
+              f"{diluted['total_citrate_mmol_per_l']:.1f} mmol/L")
+        preserv = ph_pred['preservative_active_fraction']
+        if preserv is None:
+            print("  Preservative : none detected in components")
+        else:
+            print(f"  Preservative : {preserv['preservative']} active frac {preserv['undissociated_fraction']:.2f} — {preserv['verdict']}")
+    print(f"  Caveat       : {ph_pred['caveats'][0]}")
 
     # ------------------------------------------------------------------
     # LEVER 3 — Arrhenius per-pathway projections (40 °C stress / 25 °C store)

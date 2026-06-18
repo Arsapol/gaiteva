@@ -44,7 +44,7 @@ def main() -> None:
     conc = concentrate_per_l()
 
     print("=" * 74)
-    print(f"  5x LIQUID CONCENTRATE  (dose: 1 cc concentrate + 4 cc water = 5 cc)")
+    print("  5x LIQUID CONCENTRATE  (dose: 1 cc concentrate + 4 cc water = 5 cc)")
     print("=" * 74)
 
     # --- Concentrate prep sheet ---
@@ -76,7 +76,10 @@ def main() -> None:
     g = osmo["ors_gate"]
     e = osmo["electrolyte_balance"]
     print(f"      {g['total_mosm_per_l']:.0f} mOsm/L -> {g['verdict']}   "
-          f"Na {e['na_mmol']:.0f} / K {e['k_mmol']:.0f} / Cl {e['cl_mmol']:.0f}  "
+          f"Na {e['na_mmol_per_l']:.0f} / K {e['k_mmol_per_l']:.0f} / "
+          f"Cl {e['cl_mmol_per_l']:.0f} mmol/L  "
+          f"glucose {e['glucose_mmol_per_l']:.0f} mmol/L  "
+          f"glucose:Na {e['glucose_to_na_ratio']:.2f}  "
           f"complete ORS: {'YES' if e['complete_ors'] else 'NO'}")
     print("      (dilution does not change the FINAL concentration -> same 291 mOsm/L PASS)")
 

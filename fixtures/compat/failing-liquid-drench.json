@@ -1,0 +1,21 @@
+{
+  "name": "failing-liquid-drench",
+  "water_ml": 150.0,
+  "components": [
+    {"key": "l_tyrosine", "grams": 0.5},
+    {"key": "creatine_monohydrate", "grams": 5.0},
+    {"key": "dextrose", "grams": 12.0},
+    {"key": "ascorbic_acid", "grams": 2.0},
+    {"key": "citric_acid", "grams": 1.5},
+    {"key": "beta_alanine", "grams": 2.0},
+    {"key": "glycerin", "grams": 10.0}
+  ],
+  "expected": {
+    "osmolarity_mosm_per_l": 1542,
+    "osmolarity_tolerance": 1.0,
+    "verdict": "BLOCK",
+    "complete_ors": false,
+    "bottleneck_count": 2,
+    "bottleneck_keys": ["l_tyrosine", "creatine_monohydrate"]
+  }
+}

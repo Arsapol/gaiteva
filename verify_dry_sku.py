@@ -59,10 +59,14 @@ def main() -> None:
     print(f"\n  Osmolarity : {gate['total_mosm_per_l']:.0f} mOsm/L  ->  {gate['verdict']}"
           f"   (wiki claim ~{WIKI_CLAIM['osmolarity']})")
     print(f"  Note       : {gate['note']}")
-    print(f"\n  Electrolytes (mmol/L): Na {electro['na_mmol']:.1f} (wiki ~{WIKI_CLAIM['na']})  "
-          f"K {electro['k_mmol']:.1f} (wiki ~{WIKI_CLAIM['k']})  "
-          f"Cl {electro['cl_mmol']:.1f} (wiki ~{WIKI_CLAIM['cl']})")
-    print(f"  Complete ORS? {'YES' if electro['complete_ors'] else 'NO'}")
+    print(f"\n  Electrolytes (mmol/L): Na {electro['na_mmol_per_l']:.1f} (wiki ~{WIKI_CLAIM['na']})  "
+          f"K {electro['k_mmol_per_l']:.1f} (wiki ~{WIKI_CLAIM['k']})  "
+          f"Cl {electro['cl_mmol_per_l']:.1f} (wiki ~{WIKI_CLAIM['cl']})")
+    print(f"  Glucose     (mmol/L): {electro['glucose_mmol_per_l']:.1f}  "
+          f"glucose:Na {electro['glucose_to_na_ratio']:.2f}")
+    print(f"  Complete ORS? {'YES' if electro['complete_ors'] else 'NO'} — {electro['reason']}")
+    if electro['completeness_warnings']:
+        print(f"  ORS warnings: {'; '.join(electro['completeness_warnings'])}")
 
     print("\n  Osmotic contributions (mOsm/L):")
     for c in sorted(
@@ -78,8 +82,8 @@ def main() -> None:
     # Tier-0 flags (no ascorbate in this drink -> redox N/A).
     redox = flag_from_components(FIGHT_DAY_DRINK)
     print(f"\n  Redox (ascorbate): {'N/A — no ascorbate in drink' if not redox.get('applicable', True) else redox['risk_level']}")
-    I = ionic_strength(FIGHT_DAY_DRINK, water_ml=WATER_ML)
-    print(f"  Ionic strength : {I['I_mol_per_l']:.3f} mol/L")
+    ionic = ionic_strength(FIGHT_DAY_DRINK, water_ml=WATER_ML)
+    print(f"  Ionic strength : {ionic['I_mol_per_l']:.3f} mol/L")
     aw = aw_report(FIGHT_DAY_DRINK, water_ml=WATER_ML)
     print(f"  Water activity : {aw['aw_raoult']:.4f} -> {aw['microbial_class']} "
           f"(make-fresh/discard-same-day covers the brief wet window)")
