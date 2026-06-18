@@ -31,6 +31,7 @@ _STANDING_SOLUTION_TYPES = {
 }
 _HYDRATION_TYPES = {"hydration_drink", "reconstituted_drink", "wet_concentrate"}
 _DRY_TYPES = {"dry_capsule", "dry_premix"}
+_KNOWN_PRODUCT_TYPES = _STANDING_SOLUTION_TYPES | _DRY_TYPES
 
 
 def _components_as_tuples(components: Sequence[Mapping[str, Any] | Sequence[Any]]) -> list[tuple[str, float]]:
@@ -56,10 +57,11 @@ def _registry_snapshot() -> str:
         return "compat-data@unknown"
     payload = json.dumps(
         {
-            "substances": sorted(SUBSTANCES),
-            "molar_masses": sorted(MOLAR_MASS_G_PER_MOL),
+            "substances": SUBSTANCES,
+            "molar_masses": MOLAR_MASS_G_PER_MOL,
         },
         sort_keys=True,
+        default=str,
     ).encode("utf-8")
     return f"compat-data@{sha256(payload).hexdigest()[:12]}"
 
@@ -94,6 +96,8 @@ def _finding(
 
 
 def _applicability(product_type: str, water_ml: float | None, delivered_water_ml: float | None) -> dict[str, Any]:
+    if product_type not in _KNOWN_PRODUCT_TYPES:
+        raise ValueError(f"unknown product_type {product_type!r}; expected one of {sorted(_KNOWN_PRODUCT_TYPES)}")
     standing = product_type in _STANDING_SOLUTION_TYPES and (water_ml or delivered_water_ml) is not None
     hydration = product_type in _HYDRATION_TYPES
     dry = product_type in _DRY_TYPES
@@ -114,7 +118,7 @@ def _applicability(product_type: str, water_ml: float | None, delivered_water_ml
     }
 
 
-def _score_osmolality(osmo: Mapping[str, Any] | None, applies: bool) -> tuple[float, float, list[dict[str, Any]]]:
+def _score_osmolality(osmo: Mapping[str, Any] | None, applies: bool, *, hydration_claim: bool) -> tuple[float, float, list[dict[str, Any]]]:
     if not applies or osmo is None:
         return 10.0, 10.0, [
             _finding(
@@ -163,7 +167,7 @@ def _score_osmolality(osmo: Mapping[str, Any] | None, applies: bool) -> tuple[fl
             ),
         )
     ]
-    if not electro["complete_ors"]:
+    if hydration_claim and not electro["complete_ors"]:
         findings.append(
             _finding(
                 id="osmolality.electrolytes_incomplete",
@@ -295,6 +299,7 @@ def evaluate_formula(
     eval_water_ml = delivered_water_ml if delivered_water_ml is not None else water_ml
     app = _applicability(product_type, water_ml, delivered_water_ml)
     aqueous_applies = app["standing_solution"] and eval_water_ml is not None
+    in_bottle_water_ml = water_ml if product_type in {"wet_concentrate", "wet_core_plus_dry_activator"} and water_ml is not None and delivered_water_ml is not None and water_ml != delivered_water_ml else None
 
     gates: dict[str, Any] = {}
     findings: list[dict[str, Any]] = []
@@ -309,14 +314,47 @@ def evaluate_formula(
         gates["osmolality"] = osmo
         gates["solubility"] = sol
         gates["water_activity"] = aw
+        if in_bottle_water_ml is not None:
+            gates["in_bottle"] = {
+                "osmolality": osmolality_report(comp, water_ml=float(in_bottle_water_ml)),
+                "solubility": additive_report(comp, water_ml=float(in_bottle_water_ml)),
+                "water_activity": aw_report(comp, water_ml=float(in_bottle_water_ml)),
+            }
     else:
         gates["osmolality"] = {"applicable": False, "reason": "dry/no standing solution water volume"}
         gates["solubility"] = {"applicable": False, "reason": "dry/no aqueous solvent volume"}
 
-    hydration_score, hydration_cap, osmo_findings = _score_osmolality(osmo, aqueous_applies and app["hydration_claim"])
+    hydration_score, hydration_cap, osmo_findings = _score_osmolality(osmo, aqueous_applies, hydration_claim=app["hydration_claim"])
     solubility_score, sol_findings = _score_solubility(sol, aqueous_applies)
     findings.extend(osmo_findings)
     findings.extend(sol_findings)
+    if in_bottle_water_ml is not None:
+        in_bottle_osmo = gates["in_bottle"]["osmolality"]
+        in_bottle_sol = gates["in_bottle"]["solubility"]
+        if in_bottle_osmo["ors_gate"]["verdict"] == "BLOCK":
+            findings.append(_finding(
+                id="wet_concentrate.in_bottle_hypertonic",
+                module="compat.osmolality",
+                severity="WARNING",
+                applies=True,
+                metric="commercial_readiness",
+                score_delta=-1.0,
+                message=f"Stored concentrate is hypertonic/neat-use unsafe at {in_bottle_osmo['ors_gate']['total_mosm_per_l']:.0f} mOsm/L; PASS can only apply to labeled dilution.",
+                evidence={"water_ml": in_bottle_water_ml, "verdict": in_bottle_osmo["ors_gate"]["verdict"]},
+                next_action="Label dilution clearly; do not allow neat hydration use; validate in-bottle solubility/stability separately.",
+            ))
+        if in_bottle_sol["bottlenecks"] or in_bottle_sol["tds"].get("salting_out_flag"):
+            findings.append(_finding(
+                id="wet_concentrate.in_bottle_solubility_tds",
+                module="compat.solubility",
+                severity="WARNING",
+                applies=True,
+                metric="stability",
+                score_delta=-1.0,
+                message="Stored concentrate has solubility/TDS risk that is not cleared by delivered dilution alone.",
+                evidence={"bottlenecks": in_bottle_sol["bottlenecks"], "tds": in_bottle_sol["tds"]},
+                next_action="Prototype/stress-test the stored concentrate for crystallization, phase separation, and assay retention.",
+            ))
 
     if target_ph is not None:
         ph = ph_window_check(float(target_ph))
