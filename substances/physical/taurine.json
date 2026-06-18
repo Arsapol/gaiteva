@@ -1,0 +1,62 @@
+{
+  "taurine": {
+    "compat_key": "taurine",
+    "density_kg_m3": 1730.0,
+    "formula": "C2H7NO3S",
+    "ions_mmol_per_g": {},
+    "key": "taurine",
+    "molar_mass_g_per_mol": 125.15,
+    "name": "Taurine",
+    "note": "Taurine physical constants loaded from project dossier; conservative solubility floor 62.5 mg/mL at ~20 C; zwitterionic molecule counted as one osmotic particle for screening.",
+    "osmotic_n": 1.0,
+    "pka": [
+      1.5,
+      9.0
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 6.25,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-taurine"
+      ],
+      "formula": [
+        "wiki:substance-taurine"
+      ],
+      "molar_mass_g_per_mol": [
+        "wiki:substance-taurine"
+      ],
+      "note": [
+        "wiki:substance-taurine",
+        "osmotic-model:screening-v0.2"
+      ],
+      "osmotic_n": [
+        "wiki:substance-taurine",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-taurine"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-taurine"
+      ],
+      "wet_reactive_class_hint": [
+        "wiki:substance-taurine"
+      ]
+    },
+    "source_wiki": "omx_wiki/substance-taurine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-taurine",
+        "note": "Taurine dossier with identity, MW, density, pKa, solubility range, and stability review.",
+        "path": "omx_wiki/substance-taurine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n=1 treats taurine as one dissolved zwitterionic particle for screening osmolality.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": "primary_amine"
+  }
+}

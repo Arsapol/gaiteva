@@ -1,0 +1,1592 @@
+{
+  "ascorbic_acid": {
+    "compat_key": "ascorbic_acid",
+    "density_kg_m3": null,
+    "formula": "C6H8O6",
+    "ions_mmol_per_g": {},
+    "key": "ascorbic_acid",
+    "molar_mass_g_per_mol": 176.12,
+    "name": "ascorbic acid",
+    "note": "solubility dossier ~330 g/L; pKa literature (enol-diol 4.17/11.57)",
+    "osmotic_n": 1.0,
+    "pka": [
+      4.17,
+      11.57
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 33.0,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-ascorbic-acid-vitamin-c"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-ascorbic-acid-vitamin-c",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-ascorbic-acid-vitamin-c",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-ascorbic-acid-vitamin-c",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-ascorbic-acid-vitamin-c",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-ascorbic-acid-vitamin-c",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-ascorbic-acid-vitamin-c.md",
+    "sources": [
+      {
+        "id": "wiki:substance-ascorbic-acid-vitamin-c",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-ascorbic-acid-vitamin-c.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "beta_alanine": {
+    "compat_key": "beta_alanine",
+    "density_kg_m3": null,
+    "formula": "C3H7NO2",
+    "ions_mmol_per_g": {},
+    "key": "beta_alanine",
+    "molar_mass_g_per_mol": 89.09,
+    "name": "beta alanine",
+    "note": "solubility dossier '>550 g/L' (floor 55 g/100 mL used); pKa literature",
+    "osmotic_n": 1.0,
+    "pka": [
+      3.55,
+      10.24
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 55.0,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-beta-alanine"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-beta-alanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-beta-alanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-beta-alanine",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-beta-alanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-beta-alanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-beta-alanine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-beta-alanine",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-beta-alanine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "betaine_anhydrous": {
+    "compat_key": "betaine_anhydrous",
+    "density_kg_m3": null,
+    "formula": "C5H11NO2",
+    "ions_mmol_per_g": {},
+    "key": "betaine_anhydrous",
+    "molar_mass_g_per_mol": 117.15,
+    "name": "betaine anhydrous",
+    "note": "solubility dossier ~1600 g/L (ChemicalBook/ScienceDirect, Tier 2)",
+    "osmotic_n": 1.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 160.0,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-betaine-anhydrous"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-betaine-anhydrous",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-betaine-anhydrous",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-betaine-anhydrous",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-betaine-anhydrous",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-betaine-anhydrous.md",
+    "sources": [
+      {
+        "id": "wiki:substance-betaine-anhydrous",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-betaine-anhydrous.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "citric_acid": {
+    "compat_key": "citric_acid",
+    "density_kg_m3": 1665.0,
+    "formula": "C6H8O7",
+    "ions_mmol_per_g": {},
+    "key": "citric_acid",
+    "molar_mass_g_per_mol": 192.12,
+    "name": "citric acid",
+    "note": "solubility literature ~147 g/100 mL @25C; density literature; pKa dossier (pKa1 3.13 / pKa2 4.76 / pKa3 6.40)",
+    "osmotic_n": 1.0,
+    "pka": [
+      3.13,
+      4.76,
+      6.4
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 147.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-citric-acid-anhydrous-also-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-citric-acid-anhydrous-also-monohydrate"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-citric-acid-anhydrous-also-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-citric-acid-anhydrous-also-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-citric-acid-anhydrous-also-monohydrate",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-citric-acid-anhydrous-also-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-citric-acid-anhydrous-also-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-citric-acid-anhydrous-also-monohydrate.md",
+    "sources": [
+      {
+        "id": "wiki:substance-citric-acid-anhydrous-also-monohydrate",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-citric-acid-anhydrous-also-monohydrate.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "copper_tbcc": {
+    "compat_key": "copper_tbcc",
+    "density_kg_m3": 3760.0,
+    "formula": "Cu2(OH)3Cl",
+    "ions_mmol_per_g": {},
+    "key": "copper_tbcc",
+    "molar_mass_g_per_mol": 213.56,
+    "name": "copper tbcc",
+    "note": "TBCC; solubility literature (sparingly soluble; dossier gives no number); density literature",
+    "osmotic_n": 2.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 0.0017,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-copper-trace-dbh-cofactor",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-copper-trace-dbh-cofactor"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-copper-trace-dbh-cofactor",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-copper-trace-dbh-cofactor",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-copper-trace-dbh-cofactor",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-copper-trace-dbh-cofactor",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-copper-trace-dbh-cofactor.md",
+    "sources": [
+      {
+        "id": "wiki:substance-copper-trace-dbh-cofactor",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-copper-trace-dbh-cofactor.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "creatine_monohydrate": {
+    "compat_key": "creatine_monohydrate",
+    "density_kg_m3": 1330.0,
+    "formula": "C4H9N3O2\u00b7H2O",
+    "ions_mmol_per_g": {},
+    "key": "creatine_monohydrate",
+    "molar_mass_g_per_mol": 149.15,
+    "name": "creatine monohydrate",
+    "note": "solubility dossier 13\u201317 g/L @25C (midpoint 1.4 g/100 mL used); density literature; pKa literature",
+    "osmotic_n": 1.0,
+    "pka": [
+      2.63,
+      14.3
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 1.4,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-creatine-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-creatine-monohydrate"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-creatine-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-creatine-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-creatine-monohydrate",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-creatine-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-creatine-monohydrate",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-creatine-monohydrate.md",
+    "sources": [
+      {
+        "id": "wiki:substance-creatine-monohydrate",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-creatine-monohydrate.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "d_ribose": {
+    "compat_key": "d_ribose",
+    "density_kg_m3": 1720.0,
+    "formula": "C5H10O5",
+    "ions_mmol_per_g": {},
+    "key": "d_ribose",
+    "molar_mass_g_per_mol": 150.13,
+    "name": "d ribose",
+    "note": "solubility dossier '>1000 g/L' (floor 100 g/100 mL used); density literature",
+    "osmotic_n": 1.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 100.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-d-ribose",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-d-ribose"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-d-ribose",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-d-ribose",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-d-ribose",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-d-ribose",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-d-ribose.md",
+    "sources": [
+      {
+        "id": "wiki:substance-d-ribose",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-d-ribose.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "dextrose": {
+    "compat_key": "dextrose",
+    "density_kg_m3": 1560.0,
+    "formula": "C6H12O6",
+    "ions_mmol_per_g": {},
+    "key": "dextrose",
+    "molar_mass_g_per_mol": 180.16,
+    "name": "dextrose",
+    "note": "solubility dossier ~900 g/L = 91 g/100 mL @25C (NIST, Tier 1)",
+    "osmotic_n": 1.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 91.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-dextrose-d-glucose"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-dextrose-d-glucose",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-dextrose-d-glucose.md",
+    "sources": [
+      {
+        "id": "wiki:substance-dextrose-d-glucose",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-dextrose-d-glucose.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "dextrose_monohydrate": {
+    "compat_key": "dextrose_monohydrate",
+    "density_kg_m3": 1560.0,
+    "formula": "C6H12O6\u00b7H2O",
+    "ions_mmol_per_g": {},
+    "key": "dextrose_monohydrate",
+    "molar_mass_g_per_mol": 198.17,
+    "name": "dextrose monohydrate",
+    "note": "glucose monohydrate (MW 198.17); osmolarity-relevant vs anhydrous dextrose",
+    "osmotic_n": 1.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 91.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-dextrose-d-glucose"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-dextrose-d-glucose",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-dextrose-d-glucose",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-dextrose-d-glucose.md",
+    "sources": [
+      {
+        "id": "wiki:substance-dextrose-d-glucose",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-dextrose-d-glucose.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "dmg": {
+    "compat_key": "dmg",
+    "density_kg_m3": 1069.0,
+    "formula": "C4H9NO2",
+    "ions_mmol_per_g": {},
+    "key": "dmg",
+    "molar_mass_g_per_mol": 103.12,
+    "name": "N,N-dimethylglycine",
+    "note": "solubility dossier ~50 mg/mL = 5 g/100 mL (Sigma-Aldrich D1156, Tier 2); density dossier 1.069 g/cm\u00b3; pKa dossier (ChEBI:58251)",
+    "osmotic_n": 1.0,
+    "pka": [
+      2.0,
+      9.9
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 5.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-dmg-n-n-dimethylglycine"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-dmg-n-n-dimethylglycine",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-dmg-n-n-dimethylglycine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-dmg-n-n-dimethylglycine",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-dmg-n-n-dimethylglycine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "gaa": {
+    "compat_key": "gaa",
+    "density_kg_m3": null,
+    "formula": "C3H7N3O2",
+    "ions_mmol_per_g": {},
+    "key": "gaa",
+    "molar_mass_g_per_mol": 117.11,
+    "name": "Guanidinoacetic acid",
+    "note": "solubility dossier ~3.6 g/L @15C (corrected per verifier from 2.5 g/L; ChemicalBook, Tier 2); pKa literature",
+    "osmotic_n": 1.0,
+    "pka": [
+      2.82,
+      13.1
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 0.36,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-guanidinoacetic-acid-gaa"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-guanidinoacetic-acid-gaa",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-guanidinoacetic-acid-gaa",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-guanidinoacetic-acid-gaa",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-guanidinoacetic-acid-gaa",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-guanidinoacetic-acid-gaa",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-guanidinoacetic-acid-gaa.md",
+    "sources": [
+      {
+        "id": "wiki:substance-guanidinoacetic-acid-gaa",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-guanidinoacetic-acid-gaa.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "glycerin": {
+    "compat_key": "glycerin",
+    "density_kg_m3": 1261.0,
+    "formula": "C3H8O3",
+    "ions_mmol_per_g": {},
+    "key": "glycerin",
+    "molar_mass_g_per_mol": 92.09,
+    "name": "glycerin",
+    "note": "solubility: miscible with water in all proportions (USP monograph, Tier 1); density dossier ~1.261 g/cm\u00b3 @20C",
+    "osmotic_n": 1.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": null,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-glycerin-glycerol-propane-1-2-3-triol",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-glycerin-glycerol-propane-1-2-3-triol"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-glycerin-glycerol-propane-1-2-3-triol",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-glycerin-glycerol-propane-1-2-3-triol",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-glycerin-glycerol-propane-1-2-3-triol",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-glycerin-glycerol-propane-1-2-3-triol",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-glycerin-glycerol-propane-1-2-3-triol.md",
+    "sources": [
+      {
+        "id": "wiki:substance-glycerin-glycerol-propane-1-2-3-triol",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-glycerin-glycerol-propane-1-2-3-triol.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "l_arginine": {
+    "compat_key": "l_arginine",
+    "density_kg_m3": 1100.0,
+    "formula": "C6H14N4O2",
+    "ions_mmol_per_g": {},
+    "key": "l_arginine",
+    "molar_mass_g_per_mol": 174.2,
+    "name": "l arginine",
+    "note": "solubility dossier ~14.87 g/100 mL @20C (Wikipedia/CRC, Tier 2); density literature; pKa dossier (CRC textbook values)",
+    "osmotic_n": 1.0,
+    "pka": [
+      2.17,
+      9.04,
+      12.48
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 14.87,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-l-arginine-free-base-l-arginine-hcl-citrulline-spared-.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "l_carnitine_l_tartrate": {
+    "compat_key": "l_carnitine_l_tartrate",
+    "density_kg_m3": null,
+    "formula": "L-carnitine:L-tartrate 1:1 salt",
+    "ions_mmol_per_g": {},
+    "key": "l_carnitine_l_tartrate",
+    "molar_mass_g_per_mol": 314.33,
+    "name": "l carnitine l tartrate",
+    "note": "solubility dossier '>1 g/mL' @20C = lower-bound 100 g/100 mL (ChemicalBook CB5141230, Tier 2); pKa from dossier (tartrate 2.89 / carnitine carboxyl 4.09)",
+    "osmotic_n": 2.0,
+    "pka": [
+      3.36,
+      4.09
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 100.0,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-l-carnitine-l-tartrate-lclt.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-carnitine-l-tartrate-lclt",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-l-carnitine-l-tartrate-lclt.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "l_citrulline": {
+    "compat_key": "l_citrulline",
+    "density_kg_m3": null,
+    "formula": "C6H13N3O3",
+    "ions_mmol_per_g": {},
+    "key": "l_citrulline",
+    "molar_mass_g_per_mol": 175.19,
+    "name": "l citrulline",
+    "note": "solubility dossier ~200 g/L; free form (no malate alkali); pKa literature",
+    "osmotic_n": 1.0,
+    "pka": [
+      2.43,
+      9.41
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 20.0,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-l-citrulline-citrulline-malate"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-l-citrulline-citrulline-malate",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-l-citrulline-citrulline-malate",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-l-citrulline-citrulline-malate",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-l-citrulline-citrulline-malate",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-l-citrulline-citrulline-malate",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-l-citrulline-citrulline-malate.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-citrulline-citrulline-malate",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-l-citrulline-citrulline-malate.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "l_glutamine": {
+    "compat_key": "l_glutamine",
+    "density_kg_m3": null,
+    "formula": "C5H10N2O3",
+    "ions_mmol_per_g": {},
+    "key": "l_glutamine",
+    "molar_mass_g_per_mol": 146.14,
+    "name": "l glutamine",
+    "note": "solubility dossier ~36 mg/mL @25C (Sigma/ChemicalBook, Tier 2); pKa literature",
+    "osmotic_n": 1.0,
+    "pka": [
+      2.17,
+      9.13
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 3.6,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-l-glutamine"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-l-glutamine",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-l-glutamine",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-l-glutamine",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-l-glutamine",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-l-glutamine",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-l-glutamine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-glutamine",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-l-glutamine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "l_phenylalanine": {
+    "compat_key": "l_phenylalanine",
+    "density_kg_m3": 1290.0,
+    "formula": "C9H11NO2",
+    "ions_mmol_per_g": {},
+    "key": "l_phenylalanine",
+    "molar_mass_g_per_mol": 165.19,
+    "name": "l phenylalanine",
+    "note": "solubility dossier ~27.7 g/L @25C = 2.77 g/100 mL (J. Chem. Eng. Japan 43(9) DOI 10.1252/jcej.10we013, Tier 1); pKa dossier (Chegg/Vaia textbook set)",
+    "osmotic_n": 1.0,
+    "pka": [
+      1.83,
+      9.13
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 2.77,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-l-phenylalanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-l-phenylalanine"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-l-phenylalanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-l-phenylalanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-l-phenylalanine",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-l-phenylalanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-l-phenylalanine",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-l-phenylalanine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-phenylalanine",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-l-phenylalanine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "l_tyrosine": {
+    "compat_key": "l_tyrosine",
+    "density_kg_m3": 1456.0,
+    "formula": "C9H11NO3",
+    "ions_mmol_per_g": {},
+    "key": "l_tyrosine",
+    "molar_mass_g_per_mol": 181.19,
+    "name": "l tyrosine",
+    "note": "solubility dossier ~0.45 g/L = 0.045 g/100 mL @25C (Merck Index / Wikipedia, Tier 2; pI ~5.6 = solubility minimum); density literature; pKa dossier",
+    "osmotic_n": 1.0,
+    "pka": [
+      2.2,
+      9.1,
+      10.1
+    ],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 0.045,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-l-tyrosine",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-l-tyrosine"
+      ],
+      "ions_mmol_per_g": {},
+      "molar_mass_g_per_mol": [
+        "wiki:substance-l-tyrosine",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-l-tyrosine",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-l-tyrosine",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [
+        "wiki:substance-l-tyrosine",
+        "compat:data.py:2026-06-17"
+      ],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-l-tyrosine",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-l-tyrosine.md",
+    "sources": [
+      {
+        "id": "wiki:substance-l-tyrosine",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-l-tyrosine.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "magnesium_chloride": {
+    "compat_key": "magnesium_chloride",
+    "density_kg_m3": null,
+    "formula": "MgCl2\u00b76H2O",
+    "ions_mmol_per_g": {
+      "cl": 9.8396,
+      "mg": 4.9198
+    },
+    "key": "magnesium_chloride",
+    "molar_mass_g_per_mol": 203.3,
+    "name": "Magnesium chloride hexahydrate",
+    "note": "MgCl2 hexahydrate physical constants loaded from stats-card registry; solubility dossier ~555\u2013560 g/L; molar mass on salt-as-weighed basis.",
+    "osmotic_n": 3.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 55.5,
+    "source_refs": {
+      "density_kg_m3": [],
+      "formula": [
+        "wiki:substance-magnesium-chloride-mgcl2"
+      ],
+      "ions_mmol_per_g": {
+        "cl": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "calc:ion-stoichiometry-from-mw"
+        ],
+        "mg": [
+          "wiki:substance-magnesium-chloride-mgcl2",
+          "calc:ion-stoichiometry-from-mw"
+        ]
+      },
+      "molar_mass_g_per_mol": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-magnesium-chloride-mgcl2",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-magnesium-chloride-mgcl2.md",
+    "sources": [
+      {
+        "id": "wiki:substance-magnesium-chloride-mgcl2",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-magnesium-chloride-mgcl2.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "potassium_chloride": {
+    "compat_key": "potassium_chloride",
+    "density_kg_m3": 1980.0,
+    "formula": "KCl",
+    "ions_mmol_per_g": {
+      "cl": 13.41381623071764,
+      "k": 13.41381623071764
+    },
+    "key": "potassium_chloride",
+    "molar_mass_g_per_mol": 74.55,
+    "name": "potassium chloride",
+    "note": "literature; ORS K+/Cl- source",
+    "osmotic_n": 2.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 34.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-potassium-chloride-kcl",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-potassium-chloride-kcl"
+      ],
+      "ions_mmol_per_g": {
+        "cl": [
+          "wiki:substance-potassium-chloride-kcl",
+          "calc:ion-stoichiometry-from-mw"
+        ],
+        "k": [
+          "wiki:substance-potassium-chloride-kcl",
+          "calc:ion-stoichiometry-from-mw"
+        ]
+      },
+      "molar_mass_g_per_mol": [
+        "wiki:substance-potassium-chloride-kcl",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-potassium-chloride-kcl",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-potassium-chloride-kcl",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-potassium-chloride-kcl",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-potassium-chloride-kcl.md",
+    "sources": [
+      {
+        "id": "wiki:substance-potassium-chloride-kcl",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-potassium-chloride-kcl.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "sodium_chloride": {
+    "compat_key": "sodium_chloride",
+    "density_kg_m3": 2170.0,
+    "formula": "NaCl",
+    "ions_mmol_per_g": {
+      "cl": 17.111567419575636,
+      "na": 17.111567419575636
+    },
+    "key": "sodium_chloride",
+    "molar_mass_g_per_mol": 58.44,
+    "name": "sodium chloride",
+    "note": "literature; ORS Na+/Cl- source",
+    "osmotic_n": 2.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 36.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-sodium-chloride-nacl",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-sodium-chloride-nacl"
+      ],
+      "ions_mmol_per_g": {
+        "cl": [
+          "wiki:substance-sodium-chloride-nacl",
+          "calc:ion-stoichiometry-from-mw"
+        ],
+        "na": [
+          "wiki:substance-sodium-chloride-nacl",
+          "calc:ion-stoichiometry-from-mw"
+        ]
+      },
+      "molar_mass_g_per_mol": [
+        "wiki:substance-sodium-chloride-nacl",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-sodium-chloride-nacl",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-sodium-chloride-nacl",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-sodium-chloride-nacl",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-sodium-chloride-nacl.md",
+    "sources": [
+      {
+        "id": "wiki:substance-sodium-chloride-nacl",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-sodium-chloride-nacl.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  },
+  "trisodium_citrate": {
+    "compat_key": "trisodium_citrate",
+    "density_kg_m3": 1700.0,
+    "formula": "Na3C6H5O7\u00b72H2O",
+    "ions_mmol_per_g": {
+      "na": 10.200612036722202
+    },
+    "key": "trisodium_citrate",
+    "molar_mass_g_per_mol": 294.1,
+    "name": "Trisodium citrate dihydrate",
+    "note": "literature; ORS Na+ source + citrate buffer/base (dihydrate MW 294.1)",
+    "osmotic_n": 4.0,
+    "pka": [],
+    "review_status": "verified",
+    "solubility_g_per_100ml_25c": 42.0,
+    "source_refs": {
+      "density_kg_m3": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "compat:data.py:2026-06-17"
+      ],
+      "formula": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin"
+      ],
+      "ions_mmol_per_g": {
+        "na": [
+          "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+          "calc:ion-stoichiometry-from-mw"
+        ]
+      },
+      "molar_mass_g_per_mol": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "compat:data.py:2026-06-17"
+      ],
+      "note": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "compat:data.py:2026-06-17"
+      ],
+      "osmotic_n": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "osmotic-model:screening-v0.2"
+      ],
+      "pka": [],
+      "solubility_g_per_100ml_25c": [
+        "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "compat:data.py:2026-06-17"
+      ],
+      "wet_reactive_class_hint": []
+    },
+    "source_wiki": "omx_wiki/substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md",
+    "sources": [
+      {
+        "id": "wiki:substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin",
+        "note": "Substance dossier with citations; property-level refs point here when the exact source is in the dossier.",
+        "path": "omx_wiki/substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md",
+        "type": "dossier"
+      },
+      {
+        "id": "compat:data.py:2026-06-17",
+        "note": "Legacy constant value copied into data-driven registry for non-hardcoded provenance auditing.",
+        "path": "compat/data.py",
+        "type": "legacy-constant-source"
+      },
+      {
+        "id": "osmotic-model:screening-v0.2",
+        "note": "Osmotic_n is a screening dissociation-particle count at formula pH, not measured osmolality.",
+        "type": "calculation-method"
+      },
+      {
+        "id": "calc:ion-stoichiometry-from-mw",
+        "note": "Ion mmol/g is calculated as ion count * 1000 / molar_mass_g_per_mol.",
+        "type": "calculation-method"
+      }
+    ],
+    "wet_reactive_class_hint": null
+  }
+}
