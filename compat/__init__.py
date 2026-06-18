@@ -5,7 +5,7 @@ Modules
 -------
 data        : SUBSTANCES dict and DEGRADATION_EA_J_PER_MOL constants
 solubility  : additive solubility check, TDS, bottleneck report
-arrhenius   : Arrhenius kinetics and per-pathway shelf-life projections
+arrhenius   : Arrhenius kinetics, per-pathway priors, and assay-driven shelf-life projections
 ph_module   : Henderson-Hasselbalch, citrate pH/buffer/dilution screening, pH window check
 stokes      : Stokes settling velocity for undissolved fractions
 gibbs       : backup Gibbs free energy spontaneity screen
