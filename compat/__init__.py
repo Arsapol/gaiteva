@@ -11,12 +11,21 @@ stokes      : Stokes settling velocity for undissolved fractions
 gibbs       : backup Gibbs free energy spontaneity screen
 redox       : Tier-0 ascorbate metal/O2-catalysed oxidation risk screener
 pairwise    : machine-readable pairwise incompatibility rule evaluator
+profiles    : product/use-case-specific compatibility gate profiles
+report      : unified formula compatibility report facade
+scoring     : normalized compatibility/stability/commercial-readiness scoring
 
 All public functions are pure and return new dicts (no mutation).
 Run from the project root so that absolute imports (from compat.X import …)
 resolve correctly.
 """
 
+from compat.profiles import get_use_case_profile, use_case_gate_report
 from compat.report import evaluate_formula, render_markdown
 
-__all__ = ["evaluate_formula", "render_markdown"]
+__all__ = [
+    "evaluate_formula",
+    "render_markdown",
+    "get_use_case_profile",
+    "use_case_gate_report",
+]
