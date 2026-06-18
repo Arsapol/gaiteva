@@ -28,6 +28,8 @@ from __future__ import annotations
 
 from typing import Optional
 
+from compat.data import MOLAR_MASS_G_PER_MOL
+
 
 # ---------------------------------------------------------------------------
 # Internal constants
@@ -133,6 +135,24 @@ def _downgrade(level: str) -> str:
 
 def _is_wet_context(storage_context: str) -> bool:
     return storage_context in {"wet_stored", "concentrate", "oil_emulsion", "make_fresh"}
+
+
+def _estimate_chelator_to_metal_molar_ratio(components: list[tuple[str, float]]) -> float | None:
+    chelator_mol = 0.0
+    metal_mol = 0.0
+    for raw_name, grams in components:
+        name = _norm(raw_name)
+        mw = MOLAR_MASS_G_PER_MOL.get(name)
+        if not mw or grams <= 0:
+            continue
+        mol = grams / mw
+        if any(p in name for p in ["citrate", "citric_acid", "edta"]):
+            chelator_mol += mol
+        if any(p in name for p in ["copper", "cu_", "_cu", "iron", "fe_", "_fe", "ferr", "manganese", "mn_", "_mn"]):
+            metal_mol += mol
+    if chelator_mol > 0 and metal_mol > 0:
+        return chelator_mol / metal_mol
+    return None
 
 
 def _metal_presence(keys: list[str], metal_ppm: Optional[dict[str, float]] = None) -> dict:
@@ -404,10 +424,7 @@ def redox_mechanism_ledger(
     has_oil = _any_match(keys, ["oil", "mct", "tocopherol", "coq10", "ubiquinone", "lecithin"])
     has_chelator = _any_match(keys, ["citrate", "citric_acid", "edta", "ethylenediamine"])
     if chelator_to_metal_molar_ratio is None and metals["metal_score"] > 0 and has_chelator:
-        metal_count = sum(1 for k in keys if any(p in k for p in ["copper", "cu_", "_cu", "cu(", "iron", "fe_", "_fe", "ferr", "manganese", "mn_", "_mn"]))
-        chelator_count = sum(1 for k in keys if any(p in k for p in ["citrate", "citric_acid", "edta"]))
-        if metal_count > 0 and chelator_count > 0:
-            chelator_to_metal_molar_ratio = chelator_count / metal_count
+        chelator_to_metal_molar_ratio = _estimate_chelator_to_metal_molar_ratio(components)
 
     mechanisms: list[dict] = []
     common_assumptions = []
@@ -558,18 +575,24 @@ def flag_from_components(
     components: list[tuple[str, float]],
     oxygen_exposure: str = "headspace",
     light_exposure: str = "clear",
+    storage_context: str | None = None,
 ) -> dict:
     """Detect redox-active components and return the leading redox flag.
 
     Legacy ascorbate callers still receive ``risk_level``, ``drivers``,
-    ``mitigations``, and ``ea_note`` at the top level.  Broader mechanisms are
-    available under ``mechanism_ledger``.
+    ``mitigations``, and ``ea_note`` at the top level. If ``storage_context`` is
+    omitted, this wrapper stays ascorbate-only to avoid assuming every formula is
+    a wet stored liquid. Pass an explicit storage_context to opt into the broader
+    mechanism ledger.
     """
+    keys = _component_keys(components)
+    if storage_context is None and not _any_match(keys, ["ascorbic_acid", "ascorbate", "vitamin_c"]):
+        return {"applicable": False, "reason": "legacy wrapper only applies to ascorbate unless storage_context is explicit"}
     ledger = redox_mechanism_ledger(
         components,
         oxygen_exposure=oxygen_exposure,
         light_exposure=light_exposure,
-        storage_context="wet_stored",
+        storage_context=storage_context or "wet_stored",
     )
     if not ledger["applicable"]:
         return {"applicable": False, "mechanism_ledger": ledger}
@@ -584,7 +607,7 @@ def flag_from_components(
         "chelator": ledger["detected"]["chelator"],
         "thiol": ledger["detected"]["thiol"],
         "oil_or_emulsion_active": ledger["detected"]["oil_or_emulsion_active"],
-        "chelator_to_metal_ratio_estimate": None,
+        "chelator_to_metal_ratio_estimate": _estimate_chelator_to_metal_molar_ratio(components),
     }
 
     return {
