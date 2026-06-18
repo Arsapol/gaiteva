@@ -1,0 +1,7 @@
+{
+  "name": "concentrate-regression",
+  "note": "Placeholder fixture for future stored-liquid concentrate tests; topic 04 locks registry/golden drink gates first.",
+  "components": [],
+  "water_ml": 0,
+  "expected": {}
+}

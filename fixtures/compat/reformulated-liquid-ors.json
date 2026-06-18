@@ -1,0 +1,24 @@
+{
+  "name": "reformulated-liquid-ors",
+  "water_ml": 1000.0,
+  "components": [
+    {"key": "dextrose", "grams": 14.0},
+    {"key": "sodium_chloride", "grams": 2.6},
+    {"key": "potassium_chloride", "grams": 1.5},
+    {"key": "trisodium_citrate", "grams": 2.9},
+    {"key": "ascorbic_acid", "grams": 0.5},
+    {"key": "beta_alanine", "grams": 1.0},
+    {"key": "d_ribose", "grams": 2.0}
+  ],
+  "expected": {
+    "osmolarity_mosm_per_l": 274,
+    "osmolarity_tolerance": 1.0,
+    "verdict": "PASS",
+    "complete_ors": true,
+    "na_mmol": 74.1,
+    "k_mmol": 20.1,
+    "cl_mmol": 64.6,
+    "ion_tolerance": 0.1,
+    "bottleneck_count": 0
+  }
+}

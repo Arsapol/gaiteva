@@ -1,0 +1,27 @@
+{
+  "name": "fight-day-drink-1l",
+  "water_ml": 1000.0,
+  "components": [
+    {"key": "dextrose_monohydrate", "grams": 22.0},
+    {"key": "d_ribose", "grams": 5.0},
+    {"key": "sodium_chloride", "grams": 2.9},
+    {"key": "potassium_chloride", "grams": 1.1},
+    {"key": "l_citrulline", "grams": 1.15},
+    {"key": "citric_acid", "grams": 0.7},
+    {"key": "dmg", "grams": 0.4},
+    {"key": "trisodium_citrate", "grams": 0.3}
+  ],
+  "expected": {
+    "osmolarity_mosm_per_l": 291,
+    "osmolarity_tolerance": 1.0,
+    "verdict": "PASS",
+    "complete_ors": true,
+    "na_mmol": 52.7,
+    "k_mmol": 14.8,
+    "cl_mmol": 64.4,
+    "ion_tolerance": 0.1,
+    "bottleneck_count": 0,
+    "anhydrous_dextrose_min_delta_mosm_per_l": 11.0,
+    "anhydrous_dextrose_min_total_mosm_per_l": 300.0
+  }
+}
