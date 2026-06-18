@@ -6,7 +6,7 @@ Modules
 data        : SUBSTANCES dict and DEGRADATION_EA_J_PER_MOL constants
 solubility  : additive solubility check, TDS, bottleneck report
 arrhenius   : Arrhenius kinetics and per-pathway shelf-life projections
-ph_module   : Henderson-Hasselbalch, citrate buffer speciation, pH window check
+ph_module   : Henderson-Hasselbalch, citrate pH/buffer/dilution screening, pH window check
 stokes      : Stokes settling velocity for undissolved fractions
 gibbs       : backup Gibbs free energy spontaneity screen
 redox       : Tier-0 ascorbate metal/O2-catalysed oxidation risk screener

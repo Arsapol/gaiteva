@@ -9,7 +9,14 @@ from __future__ import annotations
 
 from math import isfinite
 
-from compat.data import MOLAR_MASS_G_PER_MOL, SUBSTANCES
+try:
+    from compat.data import MOLAR_MASS_G_PER_MOL, SUBSTANCES
+except ModuleNotFoundError:  # allow `python3 compat/ph_module.py` from repo root
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from compat.data import MOLAR_MASS_G_PER_MOL, SUBSTANCES
 
 _CITRIC_PKA: list[float] = SUBSTANCES["citric_acid"]["pka"]  # [3.13, 4.76, 6.40]
 _KW_25C = 1e-14
