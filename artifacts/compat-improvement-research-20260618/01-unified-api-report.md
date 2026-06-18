@@ -55,3 +55,8 @@ The main risk is false authority: a polished report may look like lab validation
 - `compat_calc.py:92-236` orchestrates checks manually.
 - `compat/osmolality.py:158-170` already returns a full blocking gate object.
 - `calculated-stats-card-v3-upgraded.md:50-85` and `:124-156` prove physical gate output affects formula scores.
+
+
+## Implementation note — minimal facade (2026-06-18)
+
+Implemented a thin `compat.report` facade exposing `compat.evaluate_formula(...)` and `compat.render_markdown(...)`. The facade preserves raw outputs from existing modules under `gates`, adds schema version `compat-eval-v0.1`, normalized `findings`, `scores`, `unknowns`, `provenance`, and applicability labels. Current demo scripts remain unchanged so existing smoke output is preserved; regression coverage lives in `tests/test_compat_report.py`.

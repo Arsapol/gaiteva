@@ -413,7 +413,8 @@ def evaluate_formula(
 
     blocker = any(f["applies"] and f["severity"] == "BLOCKER" for f in findings)
     warning = any(f["applies"] and f["severity"] == "WARNING" for f in findings)
-    insufficient = bool(unknowns) or any(f["severity"] == "INSUFFICIENT_DATA" for f in findings)
+    critical_unknowns = [u for u in unknowns if u.get("id", "").startswith("unknown.molar_mass")]
+    insufficient = bool(critical_unknowns) or any(f["severity"] == "INSUFFICIENT_DATA" for f in findings)
     if blocker:
         verdict = "BLOCK"
         overall_score = min(hydration_score, solubility_score, commercial_score, 4.0)
@@ -427,7 +428,7 @@ def evaluate_formula(
         verdict = "PASS"
         overall_score = min(hydration_score, solubility_score, commercial_score, 9.0)
 
-    confidence = "Low" if insufficient else ("Medium" if warning or product_type in {"wet_concentrate", "wet_core_plus_dry_activator"} else "High")
+    confidence = "Low" if insufficient else ("Medium" if warning or unknowns or product_type in {"wet_concentrate", "wet_core_plus_dry_activator"} else "High")
     scores = {
         "compatibility": round(solubility_score, 2),
         "stability": 7.0 if warning else 8.0,
@@ -440,6 +441,9 @@ def evaluate_formula(
             if f.get("score_delta") or f.get("cap")
         ],
     }
+
+    blocking_gates = [f for f in findings if f["applies"] and f["severity"] == "BLOCKER"]
+    advisory_flags = [f for f in findings if f["severity"] in {"WARNING", "ADVISORY", "INSUFFICIENT_DATA"}]
 
     return {
         "schema_version": SCHEMA_VERSION,
@@ -461,10 +465,13 @@ def evaluate_formula(
         },
         "scores": scores,
         "findings": findings,
+        "blocking_gates": blocking_gates,
+        "advisory_flags": advisory_flags,
         "gates": gates,
         "assumptions": list(assumptions or []) + ["screening calculation only; not lab validation"],
         "unknowns": unknowns,
         "validation_checklist": validation,
+        "next_validation": validation,
         "provenance": [
             {"module": "compat.osmolality", "function": "osmolality_report"},
             {"module": "compat.solubility", "function": "additive_report"},
