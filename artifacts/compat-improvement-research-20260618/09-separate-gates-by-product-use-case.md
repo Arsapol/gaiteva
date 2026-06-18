@@ -61,3 +61,14 @@ Use-case labels can be abused to bypass a real exposure. A dry stick becomes a l
 - Review probe found `compat/data.py` overlay loading is `Path.cwd()` sensitive. If the calculator is imported from a non-repo cwd, overlay-backed constants such as `magnesium_chloride` can disappear. Future registry work should resolve overlays relative to project root or module root.
 - Review probe found unknown molar masses are surfaced but do not fail the osmolality gate; this can undercount osmoles. The unified report should downgrade confidence or block hydration claims when osmolarity-critical MW data are missing.
 - Review probe found `compat/water_activity.py` threshold prose has a possible 0.85/0.91 wording mismatch even though classification math appears sound. Documentation and tests should cover prose as well as math for audit reliability.
+
+## Implementation note — 2026-06-18 worker-1
+
+Implemented a minimal route/use-case gate layer in `compat/profiles.py` without changing the existing `osmolality_report()` API or demo script output. The new layer separates:
+
+- `hydration_drink`: delivered-volume ORS gate remains blocking for hydration claims.
+- `acute_sublingual`: bolus osmolality is advisory/route-specific; hydration claims are blocked unless a separate swallowed-volume ORS pass exists.
+- `dry_capsule` / `dry_premix`: solution osmolality is exempt only when there is no standing-liquid/dissolution claim; dry-state controls are reported instead.
+- `wet_concentrate` / `wet_core_diluted`: final labeled dilution receives the hydration gate while stored-concentrate solubility/TDS and shelf-stability checks remain advisory requirements.
+
+Regression coverage was added in `tests/test_use_case_profiles.py` for the checklist items above using the existing `reformulate.py`, `verify_dry_sku.py`, and `concentrate.py` fixtures. Existing smoke scripts are intentionally left unchanged so their current output remains the compatibility baseline.
