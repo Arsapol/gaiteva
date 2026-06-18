@@ -15,3 +15,7 @@ All public functions are pure and return new dicts (no mutation).
 Run from the project root so that absolute imports (from compat.X import …)
 resolve correctly.
 """
+
+from compat.profiles import get_use_case_profile, use_case_gate_report
+
+__all__ = ["get_use_case_profile", "use_case_gate_report"]

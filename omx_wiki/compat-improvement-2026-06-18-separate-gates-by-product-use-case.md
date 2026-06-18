@@ -71,3 +71,16 @@ Use-case labels can be abused to bypass a real exposure. A dry stick becomes a l
 - Review probe found `compat/data.py` overlay loading is `Path.cwd()` sensitive. If the calculator is imported from a non-repo cwd, overlay-backed constants such as `magnesium_chloride` can disappear. Future registry work should resolve overlays relative to project root or module root.
 - Review probe found unknown molar masses are surfaced but do not fail the osmolality gate; this can undercount osmoles. The unified report should downgrade confidence or block hydration claims when osmolarity-critical MW data are missing.
 - Review probe found `compat/water_activity.py` threshold prose has a possible 0.85/0.91 wording mismatch even though classification math appears sound. Documentation and tests should cover prose as well as math for audit reliability.
+
+## Implementation note — 2026-06-18 worker-1
+
+A minimal executable use-case profile layer now lives at `compat/profiles.py`. It preserves the legacy hydration-oriented `compat.osmolality.osmolality_report()` behavior while adding `use_case_gate_report()` and `get_use_case_profile()` for product-specific gate routing.
+
+Implemented profile behavior:
+
+- Hydration drink/reconstituted ORS: delivered-volume osmolality and sodium-present ORS gate are blocking for hydration claims.
+- Acute sublingual/oral-mucosal: osmolality is advisory for short-contact tolerance and does not authorize a hydration claim.
+- Dry capsule/premix: `osmolality_exempt` is true only when no standing liquid claim exists; advisory checks shift to aw/moisture, caking, dose uniformity, and packaging.
+- Wet concentrate/core: final dilution can pass hydration while stored concentrate still reports solubility/TDS and preservation/Maillard/redox/emulsion advisory requirements.
+
+Verification added: `tests/test_use_case_profiles.py` covers hydration PASS, dry exemption, reconstituted dry-stick hydration gating, acute-sublingual hydration-claim block, and wet-concentrate final-dilution-plus-storage advisory behavior. Legacy smoke scripts were not edited, preserving current smoke outputs.
