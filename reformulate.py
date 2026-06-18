@@ -53,10 +53,15 @@ def main() -> None:
           f"{gate['avian_isotonic_ref'][0]:.0f}-{gate['avian_isotonic_ref'][1]:.0f}")
     print(f"  Note       : {gate['note']}")
 
-    print(f"\n  Electrolytes (mmol/L):  Na {electro['na_mmol']:.1f}  "
-          f"K {electro['k_mmol']:.1f}  Cl {electro['cl_mmol']:.1f}")
-    print(f"  WHO ORS ref :           Na {WHO_ORS['na']}  K {WHO_ORS['k']}  Cl {WHO_ORS['cl']}")
+    print(f"\n  Electrolytes (mmol/L):  Na {electro['na_mmol_per_l']:.1f}  "
+          f"K {electro['k_mmol_per_l']:.1f}  Cl {electro['cl_mmol_per_l']:.1f}")
+    print(f"  Glucose     (mmol/L):  {electro['glucose_mmol_per_l']:.1f}  "
+          f"glucose:Na {electro['glucose_to_na_ratio']:.2f}")
+    print(f"  WHO ORS ref :           Na {WHO_ORS['na']}  K {WHO_ORS['k']}  Cl {WHO_ORS['cl']}  "
+          f"glucose {WHO_ORS['glucose']}")
     print(f"  Complete ORS? {'YES' if electro['complete_ors'] else 'NO'} — {electro['reason']}")
+    if electro['completeness_warnings']:
+        print(f"  ORS warnings: {'; '.join(electro['completeness_warnings'])}")
 
     print("\n  Osmotic contributions (mOsm/L):")
     for c in sorted(
@@ -92,8 +97,8 @@ def main() -> None:
         print(f"    Ea note   : {redox['ea_note']}")
 
     # Ionic strength (Davies validity + salting context)
-    I = ionic_strength(LIQUID_ORS, water_ml=WATER_ML)
-    print(f"\n  Ionic strength : {I['I_mol_per_l']:.3f} mol/L  ({I['note']})")
+    ionic = ionic_strength(LIQUID_ORS, water_ml=WATER_ML)
+    print(f"\n  Ionic strength : {ionic['I_mol_per_l']:.3f} mol/L  ({ionic['note']})")
 
     # Water activity / microbial
     aw = aw_report(LIQUID_ORS, water_ml=WATER_ML)
