@@ -92,7 +92,9 @@ def score_solubility_report(report: dict[str, Any] | None) -> dict[str, Any]:
     worst_fraction = 1.0
     water_ml = float(report.get("water_ml", 0.0) or 0.0)
     substance_rows = list(report.get("substances") or [])
-    for context in (report.get("contexts") or {}).values():
+    contexts = report.get("contexts") or {}
+    context_iter = contexts.values() if isinstance(contexts, dict) else contexts
+    for context in context_iter:
         if isinstance(context, dict):
             substance_rows.extend(context.get("substances") or [])
     for substance in substance_rows:
