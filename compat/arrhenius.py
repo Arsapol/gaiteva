@@ -11,17 +11,76 @@ q10           : rate multiplier per +10 K above reference
 accel_factor  : ICH-style acceleration factor between two temperatures
 pathway_projection : Q10/AF/stress-week summary for one degradation pathway
 all_pathways  : run pathway_projection for every registered pathway
+assay_shelf_life_projection : fit assay points and project screening shelf life
+assay_projection_report : human-readable assay projection report lines
+
+Assay-driven guardrail
+----------------------
+The assay-driven helpers intentionally return screening projections plus an
+ICH/real-time status. They do not make label shelf-life claims from stress data
+alone; ``label_claim_supported`` is only true when real-time target-temperature
+observations cover the projected endpoint.
 """
 
 from __future__ import annotations
 
 import math
-from typing import Any
+from collections import defaultdict
+from typing import Any, Iterable, TypedDict
 
 from compat.data import DEGRADATION_EA_J_PER_MOL
 
 # Universal gas constant (J / mol / K)
 _R: float = 8.314
+
+
+class AssayPoint(TypedDict, total=False):
+    """Data model for one stability-assay observation row.
+
+    Runtime validation requires ``temperature_C``, ``time_days``, and
+    ``measured_value``. The optional fields record the tested matrix and
+    storage scope so a projection cannot be detached from its evidence.
+    """
+
+    temperature_C: float
+    time_days: float
+    measured_value: float
+    unit: str
+    replicate_id: str
+    endpoint: str
+    formulation_id: str
+    lot_id: str
+    pH: float
+    water_activity: float
+    packaging: str
+    headspace: str
+    light: str
+    oxygen: str
+    metal_ppb: float
+
+
+class AssayProjection(TypedDict, total=False):
+    """Data model returned by ``assay_shelf_life_projection``."""
+
+    pathway: str
+    analyte_or_marker: str
+    model_type: str
+    initial_value: float
+    acceptance_limit: float
+    target_temperature_C: float
+    rates_by_temperature: dict[float, dict[str, Any]]
+    arrhenius_fit: dict[str, Any]
+    projection_basis: str
+    projected_rate_per_day: float | None
+    projected_shelf_life_days: float | None
+    projected_shelf_life_months: float | None
+    Ea_J_per_mol_used: float | None
+    A_per_day_used: float | None
+    ich_real_time_status: str
+    label_claim_supported: bool
+    guardrail_note: str
+    low_ea_warning: str
+    storage_scope_fields: list[str]
 
 
 # ---------------------------------------------------------------------------
@@ -153,6 +212,346 @@ def all_pathways(
         key: pathway_projection(key, T_stress_C, T_store_C)
         for key in DEGRADATION_EA_J_PER_MOL
     }
+
+
+# ---------------------------------------------------------------------------
+# Assay-driven shelf-life layer
+# ---------------------------------------------------------------------------
+
+_ASSAY_REQUIRED_FIELDS = ("temperature_C", "time_days", "measured_value")
+_SUPPORTED_MODELS = {"first_order", "zero_order"}
+
+
+def _as_float(row: AssayPoint, key: str) -> float:
+    value = row[key]
+    if value is None:
+        raise ValueError(f"assay point field {key!r} cannot be None")
+    return float(value)
+
+
+def _validate_assay_point(row: AssayPoint) -> None:
+    missing = [key for key in _ASSAY_REQUIRED_FIELDS if key not in row]
+    if missing:
+        raise ValueError(f"assay point missing required field(s): {', '.join(missing)}")
+    if _as_float(row, "time_days") < 0:
+        raise ValueError("assay point time_days must be >= 0")
+    if _as_float(row, "measured_value") < 0:
+        raise ValueError("assay point measured_value must be >= 0")
+
+
+def assay_rates_by_temperature(
+    assay_points: Iterable[AssayPoint],
+    *,
+    initial_value: float = 100.0,
+    model_type: str = "first_order",
+) -> dict[float, dict[str, Any]]:
+    """Estimate degradation rates from assay rows grouped by temperature.
+
+    ``assay_points`` rows require ``temperature_C``, ``time_days``, and
+    ``measured_value``. Optional metadata such as ``replicate_id``, ``endpoint``,
+    ``lot_id``, ``pH``, ``packaging``, ``headspace``, ``light``, and
+    ``oxygen`` is passed through only by callers; the rate fit uses the numeric
+    fields.
+
+    ``model_type='first_order'`` treats ``measured_value`` as remaining potency
+    or marker fraction relative to ``initial_value`` and returns k in 1/day.
+    ``model_type='zero_order'`` treats loss as linear value units/day.
+    """
+    if model_type not in _SUPPORTED_MODELS:
+        raise ValueError(f"model_type must be one of {sorted(_SUPPORTED_MODELS)}")
+    if initial_value <= 0:
+        raise ValueError("initial_value must be positive")
+
+    rates: dict[float, list[float]] = defaultdict(list)
+    source_rows: dict[float, int] = defaultdict(int)
+
+    for row in assay_points:
+        _validate_assay_point(row)
+        temp_C = _as_float(row, "temperature_C")
+        time_days = _as_float(row, "time_days")
+        measured_value = _as_float(row, "measured_value")
+        source_rows[temp_C] += 1
+
+        # Baseline observations are useful evidence for elapsed real-time
+        # coverage, but they do not estimate a degradation rate by themselves.
+        if time_days == 0:
+            continue
+
+        if model_type == "first_order":
+            if measured_value <= 0:
+                continue
+            fraction_remaining = measured_value / initial_value
+            if not 0 < fraction_remaining <= 1:
+                continue
+            rates[temp_C].append(-math.log(fraction_remaining) / time_days)
+        else:
+            loss = initial_value - measured_value
+            if loss < 0:
+                continue
+            rates[temp_C].append(loss / time_days)
+
+    fit: dict[float, dict[str, Any]] = {}
+    for temp_C, values in rates.items():
+        if not values:
+            continue
+        fit[temp_C] = {
+            "temperature_C": temp_C,
+            "rate_per_day": sum(values) / len(values),
+            "n_rate_points": len(values),
+            "n_source_rows": source_rows[temp_C],
+            "model_type": model_type,
+        }
+    return dict(sorted(fit.items()))
+
+
+def fit_arrhenius_ea_from_rates(rates_by_temperature: dict[float, dict[str, Any]]) -> dict[str, Any]:
+    """Fit Ea from ``ln(k)`` vs ``1/T`` when at least two temperatures exist."""
+    pairs = [
+        (1.0 / (temp_C + 273.15), math.log(row["rate_per_day"]))
+        for temp_C, row in rates_by_temperature.items()
+        if row["rate_per_day"] > 0
+    ]
+    if len(pairs) < 2:
+        return {
+            "fit_status": "insufficient_temperatures",
+            "temperature_count": len(pairs),
+            "Ea_J_per_mol": None,
+            "A_per_day": None,
+        }
+
+    mean_x = sum(x for x, _ in pairs) / len(pairs)
+    mean_y = sum(y for _, y in pairs) / len(pairs)
+    denom = sum((x - mean_x) ** 2 for x, _ in pairs)
+    if denom == 0:
+        return {
+            "fit_status": "insufficient_temperature_span",
+            "temperature_count": len(pairs),
+            "Ea_J_per_mol": None,
+            "A_per_day": None,
+        }
+
+    slope = sum((x - mean_x) * (y - mean_y) for x, y in pairs) / denom
+    intercept = mean_y - slope * mean_x
+    ea_J = -slope * _R
+    if ea_J <= 0:
+        return {
+            "fit_status": "nonphysical_ea",
+            "temperature_count": len(pairs),
+            "Ea_J_per_mol": ea_J,
+            "A_per_day": math.exp(intercept),
+        }
+
+    return {
+        "fit_status": "fitted",
+        "temperature_count": len(pairs),
+        "Ea_J_per_mol": ea_J,
+        "A_per_day": math.exp(intercept),
+    }
+
+
+def _project_rate_from_ea(
+    *,
+    observed_rate_per_day: float,
+    observed_temperature_C: float,
+    Ea_J: float,
+    target_temperature_C: float,
+) -> float:
+    observed_K = observed_temperature_C + 273.15
+    target_K = target_temperature_C + 273.15
+    return observed_rate_per_day / accel_factor(Ea_J, observed_K, target_K)
+
+
+def _endpoint_days(
+    *,
+    initial_value: float,
+    acceptance_limit: float,
+    rate_per_day: float,
+    model_type: str,
+) -> float | None:
+    if rate_per_day <= 0:
+        return None
+    if model_type == "first_order":
+        if not 0 < acceptance_limit < initial_value:
+            raise ValueError("first_order acceptance_limit must be between 0 and initial_value")
+        return -math.log(acceptance_limit / initial_value) / rate_per_day
+    if acceptance_limit >= initial_value:
+        raise ValueError("zero_order acceptance_limit must be below initial_value")
+    return (initial_value - acceptance_limit) / rate_per_day
+
+
+def _max_observed_days_at_temperature(
+    assay_points: Iterable[AssayPoint], target_temperature_C: float) -> float:
+    max_days = 0.0
+    for row in assay_points:
+        _validate_assay_point(row)
+        if abs(_as_float(row, "temperature_C") - target_temperature_C) <= 0.6:
+            max_days = max(max_days, _as_float(row, "time_days"))
+    return max_days
+
+
+def _ich_status(
+    *,
+    assay_points: list[AssayPoint],
+    target_temperature_C: float,
+    max_assay_temperature_C: float | None,
+    temperature_count: int,
+    projected_days: float | None,
+) -> tuple[str, bool, str]:
+    if projected_days is None or temperature_count == 0:
+        return (
+            "insufficient_data",
+            False,
+            "No positive assay-derived rate was available; do not infer shelf life.",
+        )
+
+    real_time_days = _max_observed_days_at_temperature(assay_points, target_temperature_C)
+    if real_time_days >= projected_days:
+        return (
+            "real_time_confirmed",
+            True,
+            "Target-temperature observations cover the projected endpoint; label claim still remains limited to the tested matrix/packaging.",
+        )
+
+    if max_assay_temperature_C is not None and max_assay_temperature_C >= 50.0:
+        return (
+            "screen_only",
+            False,
+            "50 °C or hotter data are stress-screen evidence only because mechanisms can change; reject-risk signal, not a label shelf-life claim.",
+        )
+
+    if temperature_count >= 2:
+        return (
+            "accelerated_supported_real_time_pending",
+            False,
+            "Multi-temperature accelerated data support a screening projection, but ICH real-time target-temperature confirmation is still pending.",
+        )
+
+    return (
+        "screen_only",
+        False,
+        "Single-temperature stress data are prior-constrained screening evidence only; real-time confirmation is required.",
+    )
+
+
+def assay_shelf_life_projection(
+    pathway_key: str,
+    assay_points: Iterable[AssayPoint],
+    *,
+    analyte_or_marker: str,
+    acceptance_limit: float,
+    initial_value: float = 100.0,
+    target_temperature_C: float = 25.0,
+    model_type: str = "first_order",
+) -> AssayProjection:
+    """Project shelf-life from actual assay observations plus guardrails.
+
+    The function fits per-temperature degradation rates from assay rows and fits
+    Arrhenius Ea only when two or more positive-rate temperatures exist. With a
+    single stress temperature, it uses the pathway's typical Ea prior and marks
+    the result as ``prior_constrained`` / ``screen_only``.
+
+    Returned shelf-life values are screening projections. They are safe for
+    ranking and go/no-go decisions, not label claims unless
+    ``label_claim_supported`` is true.
+    """
+    if pathway_key not in DEGRADATION_EA_J_PER_MOL:
+        raise KeyError(f"unknown pathway_key {pathway_key!r}")
+    rows = [dict(row) for row in assay_points]
+    for row in rows:
+        _validate_assay_point(row)
+
+    rates = assay_rates_by_temperature(rows, initial_value=initial_value, model_type=model_type)
+    fit = fit_arrhenius_ea_from_rates(rates)
+    max_temp = max((_as_float(row, "temperature_C") for row in rows), default=None)
+
+    projection_basis = "assay_fitted" if fit["fit_status"] == "fitted" else "prior_constrained"
+    if fit["fit_status"] == "fitted":
+        ea_J = float(fit["Ea_J_per_mol"])
+        A_per_day = float(fit["A_per_day"])
+        projected_rate = arrhenius_k(A_per_day, ea_J, target_temperature_C + 273.15)
+    elif rates:
+        _ea_low, ea_typ, _ea_high = DEGRADATION_EA_J_PER_MOL[pathway_key]
+        nearest_temp = min(rates, key=lambda t: abs(t - target_temperature_C))
+        projected_rate = _project_rate_from_ea(
+            observed_rate_per_day=rates[nearest_temp]["rate_per_day"],
+            observed_temperature_C=nearest_temp,
+            Ea_J=ea_typ,
+            target_temperature_C=target_temperature_C,
+        )
+        ea_J = float(ea_typ)
+        A_per_day = None
+    else:
+        ea_J = None
+        A_per_day = None
+        projected_rate = None
+
+    projected_days = None
+    if projected_rate is not None:
+        projected_days = _endpoint_days(
+            initial_value=initial_value,
+            acceptance_limit=acceptance_limit,
+            rate_per_day=projected_rate,
+            model_type=model_type,
+        )
+
+    ich_status, label_supported, guardrail_note = _ich_status(
+        assay_points=rows,
+        target_temperature_C=target_temperature_C,
+        max_assay_temperature_C=max_temp,
+        temperature_count=len(rates),
+        projected_days=projected_days,
+    )
+
+    low_ea_warning = ""
+    if pathway_key == "ascorbate_oxidation" or (ea_J is not None and ea_J <= 50_000):
+        low_ea_warning = (
+            "Low-Ea/ascorbate-sensitive pathway: accelerated data compress poorly and O2/light/metal/pH controls may dominate; require real-time assays."
+        )
+
+    return {
+        "pathway": pathway_key,
+        "analyte_or_marker": analyte_or_marker,
+        "model_type": model_type,
+        "initial_value": initial_value,
+        "acceptance_limit": acceptance_limit,
+        "target_temperature_C": target_temperature_C,
+        "rates_by_temperature": rates,
+        "arrhenius_fit": fit,
+        "projection_basis": projection_basis,
+        "projected_rate_per_day": None if projected_rate is None else round(projected_rate, 8),
+        "projected_shelf_life_days": None if projected_days is None else round(projected_days, 1),
+        "projected_shelf_life_months": None if projected_days is None else round(projected_days / 30.4375, 2),
+        "Ea_J_per_mol_used": None if ea_J is None else round(ea_J, 1),
+        "A_per_day_used": A_per_day,
+        "ich_real_time_status": ich_status,
+        "label_claim_supported": label_supported,
+        "guardrail_note": guardrail_note,
+        "low_ea_warning": low_ea_warning,
+        "storage_scope_fields": [
+            "formulation_id", "lot_id", "pH", "water_activity", "packaging",
+            "headspace", "light", "oxygen", "metal_ppb",
+        ],
+    }
+
+
+def assay_projection_report(projection: AssayProjection) -> str:
+    """Render a compact, human-readable assay projection report."""
+    shelf_days = projection["projected_shelf_life_days"]
+    shelf = "not projected" if shelf_days is None else f"{shelf_days:.1f} days ({projection['projected_shelf_life_months']:.2f} months)"
+    ea = projection["Ea_J_per_mol_used"]
+    ea_text = "not estimated" if ea is None else f"{ea/1000:.1f} kJ/mol"
+    lines = [
+        f"Assay projection: {projection['pathway']} / {projection['analyte_or_marker']}",
+        f"  model: {projection['model_type']} ({projection['projection_basis']})",
+        f"  target: {projection['target_temperature_C']:.1f} °C; endpoint: {projection['acceptance_limit']} from initial {projection['initial_value']}",
+        f"  Ea used: {ea_text}; projected endpoint: {shelf}",
+        f"  ICH/real-time status: {projection['ich_real_time_status']}",
+        f"  Label shelf-life claim supported: {'YES' if projection['label_claim_supported'] else 'NO'}",
+        f"  Guardrail: {projection['guardrail_note']}",
+    ]
+    if projection["low_ea_warning"]:
+        lines.append(f"  Warning: {projection['low_ea_warning']}")
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------------------
