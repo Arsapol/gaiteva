@@ -89,8 +89,14 @@ def score_solubility_report(report: dict[str, Any] | None) -> dict[str, Any]:
     salting_out = bool(tds.get("salting_out_flag"))
 
     worst_fraction = 1.0
+    water_ml = float(report.get("water_ml", 0.0) or 0.0)
     for substance in report.get("substances") or []:
-        grams = float(substance.get("grams", substance.get("dissolved_g", 0.0)) or 0.0)
+        grams_value = substance.get("grams")
+        if grams_value is None and water_ml > 0 and substance.get("conc_g_per_100ml") is not None:
+            grams_value = float(substance.get("conc_g_per_100ml") or 0.0) * water_ml / 100.0
+        if grams_value is None and substance.get("undissolved_g") is not None and substance.get("dissolved_g") is not None:
+            grams_value = float(substance.get("undissolved_g") or 0.0) + float(substance.get("dissolved_g") or 0.0)
+        grams = float(grams_value or 0.0)
         undissolved = float(substance.get("undissolved_g", 0.0) or 0.0)
         if grams > 0:
             worst_fraction = min(worst_fraction, max(0.0, min(1.0, (grams - undissolved) / grams)))
