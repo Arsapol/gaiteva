@@ -1,7 +1,6 @@
 import math
 
 from compat.arrhenius import (
-    _R,
     arrhenius_k,
     assay_projection_report,
     assay_shelf_life_projection,
@@ -69,3 +68,16 @@ def pytest_approx(expected, *, rel):
         def __eq__(self, actual):
             return abs(actual - expected) <= abs(expected) * rel
     return Approx()
+
+
+def test_missing_assay_data_does_not_fabricate_shelf_life():
+    projection = assay_shelf_life_projection(
+        "maillard_browning",
+        [],
+        analyte_or_marker="browning_A420",
+        acceptance_limit=90.0,
+    )
+
+    assert projection["ich_real_time_status"] == "insufficient_data"
+    assert projection["projected_shelf_life_days"] is None
+    assert projection["label_claim_supported"] is False

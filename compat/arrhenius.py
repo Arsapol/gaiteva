@@ -26,12 +26,61 @@ from __future__ import annotations
 
 import math
 from collections import defaultdict
-from typing import Any, Iterable
+from typing import Any, Iterable, TypedDict
 
 from compat.data import DEGRADATION_EA_J_PER_MOL
 
 # Universal gas constant (J / mol / K)
 _R: float = 8.314
+
+
+class AssayPoint(TypedDict, total=False):
+    """Data model for one stability-assay observation row.
+
+    Runtime validation requires ``temperature_C``, ``time_days``, and
+    ``measured_value``. The optional fields record the tested matrix and
+    storage scope so a projection cannot be detached from its evidence.
+    """
+
+    temperature_C: float
+    time_days: float
+    measured_value: float
+    unit: str
+    replicate_id: str
+    endpoint: str
+    formulation_id: str
+    lot_id: str
+    pH: float
+    water_activity: float
+    packaging: str
+    headspace: str
+    light: str
+    oxygen: str
+    metal_ppb: float
+
+
+class AssayProjection(TypedDict, total=False):
+    """Data model returned by ``assay_shelf_life_projection``."""
+
+    pathway: str
+    analyte_or_marker: str
+    model_type: str
+    initial_value: float
+    acceptance_limit: float
+    target_temperature_C: float
+    rates_by_temperature: dict[float, dict[str, Any]]
+    arrhenius_fit: dict[str, Any]
+    projection_basis: str
+    projected_rate_per_day: float | None
+    projected_shelf_life_days: float | None
+    projected_shelf_life_months: float | None
+    Ea_J_per_mol_used: float | None
+    A_per_day_used: float | None
+    ich_real_time_status: str
+    label_claim_supported: bool
+    guardrail_note: str
+    low_ea_warning: str
+    storage_scope_fields: list[str]
 
 
 # ---------------------------------------------------------------------------
@@ -173,14 +222,14 @@ _ASSAY_REQUIRED_FIELDS = ("temperature_C", "time_days", "measured_value")
 _SUPPORTED_MODELS = {"first_order", "zero_order"}
 
 
-def _as_float(row: dict[str, Any], key: str) -> float:
+def _as_float(row: AssayPoint, key: str) -> float:
     value = row[key]
     if value is None:
         raise ValueError(f"assay point field {key!r} cannot be None")
     return float(value)
 
 
-def _validate_assay_point(row: dict[str, Any]) -> None:
+def _validate_assay_point(row: AssayPoint) -> None:
     missing = [key for key in _ASSAY_REQUIRED_FIELDS if key not in row]
     if missing:
         raise ValueError(f"assay point missing required field(s): {', '.join(missing)}")
@@ -191,7 +240,7 @@ def _validate_assay_point(row: dict[str, Any]) -> None:
 
 
 def assay_rates_by_temperature(
-    assay_points: Iterable[dict[str, Any]],
+    assay_points: Iterable[AssayPoint],
     *,
     initial_value: float = 100.0,
     model_type: str = "first_order",
@@ -331,7 +380,7 @@ def _endpoint_days(
 
 
 def _max_observed_days_at_temperature(
-    assay_points: Iterable[dict[str, Any]], target_temperature_C: float) -> float:
+    assay_points: Iterable[AssayPoint], target_temperature_C: float) -> float:
     max_days = 0.0
     for row in assay_points:
         _validate_assay_point(row)
@@ -342,7 +391,7 @@ def _max_observed_days_at_temperature(
 
 def _ich_status(
     *,
-    assay_points: list[dict[str, Any]],
+    assay_points: list[AssayPoint],
     target_temperature_C: float,
     max_assay_temperature_C: float | None,
     temperature_count: int,
@@ -386,14 +435,14 @@ def _ich_status(
 
 def assay_shelf_life_projection(
     pathway_key: str,
-    assay_points: Iterable[dict[str, Any]],
+    assay_points: Iterable[AssayPoint],
     *,
     analyte_or_marker: str,
     acceptance_limit: float,
     initial_value: float = 100.0,
     target_temperature_C: float = 25.0,
     model_type: str = "first_order",
-) -> dict[str, Any]:
+) -> AssayProjection:
     """Project shelf-life from actual assay observations plus guardrails.
 
     The function fits per-temperature degradation rates from assay rows and fits
@@ -485,7 +534,7 @@ def assay_shelf_life_projection(
     }
 
 
-def assay_projection_report(projection: dict[str, Any]) -> str:
+def assay_projection_report(projection: AssayProjection) -> str:
     """Render a compact, human-readable assay projection report."""
     shelf_days = projection["projected_shelf_life_days"]
     shelf = "not projected" if shelf_days is None else f"{shelf_days:.1f} days ({projection['projected_shelf_life_months']:.2f} months)"
