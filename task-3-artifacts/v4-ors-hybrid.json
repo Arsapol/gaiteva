@@ -1,0 +1,149 @@
+{
+  "name": "V4 Make-Fresh SGLT1 ORS Hybrid (lower ribose + dextrose)",
+  "architecture": "wet_core_plus_dry_activator",
+  "target_shelf_months": 6,
+  "dose_ml": 5.0,
+  "delivered_water_ml": 50.0,
+  "oil_pct": 20.0,
+  "wet_water_ml_per_100ml": 70.0,
+  "preservative_validated": false,
+  "emulsion_validated": false,
+  "ingredients": [
+    {
+      "key": "mct_oil",
+      "label": "MCT oil",
+      "amount": 1.0,
+      "unit": "mL",
+      "phase": "oil",
+      "timing": "acute"
+    },
+    {
+      "key": "d_ribose",
+      "label": "D-ribose",
+      "amount": 150,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "dmg",
+      "label": "DMG",
+      "amount": 100,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "lclt",
+      "label": "LCLT",
+      "amount": 50,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "coq10",
+      "label": "CoQ10",
+      "amount": 5,
+      "unit": "mg",
+      "phase": "oil",
+      "timing": "chronic"
+    },
+    {
+      "key": "vitamin_e_acetate",
+      "label": "Vitamin E acetate",
+      "amount": 10,
+      "unit": "mg",
+      "phase": "oil",
+      "timing": "chronic"
+    },
+    {
+      "key": "magnesium_chloride",
+      "label": "MgCl2",
+      "amount": 40,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "sodium_chloride",
+      "label": "NaCl",
+      "amount": 25,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "potassium_chloride",
+      "label": "KCl",
+      "amount": 10,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "sodium_citrate",
+      "label": "Sodium citrate",
+      "amount": 12.5,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "dextrose",
+      "label": "Dextrose (make-fresh ORS stick)",
+      "amount": 200,
+      "unit": "mg",
+      "phase": "make_fresh",
+      "timing": "acute"
+    },
+    {
+      "key": "l_tyrosine",
+      "label": "L-tyrosine",
+      "amount": 200,
+      "unit": "mg",
+      "phase": "dry",
+      "timing": "acute"
+    },
+    {
+      "key": "b6",
+      "label": "B6/P5P",
+      "amount": 2.5,
+      "unit": "mg",
+      "phase": "dry",
+      "timing": "acute"
+    },
+    {
+      "key": "ascorbate",
+      "label": "Vitamin C",
+      "amount": 75,
+      "unit": "mg",
+      "phase": "dry",
+      "timing": "acute"
+    },
+    {
+      "key": "taurine",
+      "label": "Taurine",
+      "amount": 125,
+      "unit": "mg",
+      "phase": "dry",
+      "timing": "acute"
+    },
+    {
+      "key": "betaine",
+      "label": "Betaine",
+      "amount": 250,
+      "unit": "mg",
+      "phase": "dry",
+      "timing": "acute"
+    },
+    {
+      "key": "creatine",
+      "label": "Creatine/GAA preload equivalent",
+      "amount": 200,
+      "unit": "mg",
+      "phase": "dry",
+      "timing": "preload"
+    }
+  ]
+}
