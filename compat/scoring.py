@@ -234,6 +234,8 @@ def score_osmolality_report(report: dict[str, Any] | None, *, hydration_claim: b
             message="delivered osmolality and electrolyte completeness pass hydration screen",
             evidence={"total_mosm_per_l": mosm, "verdict": verdict},
         ))
+    elif verdict == "PASS" and not complete_ors:
+        score, cap = 4.0, 4.0
     elif verdict == "MARGINAL" and complete_ors:
         score, cap = 7.0, 7.5
         findings.append(make_finding(
