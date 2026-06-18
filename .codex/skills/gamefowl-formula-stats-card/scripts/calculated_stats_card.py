@@ -274,6 +274,25 @@ def _wet_water_ml_per_dose(formula: dict[str, Any]) -> float:
     return wet_water_ml_per_100ml * dose_ml / 100.0
 
 
+
+
+def _compat_product_type(formula: dict[str, Any]) -> str:
+    explicit = formula.get("product_type") or formula.get("use_case")
+    if explicit:
+        return str(explicit)
+    architecture = str(formula.get("architecture", "")).lower()
+    if architecture == "wet_core_plus_dry_activator":
+        return "wet_core_plus_dry_activator"
+    if "capsule" in architecture:
+        return "dry_capsule"
+    if "dry" in architecture and "drink" not in architecture:
+        return "dry_premix"
+    if formula.get("hydration_claim") is True:
+        return "hydration_drink"
+    if _wet_water_ml_per_dose(formula) is None:
+        return "dry_capsule"
+    return "wet_concentrate"
+
 def _compat_key(ing: Ingredient, prof: Profile | None = None) -> str | None:
     return (prof.solubility_key if prof else None) or COMPAT_KEY_MAP.get(ing.key) or ing.key
 
@@ -721,8 +740,10 @@ def physical_scores(formula: dict[str, Any]) -> dict[str, Any]:
     normalized_report = None
     try:
         from compat.scoring import evaluate_formula  # type: ignore
-
-        product_type = "wet_core_plus_dry_activator" if formula.get("architecture") == "wet_core_plus_dry_activator" else "wet_concentrate"
+    except ImportError as exc:
+        normalized_report = {"warning": f"compat.scoring unavailable: {exc}"}
+    else:
+        product_type = _compat_product_type(formula)
         normalized_report = evaluate_formula(
             [],
             product_type=product_type,
@@ -733,8 +754,6 @@ def physical_scores(formula: dict[str, Any]) -> dict[str, Any]:
             solubility_report=solubility,
             osmolality_report_data=osmo["report"],
         )
-    except Exception as exc:
-        normalized_report = {"warning": f"compat.scoring unavailable: {exc}"}
 
     return {
         "gi": round(clamp(gi), 2),
