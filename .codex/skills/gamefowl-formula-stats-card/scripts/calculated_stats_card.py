@@ -25,7 +25,7 @@ import argparse
 import json
 import math
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -490,16 +490,10 @@ def osmolality_analysis(formula: dict[str, Any]) -> dict[str, Any]:
             notes.append("UNKNOWN osmoles for: " + ", ".join(unknown_mw) + " (molar mass missing in registry; osmolarity is under-estimated)")
         if not electro["complete_ors"]:
             notes.append(electro["reason"])
-        if verdict == "PASS" and electro["complete_ors"]:
-            score, cap = 9.0, 10.0
-        elif verdict == "MARGINAL" and electro["complete_ors"]:
-            score, cap = 7.0, 7.5
-        else:
-            cap = 4.0 if mosm <= 700 else 2.5
-            if not electro["complete_ors"]:
-                cap = min(cap, 4.0)
-            score = cap
-        return {"report": report, "score": round(score, 2), "hydration_cap": round(cap, 2), "notes": notes}
+        from compat.scoring import score_osmolality_report  # type: ignore
+
+        normalized = score_osmolality_report(report, hydration_claim=True)
+        return {"report": report, "score": normalized["score"], "hydration_cap": normalized["hydration_cap"], "notes": notes}
     except Exception as exc:
         return {"report": {"warning": f"compat.osmolality unavailable: {exc}"}, "score": 5.0, "hydration_cap": 6.0, "notes": [f"osmolality calculator unavailable: {exc}"]}
 
@@ -724,6 +718,24 @@ def physical_scores(formula: dict[str, Any]) -> dict[str, Any]:
         for note in osmo.get("notes", []):
             ledger.append({"target": "Hydration cap", "delta": f"cap {osmo['hydration_cap']}", "reason": note})
 
+    normalized_report = None
+    try:
+        from compat.scoring import evaluate_formula  # type: ignore
+
+        product_type = "wet_core_plus_dry_activator" if formula.get("architecture") == "wet_core_plus_dry_activator" else "wet_concentrate"
+        normalized_report = evaluate_formula(
+            [],
+            product_type=product_type,
+            water_ml=_wet_water_ml_per_dose(formula),
+            hydration_claim=bool(osmo.get("report")),
+            preservative_validated=bool(formula.get("preservative_validated", False)),
+            emulsion_validated=bool(formula.get("emulsion_validated", False)) if oil_pct > 0 else None,
+            solubility_report=solubility,
+            osmolality_report_data=osmo["report"],
+        )
+    except Exception as exc:
+        normalized_report = {"warning": f"compat.scoring unavailable: {exc}"}
+
     return {
         "gi": round(clamp(gi), 2),
         "gi_notes": gi_notes,
@@ -737,6 +749,7 @@ def physical_scores(formula: dict[str, Any]) -> dict[str, Any]:
         "osmolality_score": osmo["score"],
         "hydration_cap": osmo["hydration_cap"],
         "osmolality_notes": osmo["notes"],
+        "normalized_compat_report": normalized_report,
         "penalty_ledger": ledger,
     }
 
