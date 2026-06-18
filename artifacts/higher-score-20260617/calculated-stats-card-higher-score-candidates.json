@@ -1,0 +1,1522 @@
+[
+  {
+    "name": "V3.1 Dilution-Labeled Hybrid (5 mL core into 40 mL water + dry activator)",
+    "architecture": "wet_core_plus_dry_activator",
+    "scores": {
+      "Focus / alertness": 5.48,
+      "Energy availability": 7.05,
+      "Fatigue/stress tolerance": 8.53,
+      "Fast recovery": 8.47,
+      "ATP regeneration": 8.21,
+      "Anti-inflammatory / antioxidant support": 8.68,
+      "Respiratory / acid-base support": 6.67,
+      "Hydration / electrolyte balance": 6.89,
+      "GI tolerance": 7.25,
+      "Onset speed": 6.25,
+      "Shelf stability / commercial readiness": 7.45
+    },
+    "potential_scores": {
+      "Focus / alertness": 5.48,
+      "Energy availability": 7.05,
+      "Fatigue/stress tolerance": 8.53,
+      "Fast recovery": 8.47,
+      "ATP regeneration": 8.21,
+      "Anti-inflammatory / antioxidant support": 8.68,
+      "Respiratory / acid-base support": 6.67,
+      "Hydration / electrolyte balance": 6.89,
+      "GI tolerance": 8.0,
+      "Onset speed": 6.25,
+      "Shelf stability / commercial readiness": 9.0
+    },
+    "overall": 7.36,
+    "biological_potential": 7.36,
+    "formulation_feasibility": 8.43,
+    "rollups": {
+      "performance_support": 7.38,
+      "recovery_welfare": 7.59,
+      "commercial_readiness": 7.45
+    },
+    "confidence": {
+      "Focus / alertness": "Low",
+      "Energy availability": "Medium",
+      "Fatigue/stress tolerance": "High",
+      "Fast recovery": "Medium",
+      "ATP regeneration": "Medium",
+      "Anti-inflammatory / antioxidant support": "High",
+      "Respiratory / acid-base support": "Medium",
+      "Hydration / electrolyte balance": "Medium",
+      "GI tolerance": "Low",
+      "Onset speed": "Medium",
+      "Shelf stability / commercial readiness": "Medium"
+    },
+    "ingredient_rows": [
+      {
+        "ingredient": "MCT oil",
+        "dose": "1 mL",
+        "phase": "oil",
+        "evidence": "field",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "energy": 2.38,
+          "fatigue": 0.595,
+          "onset": 0.68
+        },
+        "notes": "Oil energy; score capped by emulsion/GI tolerance."
+      },
+      {
+        "ingredient": "D-ribose",
+        "dose": "300 mg",
+        "phase": "wet",
+        "evidence": "field",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 1.7,
+          "energy": 1.105,
+          "onset": 0.68,
+          "recovery": 1.53
+        },
+        "notes": "Field-supported ATP/recovery lever; wet Maillard driver."
+      },
+      {
+        "ingredient": "DMG",
+        "dose": "100 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.48,
+          "fatigue": 1.12,
+          "recovery": 0.64,
+          "resp": 1.2
+        },
+        "notes": "Formulation-friendly tertiary amine; avian heat/ascites lane."
+      },
+      {
+        "ingredient": "LCLT",
+        "dose": "50 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.18,
+          "energy": 0.18,
+          "fatigue": 0.288,
+          "recovery": 0.36,
+          "resp": 0.288
+        },
+        "notes": "More preload/chronic than acute."
+      },
+      {
+        "ingredient": "CoQ10",
+        "dose": "5 mg",
+        "phase": "oil",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 1.8,
+          "atp": 1.0,
+          "fatigue": 0.6
+        },
+        "notes": "Chicken heat-stress mitochondrial ROS support; not acute stimulant proof."
+      },
+      {
+        "ingredient": "Vitamin E acetate",
+        "dose": "10 mg",
+        "phase": "oil",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 1.6,
+          "fatigue": 0.4
+        },
+        "notes": "Stable vitamin E source; not counted as strong in-bottle oil preservative."
+      },
+      {
+        "ingredient": "MgCl2",
+        "dose": "40 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.64,
+          "hydration": 0.48,
+          "recovery": 0.4,
+          "resp": 0.24
+        },
+        "notes": "Mg-ATP/electrolyte support; GI cap applies."
+      },
+      {
+        "ingredient": "NaCl",
+        "dose": "25 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.96,
+          "onset": 0.24,
+          "resp": 0.48
+        },
+        "notes": "Cl-balanced hydration/acid-base support."
+      },
+      {
+        "ingredient": "KCl",
+        "dose": "10 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.72,
+          "resp": 0.4
+        },
+        "notes": "K/Cl electrolyte support."
+      },
+      {
+        "ingredient": "Sodium citrate",
+        "dose": "12.5 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 0.913,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.146,
+          "resp": 0.292
+        },
+        "notes": "Small buffer; penalize if over-used as alkali load."
+      },
+      {
+        "ingredient": "L-tyrosine",
+        "dose": "200 mg",
+        "phase": "dry",
+        "evidence": "mechanism",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "focus": 1.56,
+          "onset": 0.91
+        },
+        "notes": "Dry-only focus lever; low water solubility."
+      },
+      {
+        "ingredient": "B6/P5P",
+        "dose": "2.5 mg",
+        "phase": "dry",
+        "evidence": "mechanism",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.195,
+          "focus": 0.585,
+          "onset": 0.195
+        },
+        "notes": "Cofactor; keep dry/light-protected."
+      },
+      {
+        "ingredient": "Vitamin C",
+        "dose": "75 mg",
+        "phase": "dry",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.96,
+          "focus": 0.24,
+          "onset": 0.24,
+          "recovery": 0.56
+        },
+        "notes": "Useful make-fresh; wet storage loses potency."
+      },
+      {
+        "ingredient": "Taurine",
+        "dose": "125 mg",
+        "phase": "dry",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.64,
+          "fatigue": 0.8,
+          "gi": 0.24,
+          "recovery": 0.8,
+          "resp": 0.4
+        },
+        "notes": "Dry/make-fresh preferred with ribose."
+      },
+      {
+        "ingredient": "Betaine",
+        "dose": "250 mg",
+        "phase": "dry",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.6,
+          "fatigue": 1.3,
+          "hydration": 1.2,
+          "recovery": 0.7
+        },
+        "notes": "Osmolyte/methyl donor; strong heat-stress support."
+      },
+      {
+        "ingredient": "Creatine/GAA preload equivalent",
+        "dose": "200 mg",
+        "phase": "dry",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 1.44,
+          "fatigue": 0.64,
+          "recovery": 0.64
+        },
+        "notes": "ATP/PCr score mainly if preloaded; wet degradation risk."
+      }
+    ],
+    "unknown_ingredients": [],
+    "raw_points": {
+      "focus": 2.385,
+      "energy": 3.665,
+      "fatigue": 5.743,
+      "recovery": 5.63,
+      "atp": 5.155,
+      "antiox": 6.08,
+      "resp": 3.3,
+      "hydration": 3.506,
+      "onset": 2.945,
+      "gi": 0.24
+    },
+    "physical": {
+      "gi": 7.25,
+      "gi_notes": [
+        "moderate oil emulsion burden",
+        "emulsion not validated"
+      ],
+      "shelf": 7.45,
+      "shelf_notes": [
+        "6+ month target active",
+        "20% oil emulsion needs separation/oxidation testing",
+        "emulsion stability not validated",
+        "preservative challenge not validated",
+        "dry activator removes high-risk wet amines/vitamins",
+        "oil-phase actives need potency/distribution assay"
+      ],
+      "solubility": {
+        "water_ml": 70.0,
+        "substances": [
+          {
+            "name": "d_ribose",
+            "conc_g_per_100ml": 8.571429,
+            "ceiling": 100.0,
+            "headroom_pct": 91.43,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "dmg",
+            "conc_g_per_100ml": 2.857143,
+            "ceiling": 5.0,
+            "headroom_pct": 42.86,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "l_carnitine_l_tartrate",
+            "conc_g_per_100ml": 1.428571,
+            "ceiling": 100.0,
+            "headroom_pct": 98.57,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "magnesium_chloride",
+            "conc_g_per_100ml": 1.142857,
+            "ceiling": 55.5,
+            "headroom_pct": 97.94,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "sodium_chloride",
+            "conc_g_per_100ml": 0.714286,
+            "ceiling": 36.0,
+            "headroom_pct": 98.02,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "potassium_chloride",
+            "conc_g_per_100ml": 0.285714,
+            "ceiling": 34.0,
+            "headroom_pct": 99.16,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "trisodium_citrate",
+            "conc_g_per_100ml": 0.357143,
+            "ceiling": 42.0,
+            "headroom_pct": 99.15,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          }
+        ],
+        "tds": {
+          "total_dissolved_g": 10.75,
+          "w_v_pct": 15.3571,
+          "salting_out_flag": false
+        },
+        "bottlenecks": [],
+        "supersaturation_warnings": []
+      },
+      "solubility_score": 10.0,
+      "solubility_fractions": {
+        "mct_oil": 1.0,
+        "d_ribose": 1.0,
+        "dmg": 1.0,
+        "lclt": 1.0,
+        "coq10": 1.0,
+        "vitamin_e_acetate": 1.0,
+        "magnesium_chloride": 1.0,
+        "sodium_chloride": 1.0,
+        "potassium_chloride": 1.0,
+        "sodium_citrate": 1.0,
+        "l_tyrosine": 1.0,
+        "b6": 1.0,
+        "ascorbate": 1.0,
+        "taurine": 1.0,
+        "betaine": 1.0,
+        "creatine": 1.0
+      },
+      "solubility_notes": [],
+      "osmolality": {
+        "water_ml": 40.0,
+        "osmolarity": {
+          "total_mosm_per_l": 129.25686849108752,
+          "contributions": [
+            {
+              "name": "d_ribose",
+              "dissolved_g": 0.3,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 49.95670418970225
+            },
+            {
+              "name": "dmg",
+              "dissolved_g": 0.1,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 24.243599689681925
+            },
+            {
+              "name": "l_carnitine_l_tartrate",
+              "dissolved_g": 0.05,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 7.9534247446950666
+            },
+            {
+              "name": "magnesium_chloride",
+              "dissolved_g": 0.04,
+              "osmotic_n": 3.0,
+              "mosm_per_l": 14.756517461878998
+            },
+            {
+              "name": "sodium_chloride",
+              "dissolved_g": 0.025,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 21.389459274469544
+            },
+            {
+              "name": "potassium_chloride",
+              "dissolved_g": 0.01,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 6.706908115358819
+            },
+            {
+              "name": "trisodium_citrate",
+              "dissolved_g": 0.0125,
+              "osmotic_n": 4.0,
+              "mosm_per_l": 4.250255015300918
+            }
+          ],
+          "unknown_molar_mass": []
+        },
+        "ors_gate": {
+          "total_mosm_per_l": 129.25686849108752,
+          "verdict": "PASS",
+          "note": "<= 320 mOsm/L \u2014 within isotonic-ish hydration band",
+          "who_ors_ref": 245.0,
+          "avian_isotonic_ref": [
+            300.0,
+            320.0
+          ]
+        },
+        "electrolyte_balance": {
+          "na_mmol": 0.5552968359484185,
+          "k_mmol": 0.1341381623071764,
+          "cl_mmol": 0.9555113477965673,
+          "electrolyte_sources": [
+            "magnesium_chloride",
+            "sodium_chloride",
+            "potassium_chloride",
+            "trisodium_citrate"
+          ],
+          "complete_ors": true,
+          "reason": "OK \u2014 sodium present; SGLT1 glucose-Na cotransport can drive water uptake"
+        },
+        "blocking": false
+      },
+      "osmolality_score": 9.0,
+      "hydration_cap": 10.0,
+      "osmolality_notes": [
+        "129 mOsm/L -> PASS: <= 320 mOsm/L \u2014 within isotonic-ish hydration band"
+      ],
+      "penalty_ledger": [
+        {
+          "target": "GI",
+          "delta": -0.35,
+          "reason": "moderate oil emulsion burden"
+        },
+        {
+          "target": "GI",
+          "delta": -0.4,
+          "reason": "emulsion not validated"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.45,
+          "reason": "20% oil emulsion risk"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.8,
+          "reason": "emulsion stability not validated"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.8,
+          "reason": "preservative challenge not validated"
+        },
+        {
+          "target": "Shelf",
+          "delta": 0.8,
+          "reason": "dry activator removes wet incompatibilities"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.3,
+          "reason": "oil-phase active distribution assay needed"
+        }
+      ]
+    },
+    "score_notes": {
+      "Focus / alertness": [],
+      "Energy availability": [],
+      "Fatigue/stress tolerance": [],
+      "Fast recovery": [],
+      "ATP regeneration": [],
+      "Anti-inflammatory / antioxidant support": [],
+      "Respiratory / acid-base support": [],
+      "Hydration / electrolyte balance": [],
+      "GI tolerance": [
+        "moderate oil emulsion burden",
+        "emulsion not validated"
+      ],
+      "Onset speed": [],
+      "Shelf stability / commercial readiness": [
+        "6+ month target active",
+        "20% oil emulsion needs separation/oxidation testing",
+        "emulsion stability not validated",
+        "preservative challenge not validated",
+        "dry activator removes high-risk wet amines/vitamins",
+        "oil-phase actives need potency/distribution assay"
+      ]
+    }
+  },
+  {
+    "name": "V3.2 Light-Core Dilution Hybrid (10% oil, 5 mL into 30 mL water + dry activator)",
+    "architecture": "wet_core_plus_dry_activator",
+    "scores": {
+      "Focus / alertness": 5.48,
+      "Energy availability": 6.16,
+      "Fatigue/stress tolerance": 8.44,
+      "Fast recovery": 8.4,
+      "ATP regeneration": 8.12,
+      "Anti-inflammatory / antioxidant support": 8.68,
+      "Respiratory / acid-base support": 6.67,
+      "Hydration / electrolyte balance": 6.89,
+      "GI tolerance": 7.6,
+      "Onset speed": 5.92,
+      "Shelf stability / commercial readiness": 7.45
+    },
+    "potential_scores": {
+      "Focus / alertness": 5.48,
+      "Energy availability": 6.16,
+      "Fatigue/stress tolerance": 8.44,
+      "Fast recovery": 8.4,
+      "ATP regeneration": 8.12,
+      "Anti-inflammatory / antioxidant support": 8.68,
+      "Respiratory / acid-base support": 6.67,
+      "Hydration / electrolyte balance": 6.89,
+      "GI tolerance": 8.0,
+      "Onset speed": 5.92,
+      "Shelf stability / commercial readiness": 9.0
+    },
+    "overall": 7.26,
+    "biological_potential": 7.2,
+    "formulation_feasibility": 8.51,
+    "rollups": {
+      "performance_support": 7.12,
+      "recovery_welfare": 7.65,
+      "commercial_readiness": 7.45
+    },
+    "confidence": {
+      "Focus / alertness": "Low",
+      "Energy availability": "Medium",
+      "Fatigue/stress tolerance": "High",
+      "Fast recovery": "Medium",
+      "ATP regeneration": "Medium",
+      "Anti-inflammatory / antioxidant support": "High",
+      "Respiratory / acid-base support": "Medium",
+      "Hydration / electrolyte balance": "Medium",
+      "GI tolerance": "Low",
+      "Onset speed": "Medium",
+      "Shelf stability / commercial readiness": "Medium"
+    },
+    "ingredient_rows": [
+      {
+        "ingredient": "MCT oil",
+        "dose": "0.5 mL",
+        "phase": "oil",
+        "evidence": "field",
+        "dose_factor": 0.707,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "energy": 1.683,
+          "fatigue": 0.421,
+          "onset": 0.481
+        },
+        "notes": "Oil energy; score capped by emulsion/GI tolerance."
+      },
+      {
+        "ingredient": "D-ribose",
+        "dose": "250 mg",
+        "phase": "wet",
+        "evidence": "field",
+        "dose_factor": 0.913,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 1.552,
+          "energy": 1.009,
+          "onset": 0.621,
+          "recovery": 1.397
+        },
+        "notes": "Field-supported ATP/recovery lever; wet Maillard driver."
+      },
+      {
+        "ingredient": "DMG",
+        "dose": "100 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.48,
+          "fatigue": 1.12,
+          "recovery": 0.64,
+          "resp": 1.2
+        },
+        "notes": "Formulation-friendly tertiary amine; avian heat/ascites lane."
+      },
+      {
+        "ingredient": "LCLT",
+        "dose": "50 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.18,
+          "energy": 0.18,
+          "fatigue": 0.288,
+          "recovery": 0.36,
+          "resp": 0.288
+        },
+        "notes": "More preload/chronic than acute."
+      },
+      {
+        "ingredient": "CoQ10",
+        "dose": "5 mg",
+        "phase": "oil",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 1.8,
+          "atp": 1.0,
+          "fatigue": 0.6
+        },
+        "notes": "Chicken heat-stress mitochondrial ROS support; not acute stimulant proof."
+      },
+      {
+        "ingredient": "Vitamin E acetate",
+        "dose": "10 mg",
+        "phase": "oil",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 1.6,
+          "fatigue": 0.4
+        },
+        "notes": "Stable vitamin E source; not counted as strong in-bottle oil preservative."
+      },
+      {
+        "ingredient": "MgCl2",
+        "dose": "40 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.64,
+          "hydration": 0.48,
+          "recovery": 0.4,
+          "resp": 0.24
+        },
+        "notes": "Mg-ATP/electrolyte support; GI cap applies."
+      },
+      {
+        "ingredient": "NaCl",
+        "dose": "25 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.96,
+          "onset": 0.24,
+          "resp": 0.48
+        },
+        "notes": "Cl-balanced hydration/acid-base support."
+      },
+      {
+        "ingredient": "KCl",
+        "dose": "10 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.72,
+          "resp": 0.4
+        },
+        "notes": "K/Cl electrolyte support."
+      },
+      {
+        "ingredient": "Sodium citrate",
+        "dose": "12.5 mg",
+        "phase": "wet",
+        "evidence": "avian_indirect",
+        "dose_factor": 0.913,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.146,
+          "resp": 0.292
+        },
+        "notes": "Small buffer; penalize if over-used as alkali load."
+      },
+      {
+        "ingredient": "L-tyrosine",
+        "dose": "200 mg",
+        "phase": "dry",
+        "evidence": "mechanism",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "focus": 1.56,
+          "onset": 0.91
+        },
+        "notes": "Dry-only focus lever; low water solubility."
+      },
+      {
+        "ingredient": "B6/P5P",
+        "dose": "2.5 mg",
+        "phase": "dry",
+        "evidence": "mechanism",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.195,
+          "focus": 0.585,
+          "onset": 0.195
+        },
+        "notes": "Cofactor; keep dry/light-protected."
+      },
+      {
+        "ingredient": "Vitamin C",
+        "dose": "75 mg",
+        "phase": "dry",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.96,
+          "focus": 0.24,
+          "onset": 0.24,
+          "recovery": 0.56
+        },
+        "notes": "Useful make-fresh; wet storage loses potency."
+      },
+      {
+        "ingredient": "Taurine",
+        "dose": "125 mg",
+        "phase": "dry",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.64,
+          "fatigue": 0.8,
+          "gi": 0.24,
+          "recovery": 0.8,
+          "resp": 0.4
+        },
+        "notes": "Dry/make-fresh preferred with ribose."
+      },
+      {
+        "ingredient": "Betaine",
+        "dose": "250 mg",
+        "phase": "dry",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.6,
+          "fatigue": 1.3,
+          "hydration": 1.2,
+          "recovery": 0.7
+        },
+        "notes": "Osmolyte/methyl donor; strong heat-stress support."
+      },
+      {
+        "ingredient": "Creatine/GAA preload equivalent",
+        "dose": "200 mg",
+        "phase": "dry",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 1.44,
+          "fatigue": 0.64,
+          "recovery": 0.64
+        },
+        "notes": "ATP/PCr score mainly if preloaded; wet degradation risk."
+      }
+    ],
+    "unknown_ingredients": [],
+    "raw_points": {
+      "focus": 2.385,
+      "energy": 2.872,
+      "fatigue": 5.569,
+      "recovery": 5.497,
+      "atp": 5.007,
+      "antiox": 6.08,
+      "resp": 3.3,
+      "hydration": 3.506,
+      "onset": 2.687,
+      "gi": 0.24
+    },
+    "physical": {
+      "gi": 7.6,
+      "gi_notes": [
+        "emulsion not validated"
+      ],
+      "shelf": 7.45,
+      "shelf_notes": [
+        "6+ month target active",
+        "10% oil emulsion needs separation/oxidation testing",
+        "emulsion stability not validated",
+        "preservative challenge not validated",
+        "dry activator removes high-risk wet amines/vitamins",
+        "oil-phase actives need potency/distribution assay"
+      ],
+      "solubility": {
+        "water_ml": 80.0,
+        "substances": [
+          {
+            "name": "d_ribose",
+            "conc_g_per_100ml": 6.25,
+            "ceiling": 100.0,
+            "headroom_pct": 93.75,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "dmg",
+            "conc_g_per_100ml": 2.5,
+            "ceiling": 5.0,
+            "headroom_pct": 50.0,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "l_carnitine_l_tartrate",
+            "conc_g_per_100ml": 1.25,
+            "ceiling": 100.0,
+            "headroom_pct": 98.75,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "magnesium_chloride",
+            "conc_g_per_100ml": 1.0,
+            "ceiling": 55.5,
+            "headroom_pct": 98.2,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "sodium_chloride",
+            "conc_g_per_100ml": 0.625,
+            "ceiling": 36.0,
+            "headroom_pct": 98.26,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "potassium_chloride",
+            "conc_g_per_100ml": 0.25,
+            "ceiling": 34.0,
+            "headroom_pct": 99.26,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          },
+          {
+            "name": "trisodium_citrate",
+            "conc_g_per_100ml": 0.3125,
+            "ceiling": 42.0,
+            "headroom_pct": 99.26,
+            "dissolved": true,
+            "undissolved_g": 0.0
+          }
+        ],
+        "tds": {
+          "total_dissolved_g": 9.75,
+          "w_v_pct": 12.1875,
+          "salting_out_flag": false
+        },
+        "bottlenecks": [],
+        "supersaturation_warnings": []
+      },
+      "solubility_score": 10.0,
+      "solubility_fractions": {
+        "mct_oil": 1.0,
+        "d_ribose": 1.0,
+        "dmg": 1.0,
+        "lclt": 1.0,
+        "coq10": 1.0,
+        "vitamin_e_acetate": 1.0,
+        "magnesium_chloride": 1.0,
+        "sodium_chloride": 1.0,
+        "potassium_chloride": 1.0,
+        "sodium_citrate": 1.0,
+        "l_tyrosine": 1.0,
+        "b6": 1.0,
+        "ascorbate": 1.0,
+        "taurine": 1.0,
+        "betaine": 1.0,
+        "creatine": 1.0
+      },
+      "solubility_notes": [],
+      "osmolality": {
+        "water_ml": 30.0,
+        "osmolarity": {
+          "total_mosm_per_l": 161.2410015015162,
+          "contributions": [
+            {
+              "name": "d_ribose",
+              "dissolved_g": 0.25,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 55.507449099669174
+            },
+            {
+              "name": "dmg",
+              "dissolved_g": 0.1,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 32.32479958624256
+            },
+            {
+              "name": "l_carnitine_l_tartrate",
+              "dissolved_g": 0.05,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 10.60456632626009
+            },
+            {
+              "name": "magnesium_chloride",
+              "dissolved_g": 0.04,
+              "osmotic_n": 3.0,
+              "mosm_per_l": 19.675356615838663
+            },
+            {
+              "name": "sodium_chloride",
+              "dissolved_g": 0.025,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 28.51927903262606
+            },
+            {
+              "name": "potassium_chloride",
+              "dissolved_g": 0.01,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 8.94254415381176
+            },
+            {
+              "name": "trisodium_citrate",
+              "dissolved_g": 0.0125,
+              "osmotic_n": 4.0,
+              "mosm_per_l": 5.667006687067891
+            }
+          ],
+          "unknown_molar_mass": []
+        },
+        "ors_gate": {
+          "total_mosm_per_l": 161.2410015015162,
+          "verdict": "PASS",
+          "note": "<= 320 mOsm/L \u2014 within isotonic-ish hydration band",
+          "who_ors_ref": 245.0,
+          "avian_isotonic_ref": [
+            300.0,
+            320.0
+          ]
+        },
+        "electrolyte_balance": {
+          "na_mmol": 0.5552968359484185,
+          "k_mmol": 0.1341381623071764,
+          "cl_mmol": 0.9555113477965673,
+          "electrolyte_sources": [
+            "magnesium_chloride",
+            "sodium_chloride",
+            "potassium_chloride",
+            "trisodium_citrate"
+          ],
+          "complete_ors": true,
+          "reason": "OK \u2014 sodium present; SGLT1 glucose-Na cotransport can drive water uptake"
+        },
+        "blocking": false
+      },
+      "osmolality_score": 9.0,
+      "hydration_cap": 10.0,
+      "osmolality_notes": [
+        "161 mOsm/L -> PASS: <= 320 mOsm/L \u2014 within isotonic-ish hydration band"
+      ],
+      "penalty_ledger": [
+        {
+          "target": "GI",
+          "delta": -0.4,
+          "reason": "emulsion not validated"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.45,
+          "reason": "10% oil emulsion risk"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.8,
+          "reason": "emulsion stability not validated"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.8,
+          "reason": "preservative challenge not validated"
+        },
+        {
+          "target": "Shelf",
+          "delta": 0.8,
+          "reason": "dry activator removes wet incompatibilities"
+        },
+        {
+          "target": "Shelf",
+          "delta": -0.3,
+          "reason": "oil-phase active distribution assay needed"
+        }
+      ]
+    },
+    "score_notes": {
+      "Focus / alertness": [],
+      "Energy availability": [],
+      "Fatigue/stress tolerance": [],
+      "Fast recovery": [],
+      "ATP regeneration": [],
+      "Anti-inflammatory / antioxidant support": [],
+      "Respiratory / acid-base support": [],
+      "Hydration / electrolyte balance": [],
+      "GI tolerance": [
+        "emulsion not validated"
+      ],
+      "Onset speed": [],
+      "Shelf stability / commercial readiness": [
+        "6+ month target active",
+        "10% oil emulsion needs separation/oxidation testing",
+        "emulsion stability not validated",
+        "preservative challenge not validated",
+        "dry activator removes high-risk wet amines/vitamins",
+        "oil-phase actives need potency/distribution assay"
+      ]
+    }
+  },
+  {
+    "name": "V3.3 Dry Make-Fresh Recovery Drink + Oil Micelle/Softgel",
+    "architecture": "dry_make_fresh_plus_oil_cap",
+    "scores": {
+      "Focus / alertness": 5.48,
+      "Energy availability": 3.27,
+      "Fatigue/stress tolerance": 8.06,
+      "Fast recovery": 8.31,
+      "ATP regeneration": 8.12,
+      "Anti-inflammatory / antioxidant support": 8.62,
+      "Respiratory / acid-base support": 6.62,
+      "Hydration / electrolyte balance": 6.76,
+      "GI tolerance": 8.0,
+      "Onset speed": 5.21,
+      "Shelf stability / commercial readiness": 8.7
+    },
+    "potential_scores": {
+      "Focus / alertness": 5.48,
+      "Energy availability": 3.27,
+      "Fatigue/stress tolerance": 8.06,
+      "Fast recovery": 8.31,
+      "ATP regeneration": 8.12,
+      "Anti-inflammatory / antioxidant support": 8.62,
+      "Respiratory / acid-base support": 6.62,
+      "Hydration / electrolyte balance": 6.76,
+      "GI tolerance": 8.0,
+      "Onset speed": 5.21,
+      "Shelf stability / commercial readiness": 9.0
+    },
+    "overall": 7.01,
+    "biological_potential": 6.72,
+    "formulation_feasibility": 8.93,
+    "rollups": {
+      "performance_support": 6.28,
+      "recovery_welfare": 7.66,
+      "commercial_readiness": 8.7
+    },
+    "confidence": {
+      "Focus / alertness": "Low",
+      "Energy availability": "Medium",
+      "Fatigue/stress tolerance": "High",
+      "Fast recovery": "Medium",
+      "ATP regeneration": "Medium",
+      "Anti-inflammatory / antioxidant support": "High",
+      "Respiratory / acid-base support": "Medium",
+      "Hydration / electrolyte balance": "Medium",
+      "GI tolerance": "Medium",
+      "Onset speed": "Medium",
+      "Shelf stability / commercial readiness": "Medium"
+    },
+    "ingredient_rows": [
+      {
+        "ingredient": "MCT oil",
+        "dose": "0 mL",
+        "phase": "oil",
+        "evidence": "field",
+        "dose_factor": 0.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "energy": 0.0,
+          "fatigue": 0.0,
+          "onset": 0.0
+        },
+        "notes": "Oil energy; score capped by emulsion/GI tolerance."
+      },
+      {
+        "ingredient": "D-ribose",
+        "dose": "250 mg",
+        "phase": "make_fresh",
+        "evidence": "field",
+        "dose_factor": 0.913,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 1.552,
+          "energy": 1.009,
+          "onset": 0.621,
+          "recovery": 1.397
+        },
+        "notes": "Field-supported ATP/recovery lever; wet Maillard driver."
+      },
+      {
+        "ingredient": "DMG",
+        "dose": "100 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.48,
+          "fatigue": 1.12,
+          "recovery": 0.64,
+          "resp": 1.2
+        },
+        "notes": "Formulation-friendly tertiary amine; avian heat/ascites lane."
+      },
+      {
+        "ingredient": "LCLT",
+        "dose": "50 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.18,
+          "energy": 0.18,
+          "fatigue": 0.288,
+          "recovery": 0.36,
+          "resp": 0.288
+        },
+        "notes": "More preload/chronic than acute."
+      },
+      {
+        "ingredient": "CoQ10",
+        "dose": "5 mg",
+        "phase": "dry",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 1.8,
+          "atp": 1.0,
+          "fatigue": 0.6
+        },
+        "notes": "Chicken heat-stress mitochondrial ROS support; not acute stimulant proof."
+      },
+      {
+        "ingredient": "Vitamin E acetate",
+        "dose": "10 mg",
+        "phase": "dry",
+        "evidence": "avian",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 1.6,
+          "fatigue": 0.4
+        },
+        "notes": "Stable vitamin E source; not counted as strong in-bottle oil preservative."
+      },
+      {
+        "ingredient": "MgCl2",
+        "dose": "40 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.64,
+          "hydration": 0.48,
+          "recovery": 0.4,
+          "resp": 0.24
+        },
+        "notes": "Mg-ATP/electrolyte support; GI cap applies."
+      },
+      {
+        "ingredient": "NaCl",
+        "dose": "25 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.96,
+          "onset": 0.24,
+          "resp": 0.48
+        },
+        "notes": "Cl-balanced hydration/acid-base support."
+      },
+      {
+        "ingredient": "KCl",
+        "dose": "10 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.72,
+          "resp": 0.4
+        },
+        "notes": "K/Cl electrolyte support."
+      },
+      {
+        "ingredient": "Sodium citrate",
+        "dose": "12.5 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 0.913,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "hydration": 0.146,
+          "resp": 0.292
+        },
+        "notes": "Small buffer; penalize if over-used as alkali load."
+      },
+      {
+        "ingredient": "L-tyrosine",
+        "dose": "200 mg",
+        "phase": "dry",
+        "evidence": "mechanism",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "focus": 1.56,
+          "onset": 0.91
+        },
+        "notes": "Dry-only focus lever; low water solubility."
+      },
+      {
+        "ingredient": "B6/P5P",
+        "dose": "2.5 mg",
+        "phase": "dry",
+        "evidence": "mechanism",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 0.195,
+          "focus": 0.585,
+          "onset": 0.195
+        },
+        "notes": "Cofactor; keep dry/light-protected."
+      },
+      {
+        "ingredient": "Vitamin C",
+        "dose": "75 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.96,
+          "focus": 0.24,
+          "onset": 0.24,
+          "recovery": 0.56
+        },
+        "notes": "Useful make-fresh; wet storage loses potency."
+      },
+      {
+        "ingredient": "Taurine",
+        "dose": "100 mg",
+        "phase": "make_fresh",
+        "evidence": "avian_indirect",
+        "dose_factor": 0.894,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.572,
+          "fatigue": 0.716,
+          "gi": 0.215,
+          "recovery": 0.716,
+          "resp": 0.358
+        },
+        "notes": "Dry/make-fresh preferred with ribose."
+      },
+      {
+        "ingredient": "Betaine",
+        "dose": "200 mg",
+        "phase": "make_fresh",
+        "evidence": "avian",
+        "dose_factor": 0.894,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "antiox": 0.537,
+          "fatigue": 1.163,
+          "hydration": 1.073,
+          "recovery": 0.626
+        },
+        "notes": "Osmolyte/methyl donor; strong heat-stress support."
+      },
+      {
+        "ingredient": "Creatine/GAA preload equivalent",
+        "dose": "200 mg",
+        "phase": "dry",
+        "evidence": "avian_indirect",
+        "dose_factor": 1.0,
+        "solubility_factor": 1.0,
+        "contribs": {
+          "atp": 1.44,
+          "fatigue": 0.64,
+          "recovery": 0.64
+        },
+        "notes": "ATP/PCr score mainly if preloaded; wet degradation risk."
+      }
+    ],
+    "unknown_ingredients": [],
+    "raw_points": {
+      "focus": 2.385,
+      "energy": 1.189,
+      "fatigue": 4.926,
+      "recovery": 5.338,
+      "atp": 5.007,
+      "antiox": 5.949,
+      "resp": 3.258,
+      "hydration": 3.379,
+      "onset": 2.206,
+      "gi": 0.215
+    },
+    "physical": {
+      "gi": 8.0,
+      "gi_notes": [],
+      "shelf": 8.7,
+      "shelf_notes": [
+        "6+ month target active",
+        "oil-phase actives need potency/distribution assay"
+      ],
+      "solubility": null,
+      "solubility_score": 10.0,
+      "solubility_fractions": {
+        "mct_oil": 1.0,
+        "d_ribose": 1.0,
+        "dmg": 1.0,
+        "lclt": 1.0,
+        "coq10": 1.0,
+        "vitamin_e_acetate": 1.0,
+        "magnesium_chloride": 1.0,
+        "sodium_chloride": 1.0,
+        "potassium_chloride": 1.0,
+        "sodium_citrate": 1.0,
+        "l_tyrosine": 1.0,
+        "b6": 1.0,
+        "ascorbate": 1.0,
+        "taurine": 1.0,
+        "betaine": 1.0,
+        "creatine": 1.0
+      },
+      "solubility_notes": [],
+      "osmolality": {
+        "water_ml": 60.0,
+        "osmolarity": {
+          "total_mosm_per_l": 116.17148389909005,
+          "contributions": [
+            {
+              "name": "d_ribose",
+              "dissolved_g": 0.25,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 27.753724549834587
+            },
+            {
+              "name": "dmg",
+              "dissolved_g": 0.1,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 16.16239979312128
+            },
+            {
+              "name": "l_carnitine_l_tartrate",
+              "dissolved_g": 0.05,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 5.302283163130045
+            },
+            {
+              "name": "magnesium_chloride",
+              "dissolved_g": 0.04,
+              "osmotic_n": 3.0,
+              "mosm_per_l": 9.837678307919331
+            },
+            {
+              "name": "sodium_chloride",
+              "dissolved_g": 0.025,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 14.25963951631303
+            },
+            {
+              "name": "potassium_chloride",
+              "dissolved_g": 0.01,
+              "osmotic_n": 2.0,
+              "mosm_per_l": 4.47127207690588
+            },
+            {
+              "name": "trisodium_citrate",
+              "dissolved_g": 0.0125,
+              "osmotic_n": 4.0,
+              "mosm_per_l": 2.8335033435339456
+            },
+            {
+              "name": "ascorbic_acid",
+              "dissolved_g": 0.075,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 7.0974335680218035
+            },
+            {
+              "name": "taurine",
+              "dissolved_g": 0.1,
+              "mosm_per_l": null,
+              "reason": "molar mass unknown \u2014 cannot convert to osmoles"
+            },
+            {
+              "name": "betaine_anhydrous",
+              "dissolved_g": 0.2,
+              "osmotic_n": 1.0,
+              "mosm_per_l": 28.453549580310145
+            }
+          ],
+          "unknown_molar_mass": [
+            "taurine"
+          ]
+        },
+        "ors_gate": {
+          "total_mosm_per_l": 116.17148389909005,
+          "verdict": "PASS",
+          "note": "<= 320 mOsm/L \u2014 within isotonic-ish hydration band",
+          "who_ors_ref": 245.0,
+          "avian_isotonic_ref": [
+            300.0,
+            320.0
+          ]
+        },
+        "electrolyte_balance": {
+          "na_mmol": 0.5552968359484185,
+          "k_mmol": 0.1341381623071764,
+          "cl_mmol": 0.9555113477965673,
+          "electrolyte_sources": [
+            "magnesium_chloride",
+            "sodium_chloride",
+            "potassium_chloride",
+            "trisodium_citrate"
+          ],
+          "complete_ors": true,
+          "reason": "OK \u2014 sodium present; SGLT1 glucose-Na cotransport can drive water uptake"
+        },
+        "blocking": false
+      },
+      "osmolality_score": 9.0,
+      "hydration_cap": 10.0,
+      "osmolality_notes": [
+        "116 mOsm/L -> PASS: <= 320 mOsm/L \u2014 within isotonic-ish hydration band",
+        "UNKNOWN osmoles for: taurine (molar mass missing in registry; osmolarity is under-estimated)"
+      ],
+      "penalty_ledger": [
+        {
+          "target": "Shelf",
+          "delta": -0.3,
+          "reason": "oil-phase active distribution assay needed"
+        }
+      ]
+    },
+    "score_notes": {
+      "Focus / alertness": [],
+      "Energy availability": [],
+      "Fatigue/stress tolerance": [],
+      "Fast recovery": [],
+      "ATP regeneration": [],
+      "Anti-inflammatory / antioxidant support": [],
+      "Respiratory / acid-base support": [],
+      "Hydration / electrolyte balance": [],
+      "GI tolerance": [],
+      "Onset speed": [],
+      "Shelf stability / commercial readiness": [
+        "6+ month target active",
+        "oil-phase actives need potency/distribution assay"
+      ]
+    }
+  }
+]

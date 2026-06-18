@@ -1,0 +1,77 @@
+{
+  "name": "1 oz Recovery/Hydration Core \u2014 water-cup diluted evaluation (non-fight use)",
+  "architecture": "single_wet_bottle",
+  "target_shelf_months": 6,
+  "dose_ml": 5.0,
+  "oil_pct": 0.0,
+  "wet_water_ml_per_100ml": 86.0,
+  "preservative_validated": false,
+  "emulsion_validated": true,
+  "ingredients": [
+    {
+      "key": "d_ribose",
+      "label": "D-ribose",
+      "amount": 250,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "dmg",
+      "label": "DMG",
+      "amount": 100,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "betaine",
+      "label": "Betaine anhydrous",
+      "amount": 250,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "lclt",
+      "label": "L-carnitine L-tartrate",
+      "amount": 50,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "magnesium_chloride",
+      "label": "Magnesium chloride hexahydrate",
+      "amount": 40,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "sodium_chloride",
+      "label": "Sodium chloride",
+      "amount": 25,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "potassium_chloride",
+      "label": "Potassium chloride",
+      "amount": 10,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    },
+    {
+      "key": "sodium_citrate",
+      "label": "Sodium citrate",
+      "amount": 15,
+      "unit": "mg",
+      "phase": "wet",
+      "timing": "acute"
+    }
+  ],
+  "delivered_water_ml": 60.0
+}
