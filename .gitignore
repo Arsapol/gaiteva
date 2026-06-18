@@ -1,0 +1,13 @@
+# macOS / editor noise
+.DS_Store
+
+# Python runtime cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Browser/debug runtime output
+.playwright-mcp/
+
+# Local OMX runtime state (not project knowledge)
+.omx/

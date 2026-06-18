@@ -1,0 +1,6 @@
+# OMC runtime-local state; keep .omc/wiki and .omc/formula-* versionable.
+.DS_Store
+state/
+sessions/
+project-memory.json
+artifacts/ask/
