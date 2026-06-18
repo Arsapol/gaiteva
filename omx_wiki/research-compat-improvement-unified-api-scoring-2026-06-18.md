@@ -9,8 +9,8 @@ source_artifact: artifacts/compat-improvement-research-20260618/topics-01-10-uni
 
 # Topics 1+10 — Unified `compat.evaluate_formula(...)` API/report + normalized scoring
 
-Date: 2026-06-18  
-Worker: `worker-1`  
+Date: 2026-06-18
+Worker: `worker-1`
 Scope: research/documentation only; no formula or calculator code changed.
 
 ## Executive recommendation
