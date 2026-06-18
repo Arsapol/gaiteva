@@ -11,3 +11,6 @@ __pycache__/
 
 # Local OMX runtime state (not project knowledge)
 .omx/
+
+# Captured browser/network request logs
+pubmed-requests.txt
