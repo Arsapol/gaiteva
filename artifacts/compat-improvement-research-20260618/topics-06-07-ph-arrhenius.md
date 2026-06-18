@@ -34,6 +34,8 @@ Design effect: formula decisions stop treating pH and shelf life as static label
 - `compat/data.py` provides citric-acid pKa values `[3.13, 4.76, 6.40]`, citric-acid MW 192.12, trisodium citrate dihydrate MW 294.10, osmotic particle approximations, and electrolyte ion contributions.
 - `compat/activity.py` already computes ionic strength and acknowledges Davies-validity limits. That is useful for a future pH predictor because pKa/activity corrections should be optional and clearly labeled as screening-grade.
 - `compat_calc.py` prints “target pH 3.5” as a demo scenario. This demonstrates a window check, not an ingredient-derived pH prediction.
+- `concentrate.py` shows why this improvement matters: a 5x liquid concentrate can dilute back to the same final osmolality, yet it reintroduces standing-liquid Maillard and microbial stability risks and recommends acidification, refrigeration, opaque packaging, preservative validation, or returning ribose/citrulline to dry format.
+- There are no formal test files in the current repo tree; validation is mostly smoke-script based through `compat_calc.py`, `reformulate.py`, `verify_dry_sku.py`, module `__main__` blocks, and markdown/stat-card audit artifacts.
 
 ### Arrhenius / shelf-life handling today
 
@@ -47,6 +49,7 @@ Design effect: formula decisions stop treating pH and shelf life as static label
   - Maillard browning: AF typical ~6.9x; ~15.1 stress weeks.
   - creatine cyclization: AF typical ~6.5x; ~16.0 stress weeks.
 - The model is **prior-only**. It has no schema for real assay observations, no fitting step, no confidence interval, no censoring support (e.g., “<5% loss at 8 weeks”), and no rule that measured real-time 25 °C data outranks accelerated data.
+- `compat/redox.py` separately warns that metal-catalyzed ascorbate oxidation is low-Ea and that chelation/oxygen/light controls can dominate; this should feed Arrhenius pathway metadata instead of living as a disconnected qualitative screen.
 
 ### Product-design context in wiki evidence
 
@@ -55,6 +58,8 @@ Design effect: formula decisions stop treating pH and shelf life as static label
 - `omx_wiki/substance-citric-acid-anhydrous-also-monohydrate.md` says citric acid is stable, highly soluble, chelates trace metals, suppresses Maillard via low pH, and should be used as free acid while minimizing citrate salts.
 - `omx_wiki/substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md` and the recovery redesign warn that bulk citrate salts are alkalinizing/DEB-relevant and should stay trace-only in the fight-day drink.
 - The prior compat reference `.omc/wiki/formulation-compatibility-stability-calculator-compat-osmolality.md` already lists “buffer-capacity-after-dilution wrapper” as a remaining Tier-0 gap and states that a label shelf-life claim requires bench/real-time evidence.
+- `calculated-stats-card-v3-upgraded.md` already penalizes shelf/commercial readiness for wet reducing-sugar + amine matrices, ascorbate/redox risk, unvalidated emulsion stability, unvalidated preservative challenge, and TDS/salting-out. Quantitative pH and assay-backed Arrhenius outputs should eventually feed those penalties.
+- `omx_wiki/field-osmolality-900-1000-ph58-65-oral-mucosal-tolerance.md` separates acute oral-mucosal tolerance from hydration suitability. Topic 06 must keep that boundary: pH/osmolality tolerated in short-contact oral use does not automatically make a swallowed hydration drink acceptable.
 
 ## Topic 06 — How the pH/buffer-capacity/dilution improvement works
 
@@ -188,6 +193,24 @@ A future report should include:
 - Microbial stability is not an Arrhenius potency problem; water activity, pH, preservative efficacy, and challenge tests must remain separate gates.
 - A calculator cannot replace real-time stability for commercial claims.
 
+
+## Minimal safe implementation slices for future code work
+
+1. **Composition-aware pH API** — add a new API that accepts ingredient masses, citrate acid/base inventory, hydrate/salt form, final volume, dilution ratio, temperature, ionic strength, and use-state. Keep `citrate_buffer_ratio()` as a helper/fallback rather than treating it as a full solver.
+2. **Use-state dilution adapter** — report both product-state and use-state values: dry/reconstituted, concentrate/neat, concentrate/diluted, or wet bottle/as-dosed. This prevents concentrate pH or osmolality from being mistaken for what the bird drinks.
+3. **Buffer-capacity report** — output titration-reserve style values (acid/base mmol per pH unit or per ±0.1/±0.5 pH) in addition to predicted pH and base:acid ratio.
+4. **Assay ingestion and fitting layer** — add a data schema for temperature/time/endpoint records and fit pathway-specific rates/Ea only when enough measured data exist. Preserve current literature priors as baseline mode.
+5. **Coverage/confidence flags** — require flags such as `prior_only`, `assay_backed`, `single_temperature_extrapolated`, `real_time_required`, and `real_time_confirmed` so reports cannot silently overclaim.
+6. **Downstream report integration** — update `compat_calc.py`, `reformulate.py`, `verify_dry_sku.py`, and stats-card scoring only after the API is stable, to avoid making demos the calculation engine.
+
+## Boundary and contract checks
+
+- Do not let topic 07 justify a preserved wet product at pH ~6 without pH correction and a challenge-tested preservative system. Existing sorbate evidence says the pH-6 wet design is a preservative-efficacy defect, not a shelf-life opportunity.
+- Do not apply standing-solution pH/osmolality gates to dry capsules or dry preload powders except when the user explicitly dissolves them.
+- Do not collapse hydration, sublingual/oral-mucosal tolerance, and wet-concentrate preservation into one pH or osmolality policy. They are different use cases.
+- Do not allow one formula matrix’s fitted Arrhenius constants to overwrite another matrix without formula ID, pH, water activity, packaging, light/O2, and endpoint alignment.
+- Do not treat high-temperature stress failures as identical mechanisms unless assay markers confirm the same pathway.
+
 ## Validation / audit checklist
 
 ### pH/buffer/dilution checklist
@@ -237,6 +260,8 @@ Local repo/wiki evidence inspected:
 - `compat/activity.py` — ionic strength and Davies/Setschenow screening limits.
 - `compat/osmolality.py` — volume-aware osmolarity/electrolyte gate that future pH dilution logic should align with.
 - `compat_calc.py` — current demo uses target pH and prior-only Arrhenius pathways.
+- `concentrate.py` — 5x liquid concentrate dilution and stability-regression warnings for standing liquids.
+- `compat/redox.py` — low-Ea ascorbate redox screen and real-time-data warning.
 - `.omc/wiki/formulation-compatibility-stability-calculator-compat-osmolality.md` — prior compat calculator reference; identifies buffer-capacity-after-dilution as remaining Tier-0 gap and bench/real-time evidence hierarchy.
 - `omx_wiki/substance-citric-acid-anhydrous-also-monohydrate.md` — citric acid role, pKa, solubility, stability, chelation, and dosage caveats.
 - `omx_wiki/substance-sodium-citrate-trisodium-citrate-dihydrate-alkalinizin.md` — citrate salt alkalinizing/DEB warnings.
@@ -245,11 +270,20 @@ Local repo/wiki evidence inspected:
 - `omx_wiki/substance-creatine-monohydrate.md` — creatine dry-vs-wet and cyclization concerns.
 - `omx_wiki/standardized-formulas-vnext2-per-100g-percent-and-usage-dose.md` — current standardized dry-stick formula amounts and pH/osmolality context.
 - `omx_wiki/gamefowl-recovery-hydration-formula-vnext2-two-dry-sku-redesign.md` — product-class policy, dry-first rationale, pH ~3.8–4.2 make-fresh drink, and shelf-life caveats.
+- `omx_wiki/substance-potassium-sorbate-preservative.md` — pH-dependent preservative efficacy and wet-sorbate autoxidation/browning caveats.
+- `omx_wiki/gamefowl-formula-v3-high-score-hybrid-core-emulsion-dry-activato.md` — validation checklist style for emulsion/preservative/shelf claims.
+- `calculated-stats-card-v3-upgraded.md` — current shelf/readiness penalties that future compat outputs could feed.
+- `omx_wiki/field-osmolality-900-1000-ph58-65-oral-mucosal-tolerance.md` — acute oral-mucosal tolerance vs hydration-gate boundary.
 
 ## Coordination / delegation notes
 
 - Coordination protocol: coordinated - task file, inbox, context snapshot, artifact path, wiki path, and shared repo surfaces checked; no formula/code files modified.
-- Subagents spawned: 3 (Review probe, Change-slice probe, Evidence-mapping probe).
+- Subagents spawned: 3 (Review probe `019ed997-6e4b-7e71-bcfe-315c57f4c857`, Change-slice probe `019ed997-702c-7912-a19e-c5721edf8572`, Evidence-mapping probe `019ed997-721b-7811-942f-0ce667d58d94`).
 - Subagent model: gpt-5.4-mini via installed `researcher`/`architect` roles.
 - Serial searches before spawn: 0 deep repo searches after claim; probes were spawned before broad repo inspection.
-- Findings integrated: pending until child reports return; final task transition will include exact subagent evidence line.
+- Findings integrated:
+  - nearest-pKa HH is not a true pH/buffer solver;
+  - dilution state must be explicit for dry, concentrate, wet, and as-dosed products;
+  - assay-driven Arrhenius needs endpoint schemas, uncertainty, matrix tags, and real-time guardrails;
+  - wet pH-6 sorbate/challenge-test risks must not be papered over by stress projections;
+  - stats-card shelf/readiness penalties are downstream consumers, not the source of truth.
