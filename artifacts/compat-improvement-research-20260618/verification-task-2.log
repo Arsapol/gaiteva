@@ -1,0 +1,272 @@
+\n$ python3 -m py_compile compat/__init__.py compat/activity.py compat/arrhenius.py compat/data.py compat/gibbs.py compat/osmolality.py compat/ph_module.py compat/redox.py compat/solubility.py compat/stokes.py compat/water_activity.py compat_calc.py reformulate.py verify_dry_sku.py concentrate.py
+[exit 0]
+\n$ python3 compat_calc.py
+======================================================================
+APPLICABILITY HEADER
+----------------------------------------------------------------------
+  Gibbs    : BACKUP screen — dG<0 ≠ fast or dangerous in practice
+  Hansen   : REMOVED — ionic/aqueous solutions out of scope
+  Stokes   : UNDISSOLVED-FRACTION ONLY — not for dissolved actives
+  HLB      : REMOVED — no oil phase in this formula
+  Arrhenius: PRIMARY — per-pathway shelf-life from Ea data
+----------------------------------------------------------------------
+GATE 0 (BLOCKING, biological): osmolality + Na/K/Cl balance
+CHEM LEVERS: (1) additive solubility  (2) pH 3.0–4.0  (3) Arrhenius
+======================================================================
+
+======================================================================
+  LEVER 0 — OSMOLALITY & ELECTROLYTE GATE  (biological, BLOCKING)
+======================================================================
+
+  Osmolarity : 1542 mOsm/L  ->  BLOCK
+  Reference  : WHO ORS ~245; avian isotonic 300-320 mOsm/L
+  Note       : > 350 mOsm/L — HYPERTONIC. Pulls water into gut lumen, worsens dehydration. Must dilute / cut dose before use as hydration aid.
+
+  Electrolyte: complete ORS? NO
+  Reason     : BLOCKING — no added Na/K/Cl. Glucose without sodium does NOT pull water across gut mucosa (SGLT1 needs Na+). Not a complete ORS; add a Na/K/Cl premix (e.g. NaCl + KCl + Na-citrate) before claiming hydration.
+
+  Top osmotic contributors (dissolved fraction):
+    glycerin                     724 mOsm/L
+    dextrose                     444 mOsm/L
+    beta_alanine                 150 mOsm/L
+    creatine_monohydrate          94 mOsm/L
+
+  [BLOCK] Biological gate FAILED — fix osmolality/electrolytes before the chemistry levers matter.
+
+======================================================================
+  LEVER 1 — ADDITIVE SOLUBILITY & TDS
+======================================================================
+
+Water volume : 150 mL
+TDS dissolved: 29.67 g
+TDS %w/v     : 19.78 %
+Salting-out? : no
+
+--- Per-substance solubility ---
+  l_tyrosine               conc   0.3333 g/100mL  ceiling 0.045 g/100 mL        BOTTLENECK (0.4325 g undissolved)
+  creatine_monohydrate     conc   3.3333 g/100mL  ceiling 1.4 g/100 mL          BOTTLENECK (2.9000 g undissolved)
+  dextrose                 conc   8.0000 g/100mL  ceiling 91.0 g/100 mL         OK
+  ascorbic_acid            conc   1.3333 g/100mL  ceiling 33.0 g/100 mL         OK
+  citric_acid              conc   1.0000 g/100mL  ceiling 147.0 g/100 mL        OK
+  beta_alanine             conc   1.3333 g/100mL  ceiling 55.0 g/100 mL         OK
+  glycerin                 conc   6.6667 g/100mL  miscible                      OK
+
+--- Bottlenecks (exceed solubility ceiling) ---
+  [!] l_tyrosine: 0.4325 g undissolved (ceiling 0.045 g/100 mL)
+  [!] creatine_monohydrate: 2.9 g undissolved (ceiling 1.4 g/100 mL)
+
+======================================================================
+  LEVER 2 — pH WINDOW & STABILITY  (target pH 3.5)
+======================================================================
+
+  In window [3.0, 4.0]: YES
+  Reason: pH 3.5 is within the target window [3.0, 4.0]. Citric acid buffers effectively here; ascorbate and Maillard stability are optimised.
+
+--- Degradation profile at pH 3.5 ---
+  Ascorbate oxidation : Low to moderate — pH 3.0–4.0 keeps most ascorbate as ascorbic acid (pKa1 ≈ 4.17 not yet crossed). Oxidation is slower than at neutral pH but increases toward the upper end of this range.
+  Maillard browning   : Negligible — Maillard browning requires pH ≥ 4 for meaningful reaction rates; acidic conditions protonate amino groups and suppress the reaction.
+  Combined            : pH 3.0–4.0 is the optimal stability window for this formula. Ascorbate is predominantly in its stable protonated form, and Maillard browning is negligible. Citric acid provides robust buffering across pKa1 (3.13) and toward pKa2 (4.76).
+
+======================================================================
+  LEVER 3 — ARRHENIUS PER-PATHWAY PROJECTIONS  (40 °C stress / 25 °C store)
+======================================================================
+
+  [ascorbate_oxidation]
+    Q10      : 1.23 – 1.72 – 2.48  (low / typical / high Ea)
+    AF       : 1.3 – 2.2 – 3.6x  (40 °C vs 25 °C)
+    Stress wk for 24-mo equiv: 48.2 wk (typical Ea)
+    ICH note : LOW Ea (40 kJ/mol): AF(typical) = 2.2x only. ICH Q1A(R2) requires real-time 25 °C data for this pathway — accelerated aging alone cannot establish shelf life when Ea < ~50 kJ/mol.
+
+  [maillard_browning]
+    Q10      : 2.41 – 3.87 – 8.71  (low / typical / high Ea)
+    AF       : 3.5 – 6.9 – 22.0x  (40 °C vs 25 °C)
+    Stress wk for 24-mo equiv: 15.1 wk (typical Ea)
+    ICH note : HIGH Ea (100 kJ/mol): AF(typical) = 6.9x. Accelerated aging at 40 °C is predictive; real-time confirmation still recommended but AF compression is meaningful.
+
+  [creatine_cyclization]
+    Q10      : 3.38 – 3.72 – 4.14  (low / typical / high Ea)
+    AF       : 5.7 – 6.5 – 7.6x  (40 °C vs 25 °C)
+    Stress wk for 24-mo equiv: 16.0 wk (typical Ea)
+    ICH note : HIGH Ea (97 kJ/mol): AF(typical) = 6.5x. Accelerated aging at 40 °C is predictive; real-time confirmation still recommended but AF compression is meaningful.
+
+======================================================================
+  STOKES SETTLING — L-Tyrosine (undissolved fraction)
+======================================================================
+
+  Applicable : True
+  Reason     : 0.4325 g undissolved (above solubility ceiling)
+  Undissolved: 0.4325 g
+  Velocity   : 2485.200 µm/s
+  Settle 10cm: 0.01 h  (40 s)
+  Lever: Halving particle radius (e.g. via fine grinding) reduces settling velocity by 4× (v ∝ r²).
+  Lever: Doubling viscosity (e.g. adding glycerin) halves settling velocity (v ∝ 1/η). Glycerin at 5–10 % v/v is a practical strategy.
+
+======================================================================
+  GIBBS BACKUP SCREEN — illustrative pair (ascorbic acid + creatine in acid)
+======================================================================
+
+  Pair   : creatine_monohydrate + acidic_pH_environment
+  dG_kJ  : 0.96 kJ/mol
+  Verdict: dG = 0.96 kJ/mol — NON-SPONTANEOUS (thermodynamically unfavoured)
+  Caveat : BACKUP SCREEN ONLY — spontaneous (dG<0) does NOT mean fast or dangerous in practice; kinetics govern actual reaction rate. The reactivity matrix in formula-safety-check is the PRIMARY safety tool.
+
+======================================================================
+  OVERALL VERDICT
+======================================================================
+
+  NO-GO as a hydration drench at this concentration.
+  Biological gate (LEVER 0) blocks: hypertonic and/or no Na/K/Cl.
+  Chemistry levers (solubility/pH/Arrhenius) are moot until LEVER 0 passes.
+  Fixes: dilute to ~245-320 mOsm/L, add Na/K/Cl premix, drop osmotic
+         load (glycerin + dextrose dominate), move tyrosine/creatine to dry SKU.
+
+======================================================================
+  Demo complete — see compat/ package for all calculation details.
+======================================================================
+[exit 0]
+\n$ python3 reformulate.py
+======================================================================
+  REFORMULATED LIQUID DRENCH (per 1 L) — LEVER 0 re-check
+======================================================================
+
+  Osmolarity : 274 mOsm/L  ->  PASS
+  Reference  : WHO ORS ~245; avian isotonic 300-320
+  Note       : <= 320 mOsm/L — within isotonic-ish hydration band
+
+  Electrolytes (mmol/L):  Na 74.1  K 20.1  Cl 64.6
+  WHO ORS ref :           Na 75  K 20  Cl 65
+  Complete ORS? YES — OK — sodium present; SGLT1 glucose-Na cotransport can drive water uptake
+
+  Osmotic contributions (mOsm/L):
+    sodium_chloride           89.0
+    dextrose                  77.7
+    potassium_chloride        40.2
+    trisodium_citrate         39.4
+    d_ribose                  13.3
+    beta_alanine              11.2
+    ascorbic_acid              2.8
+
+  TDS: 24.5 g/L (2.45 %w/v)  bottlenecks: 0
+
+======================================================================
+  LEVER 0 VERDICT: PASS — within isotonic band + complete ORS
+======================================================================
+
+======================================================================
+  TIER-0 ADVISORY FLAGS
+======================================================================
+
+  Ascorbate redox risk : MODERATE
+    drivers   : Headspace O2 present — residual catalysis possible, Clear packaging — light accelerates free-radical oxidation
+    mitigations: Reduce O2 exposure: headspace inert-gas purge, low-O2-permeability packaging, or reduce hold time after reconstitution; Switch to opaque/UV-blocking packaging
+    Ea note   : The metal-catalysed ascorbate oxidation pathway operates at LOW Ea (~40-50 kJ/mol).  Accelerated-aging studies (ICH Q1A, 40 °C/75 % RH) will UNDER-PREDICT real-time loss at ambient temperature because the reaction is relatively insensitive to temperature.  ICH real-time data (25 °C/60 % RH, ≥12 months) is mandatory before assigning shelf life.
+
+  Ionic strength : 0.124 mol/L  (Screening: neutral solutes excluded; solute volume neglected; Davies valid to I <= 0.5 mol/L)
+
+  Water activity : 0.9951  ->  HIGH_RISK
+    aw > 0.95: supports most bacteria incl. many pathogens. Requires preservative system, micro spec, and challenge test.
+    REQUIRED: This is a high-aw aqueous product. A validated preservative system (antimicrobial agent or hurdle combination), microbiological specification, and challenge test per FDA/ICH guidelines are MANDATORY regardless of pH. aw screening does NOT confer shelf stability.
+[exit 0]
+\n$ python3 verify_dry_sku.py
+======================================================================
+  DRY SKU GATE CHECK
+======================================================================
+
+  Products 1 (focus capsule) & 2 (preload premix): eaten DRY.
+  -> No standing-solution osmolality gate. Governing checks are
+     water-activity ~0 (dry), hygroscopicity, caking, dose uniformity.
+     (betaine, DMG, trehalose dihydrate hygroscopic -> foil + desiccant.)
+
+======================================================================
+  PRODUCT 3 — FIGHT-DAY DRINK (33.55 g stick -> 1 L) — LEVER 0
+======================================================================
+
+  Osmolarity : 291 mOsm/L  ->  PASS   (wiki claim ~291)
+  Note       : <= 320 mOsm/L — within isotonic-ish hydration band
+
+  Electrolytes (mmol/L): Na 52.7 (wiki ~53)  K 14.8 (wiki ~15)  Cl 64.4 (wiki ~64)
+  Complete ORS? YES
+
+  Osmotic contributions (mOsm/L):
+    dextrose_monohydrate       111.0
+    sodium_chloride             99.2
+    d_ribose                    33.3
+    potassium_chloride          29.5
+    l_citrulline                 6.6
+    trisodium_citrate            4.1
+    dmg                          3.9
+    citric_acid                  3.6
+
+  TDS: 33.5 g/L (3.35 %w/v)  bottlenecks: 0
+
+  Redox (ascorbate): N/A — no ascorbate in drink
+  Ionic strength : 0.070 mol/L
+  Water activity : 0.9948 -> HIGH_RISK (make-fresh/discard-same-day covers the brief wet window)
+
+======================================================================
+  DRINK VERDICT: PASS  (margin to 300 cap: +9 mOsm/L)
+======================================================================
+[exit 0]
+\n$ python3 concentrate.py
+==========================================================================
+  5x LIQUID CONCENTRATE  (dose: 1 cc concentrate + 4 cc water = 5 cc)
+==========================================================================
+
+  CONCENTRATE prep (per 100 mL bottle, and per 1 L):
+  Ingredient                   g/100mL      g/1L
+  --------------------------------------------
+  dextrose_monohydrate          11.000    110.00
+  d_ribose                       2.500     25.00
+  sodium_chloride                1.450     14.50
+  potassium_chloride             0.550      5.50
+  l_citrulline                   0.575      5.75
+  citric_acid                    0.350      3.50
+  dmg                            0.200      2.00
+  trisodium_citrate              0.150      1.50
+  --------------------------------------------
+  TOTAL solids                  16.775    167.75
+
+  [1] SOLUBILITY at 5x strength (must all dissolve in the concentrate):
+      TDS 16.8 %w/v   bottlenecks: 0
+      OK — all freely soluble even at 5x (highest user = DMG, small).
+
+  [2] FINAL after 1:4 dilution (what the bird drinks):
+      291 mOsm/L -> PASS   Na 53 / K 15 / Cl 64  complete ORS: YES
+      (dilution does not change the FINAL concentration -> same 291 mOsm/L PASS)
+
+  [3] STABILITY REGRESSION (liquid concentrate undoes the dry design):
+      Maillard partners present: sugars ['d_ribose', 'dextrose_monohydrate'] + amines ['l_citrulline']
+      -> reducing sugar + free amine in a STORED liquid = browning over time.
+         D-ribose is the MOST Maillard-reactive sugar; this is the main risk.
+      Microbial: high water activity (~0.97 at 17 g/100mL) -> needs a
+         preservative system OR refrigeration OR short shelf (make weekly).
+      Mitigations, best first:
+        a) keep ribose + citrulline DRY; liquid-concentrate only the stable
+           electrolyte/acid/dextrose fraction (loses single-bottle convenience).
+        b) acidify hard (citric, pH <3.5), refrigerate, opaque bottle, 2-4 wk shelf.
+        c) validated preservative + accelerated-stability (Tier 2) before any claim.
+      NOTE: low pH suppresses Maillard (<pH4) but does NOT stop ribose browning
+            or yeast/mold fully; bench stability data is required for a real shelf life.
+
+==========================================================================
+  VERDICT: SOLUBLE + dilutes to a PASS drink; STABILITY = the open question (see [3]).
+==========================================================================
+[exit 0]
+\n$ python3 -
+PASS structure artifacts/compat-improvement-research-20260618/topics-02-09-ors-usecase-gates.md (195 lines)
+PASS structure omx_wiki/research-compat-improvement-ors-usecase-gates-2026-06-18.md (208 lines)
+[exit 0]
+\n$ pytest -q
+
+no tests ran in 0.01s
+[exit 5]
+\n$ python3 -m unittest discover -q
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+[exit 0]
+
+--- git status ---
+?? artifacts/compat-improvement-research-20260618/
+?? omx_wiki/research-compat-improvement-ors-usecase-gates-2026-06-18.md
