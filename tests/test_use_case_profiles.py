@@ -13,6 +13,18 @@ class UseCaseProfileTests(unittest.TestCase):
         self.assertEqual(report["label_claim_allowed"], "hydration")
         self.assertEqual(report["liquid_gate"]["verdict"], "PASS")
 
+
+    def test_trace_sodium_only_does_not_false_pass_hydration_profile(self):
+        report = use_case_gate_report(
+            [("dextrose", 14.0), ("sodium_chloride", 0.05)],
+            use_case="hydration_drink",
+            water_ml=1000.0,
+        )
+        self.assertTrue(report["hydration_blocking"])
+        self.assertTrue(report["liquid_gate"]["threshold_flags"]["na_below_min"])
+        self.assertTrue(report["liquid_gate"]["threshold_flags"]["k_below_min"])
+        self.assertTrue(report["liquid_gate"]["threshold_flags"]["cl_below_min"])
+
     def test_dry_capsule_is_osmolality_exempt_without_standing_liquid_claim(self):
         report = use_case_gate_report([("l_tyrosine", 0.13)], use_case="dry_capsule")
         self.assertTrue(report["osmolality_exempt"])
