@@ -63,3 +63,11 @@ Use-case labels can be abused to bypass a real exposure. A dry stick becomes a l
 - `verify_dry_sku.py` output: dry Products 1/2 have no standing-solution osmolality gate; Product 3 drink is 291 mOsm/L PASS.
 - `calculated-stats-card-v3-upgraded.md:124-156` shows wet-core-plus-dry-activator physical gate notes.
 - Context snapshot improvement topic 9 explicitly requests separate gates by use-case.
+
+
+## Subagent-integrated edge cases
+
+- Review probe found `compat/osmolality.py` currently labels the electrolyte gate as Na/K/Cl balance, but `complete_ors` is only `na > 0.0`; sodium-only formulas can pass the completeness flag. Future ORS work must test K/Cl sufficiency and glucose:Na ratio, not just sodium presence.
+- Review probe found `compat/data.py` overlay loading is `Path.cwd()` sensitive. If the calculator is imported from a non-repo cwd, overlay-backed constants such as `magnesium_chloride` can disappear. Future registry work should resolve overlays relative to project root or module root.
+- Review probe found unknown molar masses are surfaced but do not fail the osmolality gate; this can undercount osmoles. The unified report should downgrade confidence or block hydration claims when osmolarity-critical MW data are missing.
+- Review probe found `compat/water_activity.py` threshold prose has a possible 0.85/0.91 wording mismatch even though classification math appears sound. Documentation and tests should cover prose as well as math for audit reliability.

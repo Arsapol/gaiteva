@@ -62,3 +62,48 @@ Recommended order:
 - Coordination protocol: coordinated - task state, leader inbox instructions, resolved context snapshot path, artifact/wiki output boundaries, and no-code-edit constraint checked.
 - No shared formula/calculator code was edited. All writes are documentation under `artifacts/compat-improvement-research-20260618/` and `omx_wiki/`.
 - Integration risk for leader: this worker created multiple wiki-ready pages. If the leader prefers a single canonical page, retain `omx_wiki/compat-stability-calculator-improvement-roadmap-2026-06-18.md` as the entry point and merge topic pages later.
+
+
+## Subagent findings integrated
+
+- Change-slice probe reinforced registry/provenance hardening first, unified report facade second, product/use-case dispatch third, then pairwise matrix, assay-backed Arrhenius, and aw packaging guidance.
+- KB probe identified citation anchors and the main discoverability gap: the prior calculator explainer lives in `.omc/wiki/` and should be mirrored or linked from `omx_wiki/`; it also recommended a decision-tree page.
+- Review probe added concrete edge cases: sodium-only formulas currently satisfy `complete_ors`, overlay registry loading is cwd-sensitive, unknown molar masses can undercount osmoles, aw prose needs threshold checking, and redox remains qualitative.
+
+
+## Current repo state
+
+See the executive synthesis and command evidence above: the calculator is module-based, script-driven, and validated today by smoke fixtures rather than a dedicated test suite. The strongest existing canonical calculator page is still under `.omc/wiki/`, while this task adds `omx_wiki/` roadmap and topic pages.
+
+## How the improvement works
+
+This synthesis organizes the 10 delegated research topics into implementation order, with each child markdown describing the recommended mechanism, formula-design impact, risk, checklist, affected files, and evidence.
+
+## How it affects formula design decisions
+
+The roadmap turns calculator outputs into SKU architecture decisions: hydration drinks must pass volume-aware ORS gates; dry products must not be falsely blocked by standing-solution gates; wet concentrates need shelf, aw, redox, preservative, and dilution evidence.
+
+## Risks / unknowns
+
+Key unknowns integrated from probes: sodium-only ORS false pass risk, cwd-sensitive physical overlays, unknown molar mass undercount, high-aw/challenge-test limits, qualitative redox limits, and lack of bench stress/real-time data.
+
+## Validation checklist
+
+- [ ] Preserve current smoke fixture conclusions: 1542 BLOCK, 274 PASS, 291 PASS.
+- [ ] Add pytest/golden fixtures before calculator refactors.
+- [ ] Validate physical overlay loading outside repo cwd.
+- [ ] Confirm ORS completeness requires appropriate Na/K/Cl/glucose evidence, not sodium alone.
+- [ ] Keep shelf-life claims bounded to screening unless assay/challenge/real-time data exist.
+
+## Affected files
+
+- `compat/*.py`
+- `compat_calc.py`, `reformulate.py`, `verify_dry_sku.py`
+- `substances/physical/*.json`
+- `calculated-stats-card-v3-upgraded.*` and stats-card scripts
+- `omx_wiki/*.md` calculator/formula/substance pages
+
+## Evidence references
+
+- Worker-3 local command evidence from `compat_calc.py`, `reformulate.py`, and `verify_dry_sku.py`.
+- Read-only subagents: Review probe `019ed997-3455-7883-a98f-1fb55219e01d`, Change-slice probe `019ed997-4b7c-7f33-b93a-cd81e91d46ce`, KB probe `019ed997-6455-74f3-ab7e-0f96a0be3423`.
