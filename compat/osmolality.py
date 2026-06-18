@@ -39,6 +39,17 @@ AVIAN_ISOTONIC_LOW: float = 300.0
 AVIAN_ISOTONIC_HIGH: float = 320.0
 HYPERTONIC_GATE: float = 350.0
 
+# Minimal screening targets for a hydration/ORS claim. These are intentionally
+# broad project gates, not species-specific clinical limits. They prevent the
+# old trace-sodium false PASS while keeping the existing golden fixtures valid.
+MIN_NA_MMOL_PER_L: float = 45.0
+MIN_K_MMOL_PER_L: float = 10.0
+MIN_CL_MMOL_PER_L: float = 30.0
+MIN_GLUCOSE_MMOL_PER_L: float = 30.0
+GLUCOSE_NA_RATIO_MIN: float = 0.5
+GLUCOSE_NA_RATIO_MAX: float = 2.5
+GLUCOSE_SOURCES: frozenset[str] = frozenset({"dextrose", "dextrose_monohydrate"})
+
 
 def _dissolved_grams(name: str, grams: float, water_ml: float) -> float:
     """Grams of `name` actually in solution (capped at its solubility ceiling).
@@ -95,37 +106,109 @@ def estimate_osmolarity(components: list[tuple[str, float]], water_ml: float) ->
     }
 
 
-def electrolyte_balance(components: list[tuple[str, float]]) -> dict:
-    """Na/K/Cl load (mmol/L not computed without volume) + completeness flag.
+def electrolyte_balance(components: list[tuple[str, float]], water_ml: float | None = None) -> dict:
+    """Na/K/Cl and glucose load with optional volume-aware ORS screening.
 
-    A recovery/hydration product needs sodium for SGLT1-driven water uptake.
-    With no Na/K/Cl source among the components this returns complete_ors=False
-    and an explicit blocking reason.
+    Historical callers only received absolute millimoles. When ``water_ml`` is
+    supplied, the report also exposes mmol/L fields and uses those
+    concentrations plus glucose:Na ratio for the ORS completeness gate.
     """
-    na = k = cl = 0.0
+    na = k = cl = glucose = 0.0
     sources: list[str] = []
+    glucose_sources: list[str] = []
+    unknown_glucose_sources: list[str] = []
+
     for name, grams in components:
         ions = ELECTROLYTE_IONS.get(name)
-        if not ions:
-            continue
-        sources.append(name)
-        na += ions.get("na_mmol_per_g", 0.0) * grams
-        k += ions.get("k_mmol_per_g", 0.0) * grams
-        cl += ions.get("cl_mmol_per_g", 0.0) * grams
-    complete = na > 0.0
-    return {
-        "na_mmol": na,
-        "k_mmol": k,
-        "cl_mmol": cl,
-        "electrolyte_sources": sources,
-        "complete_ors": complete,
-        "reason": (
-            "OK — sodium present; SGLT1 glucose-Na cotransport can drive water uptake"
+        if ions:
+            sources.append(name)
+            na += ions.get("na_mmol_per_g", 0.0) * grams
+            k += ions.get("k_mmol_per_g", 0.0) * grams
+            cl += ions.get("cl_mmol_per_g", 0.0) * grams
+
+        if name in GLUCOSE_SOURCES:
+            glucose_sources.append(name)
+            mw = MOLAR_MASS_G_PER_MOL.get(name)
+            if mw is None:
+                unknown_glucose_sources.append(name)
+            else:
+                glucose += (grams / mw) * 1000.0
+
+    liters = water_ml / 1000.0 if water_ml and water_ml > 0 else None
+
+    def per_l(mmol: float) -> float | None:
+        return mmol / liters if liters else None
+
+    na_l = per_l(na)
+    k_l = per_l(k)
+    cl_l = per_l(cl)
+    glucose_l = per_l(glucose)
+    glucose_to_na = (glucose / na) if na > 0.0 and glucose > 0.0 else None
+
+    completeness_warnings: list[str] = []
+    if unknown_glucose_sources:
+        completeness_warnings.append(
+            "glucose source molar mass unknown: " + ", ".join(unknown_glucose_sources)
+        )
+
+    if liters is None:
+        complete = na > 0.0
+        if not complete:
+            completeness_warnings.append("no sodium source present")
+        reason = (
+            "OK — sodium present; provide water_ml for mmol/L glucose:Na ORS gate"
             if complete
             else "BLOCKING — no added Na/K/Cl. Glucose without sodium does NOT pull "
             "water across gut mucosa (SGLT1 needs Na+). Not a complete ORS; add a "
             "Na/K/Cl premix (e.g. NaCl + KCl + Na-citrate) before claiming hydration."
-        ),
+        )
+    else:
+        checks = [
+            (na_l is not None and na_l >= MIN_NA_MMOL_PER_L,
+             f"Na {na_l:.1f} mmol/L below {MIN_NA_MMOL_PER_L:.0f}" if na_l is not None else "Na mmol/L unavailable"),
+            (k_l is not None and k_l >= MIN_K_MMOL_PER_L,
+             f"K {k_l:.1f} mmol/L below {MIN_K_MMOL_PER_L:.0f}" if k_l is not None else "K mmol/L unavailable"),
+            (cl_l is not None and cl_l >= MIN_CL_MMOL_PER_L,
+             f"Cl {cl_l:.1f} mmol/L below {MIN_CL_MMOL_PER_L:.0f}" if cl_l is not None else "Cl mmol/L unavailable"),
+            (glucose_l is not None and glucose_l >= MIN_GLUCOSE_MMOL_PER_L,
+             f"glucose {glucose_l:.1f} mmol/L below {MIN_GLUCOSE_MMOL_PER_L:.0f}" if glucose_l is not None else "glucose mmol/L unavailable"),
+            (glucose_to_na is not None and GLUCOSE_NA_RATIO_MIN <= glucose_to_na <= GLUCOSE_NA_RATIO_MAX,
+             (f"glucose:Na ratio {glucose_to_na:.2f} outside "
+              f"{GLUCOSE_NA_RATIO_MIN:.1f}-{GLUCOSE_NA_RATIO_MAX:.1f}")
+             if glucose_to_na is not None else "glucose:Na ratio unavailable"),
+        ]
+        completeness_warnings.extend(message for ok, message in checks if not ok)
+        complete = not completeness_warnings
+        reason = (
+            "OK — Na/K/Cl, glucose, and glucose:Na ratio support an ORS hydration claim"
+            if complete
+            else "BLOCKING — incomplete ORS hydration profile: " + "; ".join(completeness_warnings)
+        )
+
+    return {
+        # Historical absolute totals (mmol per recipe/dose).
+        "na_mmol": na,
+        "k_mmol": k,
+        "cl_mmol": cl,
+        "glucose_mmol": glucose,
+        # Volume-aware delivered concentrations.
+        "na_mmol_per_l": na_l,
+        "k_mmol_per_l": k_l,
+        "cl_mmol_per_l": cl_l,
+        "glucose_mmol_per_l": glucose_l,
+        "glucose_to_na_ratio": glucose_to_na,
+        "electrolyte_sources": sources,
+        "glucose_sources": glucose_sources,
+        "completeness_warnings": completeness_warnings,
+        "complete_ors": complete,
+        "ors_targets": {
+            "na_min_mmol_per_l": MIN_NA_MMOL_PER_L,
+            "k_min_mmol_per_l": MIN_K_MMOL_PER_L,
+            "cl_min_mmol_per_l": MIN_CL_MMOL_PER_L,
+            "glucose_min_mmol_per_l": MIN_GLUCOSE_MMOL_PER_L,
+            "glucose_to_na_ratio_range": [GLUCOSE_NA_RATIO_MIN, GLUCOSE_NA_RATIO_MAX],
+        },
+        "reason": reason,
     }
 
 
@@ -159,7 +242,7 @@ def osmolality_report(components: list[tuple[str, float]], water_ml: float) -> d
     """Full blocking gate: osmolarity + ORS classification + electrolyte balance."""
     osm = estimate_osmolarity(components, water_ml)
     gate = ors_gate(osm["total_mosm_per_l"])
-    electro = electrolyte_balance(components)
+    electro = electrolyte_balance(components, water_ml=water_ml)
     blocking = gate["verdict"] == "BLOCK" or not electro["complete_ors"]
     return {
         "water_ml": water_ml,
