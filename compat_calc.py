@@ -102,7 +102,13 @@ def run_demo() -> None:
     print(f"  Reference  : WHO ORS ~{gate['who_ors_ref']:.0f}; avian isotonic "
           f"{gate['avian_isotonic_ref'][0]:.0f}-{gate['avian_isotonic_ref'][1]:.0f} mOsm/L")
     print(f"  Note       : {gate['note']}")
-    print(f"\n  Electrolyte: complete ORS? {'YES' if electro['complete_ors'] else 'NO'}")
+    print(f"\n  Electrolytes (mmol/L): Na {electro['na_mmol_per_l']:.1f}  "
+          f"K {electro['k_mmol_per_l']:.1f}  Cl {electro['cl_mmol_per_l']:.1f}")
+    glucose_ratio = electro['glucose_to_na_ratio']
+    glucose_ratio_s = f"{glucose_ratio:.2f}" if glucose_ratio is not None else "N/A"
+    print(f"  Glucose     (mmol/L): {electro['glucose_mmol_per_l']:.1f}  "
+          f"glucose:Na {glucose_ratio_s}")
+    print(f"  Electrolyte: complete ORS? {'YES' if electro['complete_ors'] else 'NO'}")
     print(f"  Reason     : {electro['reason']}")
     print("\n  Top osmotic contributors (dissolved fraction):")
     ranked = sorted(
@@ -173,13 +179,16 @@ def run_demo() -> None:
     else:
         print(f"  Predicted pH : {ph_pred['predicted_pH']:.2f}  ({ph_pred['solver_status']})")
         print(f"  Citrate pool : {ph_pred['inventory']['total_citrate_mmol_per_l']:.1f} mmol/L")
-        beta = ph_pred['buffer_capacity']['beta_mmol_per_l_per_pH']
-        print(f"  Buffer beta  : {beta:.1f} mmol/L/pH (screening, citrate-only)")
+        beta = ph_pred['buffer_capacity']['beta_mmol_per_l_per_pH'] if ph_pred.get('buffer_capacity') else None
+        print("  Buffer beta  : not available" if beta is None else f"  Buffer beta  : {beta:.1f} mmol/L/pH (screening, citrate-only)")
         diluted = ph_pred['dilution']
         print(f"  Diluted 1 L  : pH {diluted['predicted_pH']:.2f}, citrate "
               f"{diluted['total_citrate_mmol_per_l']:.1f} mmol/L")
-        sorbate = ph_pred['preservative_active_fraction']
-        print(f"  Sorbate frac : {sorbate['undissociated_fraction']:.2f} — {sorbate['verdict']}")
+        preserv = ph_pred['preservative_active_fraction']
+        if preserv is None:
+            print("  Preservative : none detected in components")
+        else:
+            print(f"  Preservative : {preserv['preservative']} active frac {preserv['undissociated_fraction']:.2f} — {preserv['verdict']}")
     print(f"  Caveat       : {ph_pred['caveats'][0]}")
 
     # ------------------------------------------------------------------

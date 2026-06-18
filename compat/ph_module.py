@@ -149,7 +149,9 @@ def _component_name_and_grams(component: tuple[str, float] | dict) -> tuple[str,
 
 def _species_key(name: str, form: str | None = None) -> str | None:
     normalized = name.strip().lower().replace(" ", "_").replace("-", "_")
-    if normalized in {"sodium_citrate", "trisodium_citrate_dihydrate"}:
+    if normalized == "sodium_citrate":
+        raise ValueError("ambiguous citrate species 'sodium_citrate'; use exact form such as trisodium_citrate with hydrate/form metadata")
+    if normalized == "trisodium_citrate_dihydrate":
         normalized = "trisodium_citrate"
     if normalized in {"citric_acid_anhydrous"}:
         normalized = "citric_acid"
@@ -261,18 +263,14 @@ def _buffer_shift_report(predicted_pH: float, citrate_mol_l: float, strong_catio
         base_needed = max(0.0, _required_strong_cation_mol_l(up, citrate_mol_l) - strong_cation_mol_l)
         shifts[f"minus_{delta:g}_pH_acid_mmol_per_l"] = acid_needed * 1000.0
         shifts[f"plus_{delta:g}_pH_base_mmol_per_l"] = base_needed * 1000.0
-    beta = None
-    try:
-        c = citrate_mol_l
-        alpha = citrate_alpha_fractions(predicted_pH)
-        beta_water = _LN10 * ((10 ** (-predicted_pH)) + (_KW_25C / (10 ** (-predicted_pH))))
-        # Numerical local slope of bound base equivalents, robust for triprotic acid.
-        eps = 0.001
-        a_minus = citrate_alpha_fractions(predicted_pH - eps)["average_negative_charge"]
-        a_plus = citrate_alpha_fractions(predicted_pH + eps)["average_negative_charge"]
-        beta = (c * (a_plus - a_minus) / (2.0 * eps) + beta_water) * 1000.0
-    except Exception:
-        beta = None
+    c = citrate_mol_l
+    alpha = citrate_alpha_fractions(predicted_pH)
+    beta_water = _LN10 * ((10 ** (-predicted_pH)) + (_KW_25C / (10 ** (-predicted_pH))))
+    # Numerical local slope of bound base equivalents, robust for triprotic acid.
+    eps = 0.001
+    a_minus = citrate_alpha_fractions(predicted_pH - eps)["average_negative_charge"]
+    a_plus = citrate_alpha_fractions(predicted_pH + eps)["average_negative_charge"]
+    beta = (c * (a_plus - a_minus) / (2.0 * eps) + beta_water) * 1000.0
     return {
         "beta_mmol_per_l_per_pH": beta,
         "shift_reserve": shifts,
@@ -308,6 +306,7 @@ def citrate_ph_report(
     dilution_water_ml: float | None = None,
     measured_pH: float | None = None,
     use_case: str = "screening",
+    preservative: str | None = None,
 ) -> dict:
     """Predict citrate-driven pH, buffer reserve, and optional dilution drift.
 
@@ -327,6 +326,7 @@ def citrate_ph_report(
     ]
     if not inventory["species"]:
         caveats.append("no citrate acid/base components detected")
+    preservative_input = preservative
     prediction_error = None
     if measured_pH is not None and predicted_pH is not None:
         prediction_error = measured_pH - predicted_pH
@@ -339,7 +339,12 @@ def citrate_ph_report(
         alpha = citrate_alpha_fractions(effective_pH)
         window = ph_window_check(effective_pH)
         degradation = degradation_vs_ph(effective_pH)
-        preservative = preservative_active_fraction(effective_pH)
+        preservative_name = preservative_input
+        if preservative_name is None:
+            component_names = {_component_name_and_grams(c)[0].strip().lower().replace(" ", "_").replace("-", "_") for c in components}
+            detected = [name for name in ("potassium_sorbate", "sorbic_acid", "sodium_benzoate", "benzoic_acid") if name in component_names]
+            preservative_name = detected[0] if detected else None
+        preservative = None if preservative_name is None else preservative_active_fraction(effective_pH, preservative=preservative_name)
         if predicted_pH is not None:
             buffer_capacity = _buffer_shift_report(predicted_pH, citrate_mol_l, cation_mol_l)
     dilution = None
@@ -352,6 +357,7 @@ def citrate_ph_report(
                 dilution_water_ml,
                 measured_pH=None,
                 use_case=f"{use_case}_diluted",
+                preservative=preservative["preservative"] if isinstance(preservative, dict) else None,
             )
             dilution = {
                 "from_water_ml": water_ml,
